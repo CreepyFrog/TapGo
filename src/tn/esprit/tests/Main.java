@@ -9,6 +9,10 @@ import java.io.BufferedReader;
 import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import tn.esprit.entities.Chefs;
+import tn.esprit.entities.Cours;
+import tn.esprit.services.Chef_Services;
+import tn.esprit.services.Cours_Services;
 import tn.esprit.utils.DataSource;
 
 /**
@@ -19,6 +23,18 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         
+// crud Formations
+//Chef_Services cs = new Chef_Services() {} ;
+        //Chefs c = new Chefs ("Jorden Ramsey","London","How to make a cookies");
+        //cs.ajouter_Chef(c);
+      // cs.update_Chef(c);
+    //System.out.println( cs.afficher() );  
+       //System.out.println(cs.supprimer_Chef());
+        //Cours_Services cour;
+        //cour = new Cours_Services() {};
+        //Cours c_chef;
+        //c_chef = new Cours ("Pizza maker","pizza is an italien meal",1);
+        //cour.ajouter_Cours(c_chef);
         
         
     }
