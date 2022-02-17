@@ -31,14 +31,14 @@ public class ArtisteService implements IService<Artiste>{
 
     @Override
     public void ajouter(Artiste a) {
-        String req = "INSERT INTO `artiste`(`Id_Artiste`, `Nom_Artiste`, `Type_De_Musique`) VALUES (?,?,?)";
+        String req = "INSERT INTO `artiste`(`Nom_Artiste`, `Type_De_Musique`) VALUES (?,?)";
         
         try {
             pst = conn.prepareStatement(req);
-            pst.setInt(1, a.getId_Artiste());
-            pst.setString(2, a.getNom_Artiste());
-            pst.setString(3,a.getType_De_Musique());
+            pst.setString(1, a.getNom_Artiste());
+            pst.setString(2,a.getType_De_Musique());
             pst.executeUpdate();
+            System.out.println("Artiste ajouté");
         } catch(SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -56,7 +56,26 @@ public class ArtisteService implements IService<Artiste>{
 
     @Override
     public List<Artiste> afficher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Artiste> artistes = new ArrayList<>();
+        
+        String req = "SELECT * FROM `artiste`";
+        
+        try {
+            pst = conn.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next()){
+                Artiste a = new Artiste();
+                a.setId_Artiste(rs.getInt("Id_Artiste"));
+                a.setNom_Artiste(rs.getString(2));
+                a.setType_De_Musique(rs.getString(3));
+                artistes.add(a);
+            }
+        } catch(SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return artistes;
     }
     
 }

@@ -42,8 +42,7 @@ public class Artiste {
     public Artiste() {
     }
 
-    public Artiste(int Id_Artiste, String Nom_Artiste, String Type_De_Musique) {
-        this.Id_Artiste = Id_Artiste;
+    public Artiste(String Nom_Artiste, String Type_De_Musique) {
         this.Nom_Artiste = Nom_Artiste;
         this.Type_De_Musique = Type_De_Musique;
     }

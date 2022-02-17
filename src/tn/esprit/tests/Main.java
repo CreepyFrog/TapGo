@@ -10,6 +10,8 @@ import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import tn.esprit.utils.DataSource;
+import tn.esprit.services.*;
+import tn.esprit.entities.*;
 
 /**
  *
@@ -19,7 +21,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         
+        ArtisteService as = new ArtisteService();
+        Artiste a = new Artiste("Freddy Mercury","Rock");
         
-        
+        System.out.println( as.afficher() );
     }
 }
