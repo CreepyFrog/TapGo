@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author ASUS
  */
-public interface IServices<T> {
+public interface IService<T> {
     void ajouter(T entity);
     void supprimer(T entity);
     void modifier(T entity);

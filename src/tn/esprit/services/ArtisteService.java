@@ -35,7 +35,10 @@ public class ArtisteService implements IService<Artiste>{
         
         try {
             pst = conn.prepareStatement(req);
-            pst.setString(1, a.getId_Artiste().toString());
+            pst.setInt(1, a.getId_Artiste());
+            pst.setString(2, a.getNom_Artiste());
+            pst.setString(3,a.getType_De_Musique());
+            pst.executeUpdate();
         } catch(SQLException ex) {
             System.out.println(ex.getMessage());
         }
