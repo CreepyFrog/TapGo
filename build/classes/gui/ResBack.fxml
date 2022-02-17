@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="499.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResBackController">
+   <children>
+      <TableView fx:id="table_reservation" layoutX="304.0" layoutY="109.0" onMouseClicked="#getSelected" prefHeight="151.0" prefWidth="338.0">
+         <columns>
+            <TableColumn fx:id="col_r" prefWidth="89.59997177124023" text="ID reservation" visible="false" />
+            <TableColumn fx:id="col_h" prefWidth="84.79998779296875" text="nbplace" />
+            <TableColumn fx:id="col_id" prefWidth="130.40003967285156" text="ID Stade" visible="false" />
+            <TableColumn fx:id="col_nom" prefWidth="132.0" text="Nom restaurant" />
+            <TableColumn fx:id="col_date" prefWidth="120.79998779296875" text="Date" />
+         </columns>
+      </TableView>
+      <Button fx:id="btns" layoutX="354.0" layoutY="350.0" mnemonicParsing="false" onAction="#SupprimerReservation" style="-fx-background-color: red;" text="Supprimer réservation" textFill="WHITE" />
+      <Button layoutX="539.0" layoutY="350.0" mnemonicParsing="false" onAction="#Edit" style="-fx-background-color: orange;" text="Modifier réservation" textFill="WHITE" visible="false" />
+      <Button layoutX="396.0" layoutY="282.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="214.0" style="-fx-background-color: #A52A2A;" text="Imprimer  les réservations" textFill="WHITE" visible="false" />
+      <Label layoutX="39.0" layoutY="34.0" text="Les Reservations" textFill="#785a97">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="com2" layoutX="39.0" layoutY="295.0" onAction="#SelectHeure" prefHeight="26.0" prefWidth="167.0" style="-fx-background-color: #7785ac;" />
+      <DatePicker fx:id="dater" layoutX="50.0" layoutY="399.0" />
+      <ComboBox fx:id="com1" layoutX="38.0" layoutY="209.0" onAction="#SelectStade" prefHeight="26.0" prefWidth="167.0" style="-fx-background-color: #7785ac;" />
+      <TextField fx:id="ftid" layoutX="48.0" layoutY="84.0" visible="false" />
+      <Label layoutX="106.0" layoutY="167.0" text="Restaurant" />
+      <Label layoutX="105.0" layoutY="273.0" text="Heure" />
+      <Label layoutX="77.0" layoutY="367.0" text="Date de réservation" />
+   </children>
+</AnchorPane>
