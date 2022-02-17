@@ -46,7 +46,7 @@ public class ArtisteService implements IService<Artiste>{
 
     @Override
     public void supprimer(Artiste entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

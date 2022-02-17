@@ -23,7 +23,7 @@ public class Main {
         
         ArtisteService as = new ArtisteService();
         Artiste a = new Artiste("Freddy Mercury","Rock");
-        
+        as.ajouter(a);
         System.out.println( as.afficher() );
     }
 }
