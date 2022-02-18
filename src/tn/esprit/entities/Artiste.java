@@ -47,6 +47,12 @@ public class Artiste {
         this.Type_De_Musique = Type_De_Musique;
     }
 
+    public Artiste(int Id_Artiste, String Nom_Artiste, String Type_De_Musique) {
+        this.Id_Artiste = Id_Artiste;
+        this.Nom_Artiste = Nom_Artiste;
+        this.Type_De_Musique = Type_De_Musique;
+    }
+
     @Override
     public String toString() {
         return "Artiste{" + "Id_Artiste=" + Id_Artiste + ", Nom_Artiste=" + Nom_Artiste + ", Type_De_Musique=" + Type_De_Musique + '}';

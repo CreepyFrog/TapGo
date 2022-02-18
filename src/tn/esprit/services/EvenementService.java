@@ -5,76 +5,36 @@
  */
 package tn.esprit.services;
 
-import com.mysql.cj.jdbc.PreparedStatementWrapper;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import tn.esprit.entities.IService;
-import tn.esprit.entities.Artiste;
+import tn.esprit.entities.Evenement;
 import tn.esprit.utils.DataSource;
-
 /**
  *
  * @author ASUS
  */
-public class ArtisteService implements IService<Artiste>{
-    
+public class EvenementService implements IService<Evenement> {
     private Connection conn;
     private PreparedStatement pst;
     private Statement ste;
-    
-    public ArtisteService() {
+
+    public EvenementService() {
         conn = DataSource.getInstance().getConnection();
     }
 
     @Override
-    public void ajouter(Artiste a) {
-        String req = "INSERT INTO `artiste`(`Nom_Artiste`, `Type_De_Musique`) VALUES (?,?)";
+    public void ajouter(Evenement e) {
+        String req = "INSERT INTO `evenement`(`Nom_Evenement`, `Date_Evenement`) VALUES (?,?)";
         
         try {
             pst = conn.prepareStatement(req);
-            pst.setString(1, a.getNom_Artiste());
-            pst.setString(2,a.getType_De_Musique());
+            pst.setString(1, e.getNom_Evenement());
+            pst.setDate(2,e.getDate_Evenement());
             
             pst.executeUpdate();
-            System.out.println("Artiste ajouté");
-            
-        } catch(SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    
-    @Override
-    public void supprimer(Artiste a) {
-        String req = "DELETE FROM `artiste` WHERE `Id_Artiste`=?";
-        
-        try {
-            pst = conn.prepareStatement(req);
-            pst.setInt(1, a.getId_Artiste());
-            
-            pst.executeUpdate();
-            System.out.println("Artiste supprimé");
-            
-        } catch(SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    
-
-    @Override
-    public void modifier(Artiste a) {
-        String req = "UPDATE Artiste SET Nom_Artiste=?, Type_De_Musique=? WHERE Id_Artiste=?";
-        
-        try {
-            pst = conn.prepareStatement(req);
-            pst.setString(1, a.getNom_Artiste());
-            pst.setString(2, a.getType_De_Musique());
-            pst.setInt(3, a.getId_Artiste());
-            
-            pst.executeUpdate();
-            System.out.println("Artiste met à jour");
+            System.out.println("Evenement ajouté");
             
         } catch(SQLException ex) {
             System.out.println(ex.getMessage());
@@ -82,27 +42,61 @@ public class ArtisteService implements IService<Artiste>{
     }
 
     @Override
-    public List<Artiste> afficher() {
-        List<Artiste> artistes = new ArrayList<>();
+    public void supprimer(Evenement e) {
+        String req = "DELETE FROM `evenement` WHERE `Id_Evenement`=?";
         
-        String req = "SELECT * FROM `artiste`";
+        try {
+            pst = conn.prepareStatement(req);
+            pst.setInt(1, e.getId_Evenement());
+            
+            pst.executeUpdate();
+            System.out.println("Evenement supprimé");
+            
+        } catch(SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @Override
+    public void modifier(Evenement e) {
+        String req = "UPDATE Evenement SET Nom_Evenement=?, Date_Evenement=? WHERE Id_Evenement=?";
+        
+        try {
+            pst = conn.prepareStatement(req);
+            pst.setString(1, e.getNom_Evenement());
+            pst.setDate(2, e.getDate_Evenement());
+            pst.setInt(3, e.getId_Evenement());
+            
+            pst.executeUpdate();
+            System.out.println("Evenement met à jour");
+            
+        } catch(SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @Override
+    public List<Evenement> afficher() {
+        List<Evenement> evenements = new ArrayList<>();
+        
+        String req = "SELECT * FROM `evenement`";
         
         try {
             pst = conn.prepareStatement(req);
             ResultSet rs = pst.executeQuery();
             
             while(rs.next()){
-                Artiste a = new Artiste();
-                a.setId_Artiste(rs.getInt("Id_Artiste"));
-                a.setNom_Artiste(rs.getString(2));
-                a.setType_De_Musique(rs.getString(3));
-                artistes.add(a);
+                Evenement e = new Evenement();
+                e.setId_Evenement(rs.getInt("Id_Evenement"));
+                e.setNom_Evenement(rs.getString(2));
+                e.setDate_Evenement(rs.getDate(3));
+                evenements.add(e);
             }
         } catch(SQLException ex) {
             System.out.println(ex.getMessage());
         }
         
-        return artistes;
+        return evenements;
     }
     
 }

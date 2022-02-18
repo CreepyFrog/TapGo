@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import tn.esprit.utils.DataSource;
 import tn.esprit.services.*;
 import tn.esprit.entities.*;
+import java.util.*;
 
 /**
  *
@@ -21,9 +22,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         
-        ArtisteService as = new ArtisteService();
-        Artiste a = new Artiste("Freddy Mercury","Rock");
-        as.ajouter(a);
-        System.out.println( as.afficher() );
+        
+        
     }
 }
