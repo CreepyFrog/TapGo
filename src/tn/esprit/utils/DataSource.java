@@ -36,12 +36,16 @@ public class DataSource {
         return instance;
     }
     
-    public Connection getConnection(){
+    public Connection getCnx(){
         return cnx;
     }
 
-    public Connection getCnx() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    //public Connection getCnx() {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //}
+
+    
+
+  
 
 }

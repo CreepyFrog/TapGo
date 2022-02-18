@@ -30,14 +30,14 @@ public class Chef_Services implements IService<Chefs> {
     }
     
      public void ajouter_Chef(Chefs ch){
-        String req = "INSERT INTO `Chefs` (`ID_Chef`,`Nom_Chef`,`Adresse_Chef`,`Cour_Associé`) VALUES (?,?,?,?)";
+        String req = "INSERT INTO `Chefs` (`ID_Chef`,`Nom_Chef`,`Cours_Associe`,`Adresse_Chef`) VALUES (?,?,?,?)";
         
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, ch.getID_Chef());
             pst.setString(2, ch.getNom_Chef());
-            pst.setString(3, ch.getAdresse_Chef());
-            pst.setString(4, ch.getCour_Associé());
+            pst.setString(3, ch.getCours_Associe());
+            pst.setString(4, ch.getAdresse_Chef());
             pst.executeUpdate();
             System.out.println("Chef ajoutée");
         } catch (SQLException ex) {
@@ -56,10 +56,10 @@ public class Chef_Services implements IService<Chefs> {
             
             while(rs.next()){
                 Chefs c = new Chefs();
-                c.setID_Chef( rs.getInt("Id_Chef") );
+                c.setID_Chef(rs.getInt("ID_Chef") );
                 c.setNom_Chef(rs.getString(2));
-                c.setAdresse_Chef(rs.getString(3));
-                c.setCour_Associé(rs.getString(4));
+                c.setCours_Associe(rs.getString(3));
+                c.setAdresse_Chef(rs.getString(4));
                 Chefs.add(c);
             }
         } catch (SQLException ex) {
@@ -74,13 +74,14 @@ public class Chef_Services implements IService<Chefs> {
     public List<Chefs> update_Chef(Chefs c ){
         List<Chefs> Chefs = new ArrayList<>();
         String req;
-        req = "UPDATE Chefs SET Nom_Chef = ?, Adresse_Chef = ?, Cour_Associé = ? WHERE Id_Chef = 1";
+        req = "UPDATE Chefs SET Nom_Chef = ?, Cours_Associe = ? , Adresse_Chef = ? WHERE ID_Chef = 1";
          try {
             
             pst = conn.prepareStatement(req);
             pst.setString(1, c.getNom_Chef());
-            pst.setString(2, c.getAdresse_Chef());
-            pst.setString(3, c.getCour_Associé());
+            
+            pst.setString(2, c.getCours_Associe());
+            pst.setString(3, c.getAdresse_Chef());
             pst.executeUpdate();
             System.out.println("Chef Modifiée");
         } catch (SQLException ex) {
@@ -94,7 +95,7 @@ public class Chef_Services implements IService<Chefs> {
     
     public List<Chefs> supprimer_Chef(){
         List<Chefs> Chefs = new ArrayList<>();
-        String sql="DELETE FROM Chefs WHERE Id_Chef=3";
+        String sql="DELETE FROM Chefs WHERE Id_Chef=1";
         try {
             pst=conn.prepareStatement(sql);
             pst.executeUpdate();

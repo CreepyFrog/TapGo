@@ -26,7 +26,7 @@ public class ArtisteService implements IService<Artiste>{
     private Statement ste;
     
     public ArtisteService() {
-        conn = DataSource.getInstance().getConnection();
+        conn = DataSource.getInstance().getCnx();
     }
 
     @Override

@@ -5,7 +5,6 @@
  */
 package tn.esprit.services;
 
-import tn.esprit.entities.Chefs;
 import tn.esprit.entities.Cours;
 import tn.esprit.entities.IService;
 import java.sql.Connection;
@@ -31,12 +30,12 @@ public class Cours_Services implements IService<Cours>{
         conn = DataSource.getInstance().getCnx();
     }
     
-     public List<Cours> ajouter_Cours(Cours c){
-        String req = "INSERT INTO `Cours` (`ID_Cour `,`Nom_Cour`,`Libelle_Cour`,`ID_Chef `) VALUES (?,?,?,?)";
+     public void ajouter_Cours(Cours c){
+        String req = "INSERT INTO `Cours` (`Id_Cour`,`Nom_Cour`,`Libelle_Cour`,`ID_Chef`) VALUES (?,?,?,?)";
         
         try {
             pst = conn.prepareStatement(req);
-            pst.setInt(1, c.getID_Cour());
+            pst.setInt(1, c.getId_Cour());
             pst.setString(2, c.getNom_cour());
             pst.setString(3, c.getLibelle_Cour());
             pst.setInt(4, c.getID_Chef());
@@ -45,10 +44,9 @@ public class Cours_Services implements IService<Cours>{
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-   
+     }
          
-    @Override
-     public List<Cours> afficher_Cours(){
+    public List<Cours> afficher_Cours(){
          
         List<Cours> Cours = new ArrayList<>();
         
@@ -63,7 +61,8 @@ public class Cours_Services implements IService<Cours>{
                 cc.setID_Chef( rs.getInt("Id_Cour") );
                 cc.setNom_cour(rs.getString(2));
                 cc.setLibelle_Cour(rs.getString(3));
-                cc.setId_Chef(rs.getInt(4));
+                cc.setID_Chef(rs.getInt(4));
+                Cours c = null;
                 Cours.add(c);
             }
         } catch (SQLException ex) {
@@ -75,21 +74,20 @@ public class Cours_Services implements IService<Cours>{
     }
     
         public List<Cours> update_Chef(Cours cc ){
-        List<Chefs> Chefs = new ArrayList<>();
+        List<Cours> Cours = new ArrayList<>();
         String req;
-        req = "UPDATE Cours SET Nom_Cour = ?, Libelle_Chef = ?, Id_Chef = ? WHERE Id_Cour = 1";
+        req = "UPDATE Cours SET Nom_Cour = ?, Libelle_Cour = ?, ID_Chef = ? WHERE Id_Cour = 1";
          try {
             
             pst = conn.prepareStatement(req);
             pst.setString(1, cc.getNom_Cour());
             pst.setString(2, cc.getLibelle_Cour());
-            pst.setString(3, cc.getId_Chef());
+            pst.setInt(3, cc.getID_Chef());
             pst.executeUpdate();
             System.out.println("Cour Modifiée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        List<Cours> Cours = null;
         
         return Cours;
         
@@ -102,7 +100,7 @@ public class Cours_Services implements IService<Cours>{
         try {
             pst=conn.prepareStatement(sql);
             pst.executeUpdate();
-            System.out.println("Chef Supprimée");
+            System.out.println("Cour Supprimée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

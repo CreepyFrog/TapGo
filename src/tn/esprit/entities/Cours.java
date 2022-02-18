@@ -10,18 +10,20 @@ package tn.esprit.entities;
  * @author MSI
  */
 public class Cours {
-    private int ID_Cour;
+    private int Id_Cour;
     private String Nom_cour; 
     private String Libelle_Cour;
     private int ID_Chef;
 
-    public Cours(int ID_Cour, String Nom_cour, String Libelle, int ID_Chef) {
-        this.ID_Cour = ID_Cour;
+
+    public Cours(int Id_Cour, String Nom_cour, String Libelle_Cour, int ID_Chef) {
+        this.Id_Cour = Id_Cour;
         this.Nom_cour = Nom_cour;
-        this.Libelle_Cour = Libelle;
+        this.Libelle_Cour = Libelle_Cour;
         this.ID_Chef = ID_Chef;
     }
 
+   
     public Cours() {
     }
 
@@ -31,18 +33,22 @@ public class Cours {
         this.ID_Chef = ID_Chef;
     }
 
-
-    public int getID_Cour() {
-        return ID_Cour;
+    public Cours(String pizza_maker, String pizza_is_an_italien_meal) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setID_Cour(int ID_Cour) {
-        this.ID_Cour = ID_Cour;
+
+    public int getId_Cour() {
+        return Id_Cour;
+    }
+
+    public void setId_Cour(int Id_Cour) {
+        this.Id_Cour = Id_Cour;
     }
 
     @Override
     public String toString() {
-        return "Cours{" + "ID_Cour=" + ID_Cour + ", Nom_cour=" + Nom_cour + ", Libelle_Cour=" + Libelle_Cour + ", ID_Chef=" + ID_Chef + '}';
+        return "Cours{" + "Id_Cour=" + Id_Cour + ", Nom_cour=" + Nom_cour + ", Libelle_Cour=" + Libelle_Cour + ", ID_Chef=" + ID_Chef + '}';
     }
 
     public String getNom_cour() {
@@ -69,22 +75,14 @@ public class Cours {
         this.ID_Chef = ID_Chef;
     }
 
-    public void setId_Chef(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public String getNom_Cour() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getId_Chef() {
+    public boolean afficher_Cours() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
-    
-    
-    
-    
     
 }
