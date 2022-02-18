@@ -15,10 +15,10 @@ public class DataSource {
     private String user = "root";
     private String password = "";
     
-    private Connection cnx;
+    public Connection cnx;
     private static DataSource instance;
     
-    private DataSource(){
+    public DataSource(){
         
         try {
             cnx = DriverManager.getConnection(url, user, password);
