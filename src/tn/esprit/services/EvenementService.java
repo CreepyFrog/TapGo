@@ -18,7 +18,9 @@ import tn.esprit.utils.DataSource;
 public class EvenementService implements IService<Evenement> {
     private Connection conn;
     private PreparedStatement pst;
-    private Statement ste;
+    
+    //standard statement declaration
+    //private Statement ste;
 
     public EvenementService() {
         conn = DataSource.getInstance().getConnection();
@@ -31,7 +33,7 @@ public class EvenementService implements IService<Evenement> {
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, e.getNom_Evenement());
-            pst.setDate(2,e.getDate_Evenement());
+            pst.setString(2,e.getDate_Evenement());
             
             pst.executeUpdate();
             System.out.println("Evenement ajouté");
@@ -64,7 +66,7 @@ public class EvenementService implements IService<Evenement> {
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, e.getNom_Evenement());
-            pst.setDate(2, e.getDate_Evenement());
+            pst.setString(2, e.getDate_Evenement());
             pst.setInt(3, e.getId_Evenement());
             
             pst.executeUpdate();
@@ -89,7 +91,7 @@ public class EvenementService implements IService<Evenement> {
                 Evenement e = new Evenement();
                 e.setId_Evenement(rs.getInt("Id_Evenement"));
                 e.setNom_Evenement(rs.getString(2));
-                e.setDate_Evenement(rs.getDate(3));
+                e.setDate_Evenement(rs.getString(3));
                 evenements.add(e);
             }
         } catch(SQLException ex) {

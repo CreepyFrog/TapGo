@@ -14,7 +14,7 @@ import java.sql.Date;
 public class Evenement {
     private int Id_Evenement;
     private String Nom_Evenement;
-    private Date Date_Evenement;
+    private String Date_Evenement;
     //private Artiste artiste;
     //private Restaurant restaurant;
 
@@ -34,23 +34,23 @@ public class Evenement {
         this.Nom_Evenement = Nom_Evenement;
     }
 
-    public Date getDate_Evenement() {
+    public String getDate_Evenement() {
         return Date_Evenement;
     }
 
-    public void setDate_Evenement(Date Date_Evenement) {
+    public void setDate_Evenement(String Date_Evenement) {
         this.Date_Evenement = Date_Evenement;
     }
 
     public Evenement() {
     }
 
-    public Evenement(String Nom_Evenement, Date Date_Evenement) {
+    public Evenement(String Nom_Evenement, String Date_Evenement) {
         this.Nom_Evenement = Nom_Evenement;
         this.Date_Evenement = Date_Evenement;
     }
 
-    public Evenement(int Id_Evenement, String Nom_Evenement, Date Date_Evenement) {
+    public Evenement(int Id_Evenement, String Nom_Evenement, String Date_Evenement) {
         this.Id_Evenement = Id_Evenement;
         this.Nom_Evenement = Nom_Evenement;
         this.Date_Evenement = Date_Evenement;

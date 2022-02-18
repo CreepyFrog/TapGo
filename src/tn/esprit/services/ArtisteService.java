@@ -23,7 +23,9 @@ public class ArtisteService implements IService<Artiste>{
     
     private Connection conn;
     private PreparedStatement pst;
-    private Statement ste;
+    
+    //standard statement declaration
+    //private Statement ste;
     
     public ArtisteService() {
         conn = DataSource.getInstance().getConnection();

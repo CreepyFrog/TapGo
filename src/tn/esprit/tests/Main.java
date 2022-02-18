@@ -23,6 +23,34 @@ public class Main {
         // TODO code application logic here
         
         
+        ArtisteService as = new ArtisteService();
+        Artiste a = new Artiste("Leonard Cohen","Folk");
+        //a.setId_Artiste(1);
+        //a.setType_De_Musique("classic");
+        
+        //as.modifier(a);
+        
+        //as.supprimer(a);
+        
+        as.ajouter(a);
+        
+        System.out.println(as.afficher());
+        
+        
+        
+        EvenementService es = new EvenementService();
+        Evenement e = new Evenement("Sahria","2022-11-11");
+        //e.setId_Evenement(1);
+        //e.setNom_Evenement("Sahria2");
+        
+        //es.modifier(e);
+        
+        //es.supprimer(e);
+        
+        //es.ajouter(e);
+        
+        //System.out.println(es.afficher());
+        
         
     }
 }
