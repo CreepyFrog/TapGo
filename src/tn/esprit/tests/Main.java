@@ -23,9 +23,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
 // crud Formations
-        Chef_Services cs = new Chef_Services()  ;
-        Chefs c = new Chefs ("Jamie Oliver","How to cook a Pasta ","United Kingdoms");
-        Chefs ct = new Chefs ("Ahmed","Tajin","Tunis");
+        //Chef_Services cs = new Chef_Services()  ;
+        //Chefs c = new Chefs ("Jamie Oliver","How to cook a Pasta ","United Kingdoms");
+        //Chefs ct = new Chefs ("Ahmed","Tajin","Tunis");
         //cs.ajouter_Chef(ct);
         //cs.update_Chef(c);
        
@@ -33,8 +33,12 @@ public class Main {
        //System.out.println(cs.supprimer_Chef());
         //Cours_Services cour = new Cours_Services() {};
         //Cours cc = new Cours ("Pizza maker","pizza is an italien meal",4);
-        //cour.ajouter_Cours(cc);
+        //Cours ccc = new Cours ("Pastaa","Pasta is an italien meal",1);
+        //cour.ajouter_Cours(ccc);
+        //cour.update_Cours(ccc);
         //System.out.println( cour.afficher_Cours() );  
-        //System.out.println(cc.supprimer_Cour);  
+        //System.out.println(cour.supprimer_Cours()); 
+        
+    
     }
 }

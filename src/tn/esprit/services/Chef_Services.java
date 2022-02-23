@@ -6,7 +6,6 @@
 package tn.esprit.services;
 
 import tn.esprit.entities.Chefs;
-import tn.esprit.entities.IService;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +19,8 @@ import tn.esprit.utils.DataSource;
  *
  * @author MSI
  */
-public class Chef_Services implements IService<Chefs> {
+
+public class Chef_Services {
     private Connection conn;
     private PreparedStatement pst;
     private Statement ste;
@@ -28,24 +28,62 @@ public class Chef_Services implements IService<Chefs> {
     public Chef_Services() {
         conn = DataSource.getInstance().getCnx();
     }
-    
-     public void ajouter_Chef(Chefs ch){
+
+    public void ajouter_Chef(Chefs c) {
+        
         String req = "INSERT INTO `Chefs` (`ID_Chef`,`Nom_Chef`,`Cours_Associe`,`Adresse_Chef`) VALUES (?,?,?,?)";
         
         try {
             pst = conn.prepareStatement(req);
-            pst.setInt(1, ch.getID_Chef());
-            pst.setString(2, ch.getNom_Chef());
-            pst.setString(3, ch.getCours_Associe());
-            pst.setString(4, ch.getAdresse_Chef());
+            pst.setInt(1, c.getID_Chef());
+            pst.setString(2, c.getNom_Chef());
+            pst.setString(3, c.getCours_Associe());
+            pst.setString(4, c.getAdresse_Chef());
             pst.executeUpdate();
             System.out.println("Chef ajoutée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        
+        
     }
-    @Override
-    public List<Chefs> afficher(){
+
+    public List<Chefs> supprimer_Chef() {
+        
+        List<Chefs> Chefs = new ArrayList<>();
+        String sql="DELETE FROM Chefs WHERE Id_Chef=1";
+        try {
+            pst=conn.prepareStatement(sql);
+            pst.executeUpdate();
+            System.out.println("Chef Supprimée");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return Chefs;
+        
+    }
+
+    public List<Chefs> update_Chef(Chefs c) {
+          List<Chefs> Chefs = new ArrayList<>();
+        String req;
+        req = "UPDATE Chefs SET Nom_Chef = ?, Cours_Associe = ? , Adresse_Chef = ? WHERE ID_Chef = 1";
+         try {
+            
+            pst = conn.prepareStatement(req);
+            pst.setString(1, c.getNom_Chef());
+            
+            pst.setString(2, c.getCours_Associe());
+            pst.setString(3, c.getAdresse_Chef());
+            pst.executeUpdate();
+            System.out.println("Chef Modifiée");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return Chefs;
+    }
+
+    public List<Chefs> afficher() {
         List<Chefs> Chefs = new ArrayList<>();
         
         String req = "SELECT * from `Chefs`";
@@ -71,63 +109,6 @@ public class Chef_Services implements IService<Chefs> {
     }
     
     
-    public List<Chefs> update_Chef(Chefs c ){
-        List<Chefs> Chefs = new ArrayList<>();
-        String req;
-        req = "UPDATE Chefs SET Nom_Chef = ?, Cours_Associe = ? , Adresse_Chef = ? WHERE ID_Chef = 1";
-         try {
-            
-            pst = conn.prepareStatement(req);
-            pst.setString(1, c.getNom_Chef());
-            
-            pst.setString(2, c.getCours_Associe());
-            pst.setString(3, c.getAdresse_Chef());
-            pst.executeUpdate();
-            System.out.println("Chef Modifiée");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        return Chefs;
-        
-        
-      }
-    
-    public List<Chefs> supprimer_Chef(){
-        List<Chefs> Chefs = new ArrayList<>();
-        String sql="DELETE FROM Chefs WHERE Id_Chef=1";
-        try {
-            pst=conn.prepareStatement(sql);
-            pst.executeUpdate();
-            System.out.println("Chef Supprimée");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return Chefs;
-    }     
-    
-    
-    @Override
-    public void supprimer(Chefs entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void modifier(Chefs entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     *
-     * @param entity
-     */
-    @Override
-    public void ajouter(Chefs entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void supprimer_Chef(Chefs c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
+    
+    

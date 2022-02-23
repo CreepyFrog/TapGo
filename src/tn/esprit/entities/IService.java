@@ -10,6 +10,7 @@ import java.util.List;
 /**
  *
  * @author ASUS
+ * @param <T>
  */
 public interface IService<T> {
     void ajouter(T entity);

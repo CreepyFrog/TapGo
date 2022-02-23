@@ -14,13 +14,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import tn.esprit.entities.Chefs;
 import tn.esprit.utils.DataSource;
 
 /**
  *
  * @author MSI
  */
-public abstract class Cours_Services implements IService<Cours>{
+public class Cours_Services {
 
     private Connection conn;
     private PreparedStatement pst;
@@ -30,8 +31,9 @@ public abstract class Cours_Services implements IService<Cours>{
         conn = DataSource.getInstance().getCnx();
     }
     
-     public void ajouter_Cours(Cours c){
-        String req = "INSERT INTO `Cours` (`Id_Cour`,`Nom_Cour`,`Libelle_Cour`,`ID_Chef`) VALUES (?,?,?,?)";
+    public void ajouter_Cours(Cours c) {
+        
+         String req = "INSERT INTO `Cours` (`Id_Cour`,`Nom_Cour`,`Libelle_Cour`,`ID_Chef`) VALUES (?,?,?,?)";
         
         try {
             pst = conn.prepareStatement(req);
@@ -44,38 +46,27 @@ public abstract class Cours_Services implements IService<Cours>{
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-     }
-         
-    public List<Cours> afficher_Cours(Cours c){
-         
-        List<Cours> Cours = new ArrayList<>();
         
-        String reqi = "SELECT * from `Cours`";
         
+    }
+
+    public List<Cours> supprimer_Cours() {
+       List<Cours> Cours = new ArrayList<>();
+        String sql="DELETE FROM Cours WHERE Id_Cour=1";
         try {
-            pst = conn.prepareStatement(reqi);
-            ResultSet rs= pst.executeQuery();
-            
-            while(rs.next()){
-                Cours cc = new Cours();
-                cc.setID_Chef( rs.getInt("Id_Cour") );
-                cc.setNom_cour(rs.getString(2));
-                cc.setLibelle_Cour(rs.getString(3));
-                cc.setID_Chef(rs.getInt(4));
-                Cours.add(c);
-            }
+            pst=conn.prepareStatement(sql);
+            pst.executeUpdate();
+            System.out.println("Cour Supprimée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
-        
         return Cours;
     }
-    
-        public List<Cours> update_Chef(Cours cc ){
-        List<Cours> Cours = new ArrayList<>();
+
+    public List<Cours> update_Cours(Cours cc) {
+         List<Cours> Cours = new ArrayList<>();
         String req;
-        req = "UPDATE Cours SET Nom_Cour = ?, Libelle_Cour = ?, ID_Chef = ? WHERE Id_Cour = 1";
+        req = "UPDATE Cours SET Nom_Cour = ?, Libelle_Cour = ?, ID_Chef = ? WHERE Id_Cour = 3";
          try {
             
             pst = conn.prepareStatement(req);
@@ -90,25 +81,36 @@ public abstract class Cours_Services implements IService<Cours>{
         
         return Cours;
         
+    }
+
+    public List<Cours> afficher_Cours() {
+         
+       List<Cours> Cours = new ArrayList<>();
         
-      }
-    
-    public List<Cours> supprimer_Cour(){
-        List<Cours> Cours = new ArrayList<>();
-        String sql="DELETE FROM Cours WHERE Id_Cour=1";
+        String reqi = "SELECT * from `Cours`";
+        
         try {
-            pst=conn.prepareStatement(sql);
-            pst.executeUpdate();
-            System.out.println("Cour Supprimée");
+            pst = conn.prepareStatement(reqi);
+            ResultSet rs= pst.executeQuery();
+            
+            while(rs.next()){
+                Cours cc = new Cours();
+                cc.setID_Chef( rs.getInt("Id_Cour") );
+                cc.setNom_cour(rs.getString(2));
+                cc.setLibelle_Cour(rs.getString(3));
+                cc.setID_Chef(rs.getInt(4));
+                Cours.add(cc);
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        
+        
         return Cours;
-    }     
+        
+    }
 
     
-
-   
         
         
     }
