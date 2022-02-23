@@ -20,7 +20,7 @@ import tn.esprit.utils.DataSource;
  *
  * @author MSI
  */
-public class Cours_Services implements IService<Cours>{
+public abstract class Cours_Services implements IService<Cours>{
 
     private Connection conn;
     private PreparedStatement pst;
@@ -46,7 +46,7 @@ public class Cours_Services implements IService<Cours>{
         }
      }
          
-    public List<Cours> afficher_Cours(){
+    public List<Cours> afficher_Cours(Cours c){
          
         List<Cours> Cours = new ArrayList<>();
         
@@ -62,7 +62,6 @@ public class Cours_Services implements IService<Cours>{
                 cc.setNom_cour(rs.getString(2));
                 cc.setLibelle_Cour(rs.getString(3));
                 cc.setID_Chef(rs.getInt(4));
-                Cours c = null;
                 Cours.add(c);
             }
         } catch (SQLException ex) {
@@ -80,7 +79,7 @@ public class Cours_Services implements IService<Cours>{
          try {
             
             pst = conn.prepareStatement(req);
-            pst.setString(1, cc.getNom_Cour());
+            pst.setString(1, cc.getNom_cour());
             pst.setString(2, cc.getLibelle_Cour());
             pst.setInt(3, cc.getID_Chef());
             pst.executeUpdate();
@@ -107,25 +106,9 @@ public class Cours_Services implements IService<Cours>{
         return Cours;
     }     
 
-    @Override
-    public void ajouter(Cours entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
-    @Override
-    public void supprimer(Cours entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void modifier(Cours entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Cours> afficher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
         
         
     }

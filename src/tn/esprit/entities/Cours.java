@@ -75,13 +75,9 @@ public class Cours {
         this.ID_Chef = ID_Chef;
     }
 
-    public String getNom_Cour() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    public boolean afficher_Cours() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+
 
 
     
