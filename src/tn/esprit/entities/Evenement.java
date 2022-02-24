@@ -15,8 +15,8 @@ public class Evenement {
     private int Id_Evenement;
     private String Nom_Evenement;
     private String Date_Evenement;
-    //private Artiste artiste;
-    //private Restaurant restaurant;
+    private Artiste artiste;
+    private Restaurant restaurant;
 
     public int getId_Evenement() {
         return Id_Evenement;
@@ -42,6 +42,22 @@ public class Evenement {
         this.Date_Evenement = Date_Evenement;
     }
 
+    public Artiste getArtiste() {
+        return artiste;
+    }
+
+    public void setArtiste(Artiste artiste) {
+        this.artiste = artiste;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
     public Evenement() {
     }
 
@@ -56,10 +72,17 @@ public class Evenement {
         this.Date_Evenement = Date_Evenement;
     }
 
+    public Evenement(int Id_Evenement, String Nom_Evenement, String Date_Evenement, Artiste artiste, Restaurant restaurant) {
+        this.Id_Evenement = Id_Evenement;
+        this.Nom_Evenement = Nom_Evenement;
+        this.Date_Evenement = Date_Evenement;
+        this.artiste = artiste;
+        this.restaurant = restaurant;
+    }
+
     @Override
     public String toString() {
-        return "Evenement{" + "Id_Evenement=" + Id_Evenement + ", Nom_Evenement=" + Nom_Evenement + ", Date_Evenement=" + Date_Evenement + '}';
+        return "Evenement{" + "Id_Evenement=" + Id_Evenement + ", Nom_Evenement=" + Nom_Evenement + ", Date_Evenement=" + Date_Evenement + ", artiste=" + artiste + ", restaurant=" + restaurant + '}';
     }
-    
     
 }

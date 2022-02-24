@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import tn.esprit.entities.IService;
 import tn.esprit.entities.Evenement;
+import tn.esprit.entities.Artiste;
+import tn.esprit.entities.Restaurant;
 import tn.esprit.utils.DataSource;
 /**
  *
@@ -28,12 +30,14 @@ public class EvenementService implements IService<Evenement> {
 
     @Override
     public void ajouter(Evenement e) {
-        String req = "INSERT INTO `evenement`(`Nom_Evenement`, `Date_Evenement`) VALUES (?,?)";
+        String req = "INSERT INTO `evenement`(`Nom_Evenement`, `Date_Evenement`, `Id_Artiste`, `Id_Restaurant`) VALUES (?,?,?,?)";
         
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, e.getNom_Evenement());
             pst.setString(2,e.getDate_Evenement());
+            pst.setInt(3, e.getArtiste().getId_Artiste());
+            pst.setInt(4, e.getRestaurant().getId_Restaurant());
             
             pst.executeUpdate();
             System.out.println("Evenement ajouté");
@@ -61,13 +65,15 @@ public class EvenementService implements IService<Evenement> {
 
     @Override
     public void modifier(Evenement e) {
-        String req = "UPDATE Evenement SET Nom_Evenement=?, Date_Evenement=? WHERE Id_Evenement=?";
+        String req = "UPDATE Evenement SET Nom_Evenement=?, Date_Evenement=? Id_Artiste=?, Id_Restaurant=? WHERE Id_Evenement=?";
         
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, e.getNom_Evenement());
             pst.setString(2, e.getDate_Evenement());
-            pst.setInt(3, e.getId_Evenement());
+            pst.setInt(3, e.getArtiste().getId_Artiste());
+            pst.setInt(4, e.getRestaurant().getId_Restaurant());
+            pst.setInt(5, e.getId_Evenement());
             
             pst.executeUpdate();
             System.out.println("Evenement met à jour");
@@ -92,6 +98,7 @@ public class EvenementService implements IService<Evenement> {
                 e.setId_Evenement(rs.getInt("Id_Evenement"));
                 e.setNom_Evenement(rs.getString(2));
                 e.setDate_Evenement(rs.getString(3));
+                e.setArtiste(rs.);
                 evenements.add(e);
             }
         } catch(SQLException ex) {
