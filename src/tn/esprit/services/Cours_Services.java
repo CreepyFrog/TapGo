@@ -66,7 +66,7 @@ public class Cours_Services {
     public List<Cours> update_Cours(Cours cc) {
          List<Cours> Cours = new ArrayList<>();
         String req;
-        req = "UPDATE Cours SET Nom_Cour = ?, Libelle_Cour = ?, ID_Chef = ? WHERE Id_Cour = 3";
+        req = "UPDATE Cours SET Nom_Cour = ?, Libelle_Cour = ?, ID_Chef = ? WHERE Id_Cour = 1";
          try {
             
             pst = conn.prepareStatement(req);

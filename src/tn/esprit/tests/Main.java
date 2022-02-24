@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import tn.esprit.entities.Chefs;
 import tn.esprit.entities.Cours;
+import tn.esprit.entities.Inscription;
 import tn.esprit.services.Chef_Services;
 import tn.esprit.services.Cours_Services;
+import tn.esprit.services.Inscription_Service;
 import tn.esprit.utils.DataSource;
 
 /**
@@ -38,7 +40,9 @@ public class Main {
         //cour.update_Cours(ccc);
         //System.out.println( cour.afficher_Cours() );  
         //System.out.println(cour.supprimer_Cours()); 
-        
-    
+        Inscription_Service Is= new Inscription_Service ();
+        Inscription I= new Inscription (3,35);
+        //Is.ajouter_Inscription(I);
+    System.out.println( Is.afficher_Inscription() );  
     }
 }

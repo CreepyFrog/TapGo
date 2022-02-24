@@ -20,7 +20,7 @@ import tn.esprit.utils.DataSource;
  *
  * @author MSI
  */
-public abstract class Inscription_Service implements IService {
+public class Inscription_Service  {
 
   private Connection conn;
     private PreparedStatement pst;
