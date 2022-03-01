@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import tn.esprit.entities.IService;
 import tn.esprit.entities.Evenement;
-import tn.esprit.entities.Artiste;
-import tn.esprit.entities.Restaurant;
 import tn.esprit.utils.DataSource;
 /**
  *
@@ -98,7 +96,11 @@ public class EvenementService implements IService<Evenement> {
                 e.setId_Evenement(rs.getInt("Id_Evenement"));
                 e.setNom_Evenement(rs.getString(2));
                 e.setDate_Evenement(rs.getString(3));
-                e.setArtiste(rs.);
+                
+                //find Artiste and Restaurant by id and set them as objects in Evenement
+                //e.setArtiste(rs.);
+                //e.setRestaurant(rs.);
+                
                 evenements.add(e);
             }
         } catch(SQLException ex) {
@@ -106,6 +108,15 @@ public class EvenementService implements IService<Evenement> {
         }
         
         return evenements;
+    }
+    
+    public Evenement findById(int id) {
+        List<Evenement> eList = new ArrayList<>();
+        
+        eList = this.afficher();
+        Evenement e = eList.stream().filter(evenement -> id == evenement.getId_Evenement()).findAny().orElse(null);
+        
+        return e;
     }
     
 }

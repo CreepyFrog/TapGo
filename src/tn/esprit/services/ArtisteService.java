@@ -107,4 +107,13 @@ public class ArtisteService implements IService<Artiste>{
         return artistes;
     }
     
+    public Artiste findArtisteById(int id) {
+        List<Artiste> aList = new ArrayList<>();
+        
+        aList = this.afficher();
+        Artiste a = aList.stream().filter(artiste -> id == artiste.getId_Artiste()).findAny().orElse(null);
+        
+        return a;
+    }
+    
 }

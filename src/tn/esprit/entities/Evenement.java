@@ -5,8 +5,6 @@
  */
 package tn.esprit.entities;
 
-import java.sql.Date;
-
 /**
  *
  * @author ASUS
@@ -82,7 +80,7 @@ public class Evenement {
 
     @Override
     public String toString() {
-        return "Evenement{" + "Id_Evenement=" + Id_Evenement + ", Nom_Evenement=" + Nom_Evenement + ", Date_Evenement=" + Date_Evenement + ", artiste=" + artiste + ", restaurant=" + restaurant + '}';
+        return "Evenement{" + "Id_Evenement=" + Id_Evenement + ", Nom_Evenement=" + Nom_Evenement + ", Date_Evenement=" + Date_Evenement + ", artiste=" + artiste.getId_Artiste() + ", restaurant=" + restaurant.getId_Restaurant() + '}';
     }
     
 }

@@ -24,7 +24,7 @@ public class Main {
         
         
         ArtisteService as = new ArtisteService();
-        Artiste a = new Artiste("Leonard Cohen","Folk");
+        Artiste a = new Artiste("Leonard Cohen","pop");
         //a.setId_Artiste(1);
         //a.setType_De_Musique("classic");
         
@@ -32,12 +32,12 @@ public class Main {
         
         //as.supprimer(a);
         
-        as.ajouter(a);
+        //as.ajouter(a);
         
-        System.out.println(as.afficher());
+        System.out.println(as.findArtisteById(11));
         
         
-        
+        /*
         EvenementService es = new EvenementService();
         Evenement e = new Evenement("Sahria","2022-11-11");
         //e.setId_Evenement(1);
@@ -51,6 +51,6 @@ public class Main {
         
         //System.out.println(es.afficher());
         
-        
+        */
     }
 }

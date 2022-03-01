@@ -12,7 +12,7 @@ package tn.esprit.entities;
 public class Restaurant {
     
     private int Id_Restaurant;
-    //private String Nom_Restaurant;
+    private String Nom_Restaurant;
     //private String Adresse_Restaurant;
     //private String Domaine_Restaurant;
     //private int Nb_Tables;
@@ -25,16 +25,29 @@ public class Restaurant {
         this.Id_Restaurant = Id_Restaurant;
     }
 
+    public String getNom_Restaurant() {
+        return Nom_Restaurant;
+    }
+
+    public void setNom_Restaurant(String Nom_Restaurant) {
+        this.Nom_Restaurant = Nom_Restaurant;
+    }
+
     public Restaurant() {
     }
 
-    public Restaurant(int Id_Restaurant) {
+    public Restaurant(String Nom_Restaurant) {
+        this.Nom_Restaurant = Nom_Restaurant;
+    }
+
+    public Restaurant(int Id_Restaurant, String Nom_Restaurant) {
         this.Id_Restaurant = Id_Restaurant;
+        this.Nom_Restaurant = Nom_Restaurant;
     }
 
     @Override
     public String toString() {
-        return "Restaurant{" + "Id_Restaurant=" + Id_Restaurant + '}';
+        return "Restaurant{" + "Id_Restaurant=" + Id_Restaurant + ", Nom_Restaurant=" + Nom_Restaurant + '}';
     }
     
 }
