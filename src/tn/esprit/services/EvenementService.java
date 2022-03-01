@@ -8,8 +8,10 @@ package tn.esprit.services;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import tn.esprit.entities.Artiste;
 import tn.esprit.entities.IService;
 import tn.esprit.entities.Evenement;
+import tn.esprit.entities.Restaurant;
 import tn.esprit.utils.DataSource;
 /**
  *
@@ -18,6 +20,9 @@ import tn.esprit.utils.DataSource;
 public class EvenementService implements IService<Evenement> {
     private Connection conn;
     private PreparedStatement pst;
+    
+    ArtisteService aServ = new ArtisteService();
+    RestaurantService rServ = new RestaurantService();
     
     //standard statement declaration
     //private Statement ste;
@@ -63,15 +68,17 @@ public class EvenementService implements IService<Evenement> {
 
     @Override
     public void modifier(Evenement e) {
-        String req = "UPDATE Evenement SET Nom_Evenement=?, Date_Evenement=? Id_Artiste=?, Id_Restaurant=? WHERE Id_Evenement=?";
+        String req = "UPDATE evenement SET Nom_Evenement=?, Date_Evenement=? WHERE Id_Evenement=?";
         
         try {
             pst = conn.prepareStatement(req);
+            
             pst.setString(1, e.getNom_Evenement());
             pst.setString(2, e.getDate_Evenement());
-            pst.setInt(3, e.getArtiste().getId_Artiste());
-            pst.setInt(4, e.getRestaurant().getId_Restaurant());
-            pst.setInt(5, e.getId_Evenement());
+            //Foreign keys not updatable
+            //pst.setInt(3, e.getArtiste().getId_Artiste());
+            //pst.setInt(4, e.getRestaurant().getId_Restaurant());
+            pst.setInt(3, e.getId_Evenement());
             
             pst.executeUpdate();
             System.out.println("Evenement met à jour");
@@ -93,13 +100,18 @@ public class EvenementService implements IService<Evenement> {
             
             while(rs.next()){
                 Evenement e = new Evenement();
+                
                 e.setId_Evenement(rs.getInt("Id_Evenement"));
                 e.setNom_Evenement(rs.getString(2));
                 e.setDate_Evenement(rs.getString(3));
                 
-                //find Artiste and Restaurant by id and set them as objects in Evenement
-                //e.setArtiste(rs.);
-                //e.setRestaurant(rs.);
+                int id_artiste = rs.getInt("Id_Artiste");
+                if (rs.wasNull()) e.setArtiste(null);
+                else e.setArtiste(aServ.findById(id_artiste));
+                
+                int id_restaurant = rs.getInt("Id_Restaurant");
+                if (rs.wasNull()) e.setRestaurant(null);
+                else e.setRestaurant(rServ.findById(id_restaurant));
                 
                 evenements.add(e);
             }
@@ -110,6 +122,7 @@ public class EvenementService implements IService<Evenement> {
         return evenements;
     }
     
+    @Override
     public Evenement findById(int id) {
         List<Evenement> eList = new ArrayList<>();
         
@@ -118,5 +131,4 @@ public class EvenementService implements IService<Evenement> {
         
         return e;
     }
-    
 }

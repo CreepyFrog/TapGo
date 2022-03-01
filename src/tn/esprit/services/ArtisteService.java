@@ -95,9 +95,11 @@ public class ArtisteService implements IService<Artiste>{
             
             while(rs.next()){
                 Artiste a = new Artiste();
+                
                 a.setId_Artiste(rs.getInt("Id_Artiste"));
                 a.setNom_Artiste(rs.getString(2));
                 a.setType_De_Musique(rs.getString(3));
+                
                 artistes.add(a);
             }
         } catch(SQLException ex) {
@@ -107,7 +109,8 @@ public class ArtisteService implements IService<Artiste>{
         return artistes;
     }
     
-    public Artiste findArtisteById(int id) {
+    @Override
+    public Artiste findById(int id) {
         List<Artiste> aList = new ArrayList<>();
         
         aList = this.afficher();

@@ -22,35 +22,41 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         
-        
+        /*
         ArtisteService as = new ArtisteService();
         Artiste a = new Artiste("Leonard Cohen","pop");
         //a.setId_Artiste(1);
         //a.setType_De_Musique("classic");
         
-        //as.modifier(a);
+        a = as.findById(10);
+        a.setType_De_Musique("rock");
+        
+        as.modifier(a);
         
         //as.supprimer(a);
         
         //as.ajouter(a);
         
-        System.out.println(as.findArtisteById(11));
+        //System.out.println(as.findById(11));
+        System.out.println(as.afficher());
+        /*/
         
-        
-        /*
+        //*
         EvenementService es = new EvenementService();
         Evenement e = new Evenement("Sahria","2022-11-11");
-        //e.setId_Evenement(1);
-        //e.setNom_Evenement("Sahria2");
         
-        //es.modifier(e);
+        //e.setId_Evenement(1);
+        e = es.findById(2);
+        e.setNom_Evenement("Sahria2");
+        
+        es.modifier(e);
         
         //es.supprimer(e);
         
         //es.ajouter(e);
         
-        //System.out.println(es.afficher());
-        
-        */
+        System.out.println(es.findById(2));
+        System.out.println(es.afficher());
+        //*/
     }
 }

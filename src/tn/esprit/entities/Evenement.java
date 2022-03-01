@@ -80,7 +80,15 @@ public class Evenement {
 
     @Override
     public String toString() {
-        return "Evenement{" + "Id_Evenement=" + Id_Evenement + ", Nom_Evenement=" + Nom_Evenement + ", Date_Evenement=" + Date_Evenement + ", artiste=" + artiste.getId_Artiste() + ", restaurant=" + restaurant.getId_Restaurant() + '}';
+        String a, r;
+        
+        if (this.artiste == null) a = "Pas de Artiste Associé";
+        else a = String.valueOf(artiste.getId_Artiste());
+        
+        if (this.restaurant == null) r = "Pas de Restaurant Associé";
+        else r = String.valueOf(restaurant.getId_Restaurant());
+        
+        return "Evenement{" + "Id_Evenement=" + Id_Evenement + ", Nom_Evenement=" + Nom_Evenement + ", Date_Evenement=" + Date_Evenement + ", artiste=" + a + ", restaurant=" + r +'}';
     }
     
 }
