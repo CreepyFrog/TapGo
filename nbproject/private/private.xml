@@ -3,21 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/view/ArtisteFrontFXML.fxml</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/entities/IService.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/tests/Main.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/entities/Restaurant.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/services/EvenementService.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/services/ArtisteService.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/controllers/EvenementFrontFXMLController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/view/EvenementBackFXML.fxml</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/controllers/EvenementBackFXMLController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/entities/Artiste.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/controllers/ArtisteBackFXMLController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/services/RestaurantService.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/tests/Main.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/view/EvenementFrontFXML.fxml</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/entities/Restaurant.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/entities/Evenement.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/view/ArtisteBackFXML.fxml</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/entities/Artiste.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Documents/NetBeansProjects/TapGo/src/tn/esprit/controllers/ArtisteBackFXMLController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.view.ArtisteFrontFXMLController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.esprit.view.ArtisteFrontFXMLController">
+   <children>
+      <TabPane layoutX="12.0" layoutY="10.0" prefHeight="380.0" prefWidth="829.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="378.0" layoutY="23.0" prefHeight="251.0" prefWidth="437.0">
+                           <children>
+                              <ImageView id="ImageArtiste" fitHeight="201.0" fitWidth="215.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label id="TypeDeMusiqueLabel" layoutX="283.0" layoutY="96.0" prefHeight="37.0" prefWidth="94.0" text="Label" />
+                              <Label id="NomArtisteLabel" layoutX="283.0" layoutY="35.0" prefHeight="37.0" prefWidth="94.0" text="Label" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
 </AnchorPane>

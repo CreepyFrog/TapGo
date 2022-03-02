@@ -5,21 +5,36 @@
  */
 package tn.esprit.tests;
 
-import java.io.BufferedReader;
-import java.io.Console;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import tn.esprit.utils.DataSource;
-import tn.esprit.services.*;
-import tn.esprit.entities.*;
-import java.util.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  *
  * @author ASUS
  */
-public class Main {
+public class Main extends Application {
+    Parent parent;
+    Stage stage;
+    
+    @Override
+    public void start(Stage primaryStage) {
+        this.stage = primaryStage;
+        try {
+            parent = FXMLLoader.load(getClass().getResource("/tn/esprit/view/ArtisteBackFXML.fxml"));
+        } catch(IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.setTitle("Artistes");
+        stage.show();
+    }
     public static void main(String[] args) throws IOException {
+        launch(args);
         // TODO code application logic here
         
         /*
@@ -39,9 +54,9 @@ public class Main {
         
         //System.out.println(as.findById(11));
         System.out.println(as.afficher());
-        /*/
         
-        //*
+        
+        
         EvenementService es = new EvenementService();
         Evenement e = new Evenement("Sahria","2022-11-11");
         
@@ -57,6 +72,6 @@ public class Main {
         
         System.out.println(es.findById(2));
         System.out.println(es.afficher());
-        //*/
+        */
     }
 }
