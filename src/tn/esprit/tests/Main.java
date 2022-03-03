@@ -11,6 +11,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import tn.esprit.entities.Artiste;
+import tn.esprit.entities.Evenement;
+import tn.esprit.services.ArtisteService;
+import tn.esprit.services.EvenementService;
 
 /**
  *
@@ -39,24 +43,24 @@ public class Main extends Application {
         
         /*
         ArtisteService as = new ArtisteService();
-        Artiste a = new Artiste("Leonard Cohen","pop");
+        Artiste a = new Artiste("Elvis","Country");
         //a.setId_Artiste(1);
         //a.setType_De_Musique("classic");
         
-        a = as.findById(10);
-        a.setType_De_Musique("rock");
+        //a = as.findById(10);
+        //a.setType_De_Musique("rock");
         
-        as.modifier(a);
+        //as.modifier(a);
         
         //as.supprimer(a);
         
-        //as.ajouter(a);
+        as.ajouter(a);
         
         //System.out.println(as.findById(11));
         System.out.println(as.afficher());
         
         
-        
+        /*
         EvenementService es = new EvenementService();
         Evenement e = new Evenement("Sahria","2022-11-11");
         

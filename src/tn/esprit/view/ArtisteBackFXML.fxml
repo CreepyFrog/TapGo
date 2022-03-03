@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ArtisteBackFXMLController">
    <children>
@@ -22,6 +23,11 @@
                               <TextField id="nomArtiste" layoutX="5.0" layoutY="74.0" promptText="Artiste" />
                               <Label layoutX="5.0" layoutY="137.0" prefHeight="21.0" prefWidth="187.0" text="Type de musique" />
                               <TextField id="typeDeMusique" layoutX="5.0" layoutY="158.0" promptText="Genre" />
+                              <Label layoutX="6.0" layoutY="6.0" text="Artistes">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -29,7 +35,7 @@
                               <Button id="addArtiste" layoutY="10.0" mnemonicParsing="false" onAction="#addArtiste" prefHeight="31.0" prefWidth="124.0" text="Ajouter" />
                               <Label id="ajoutSucces" layoutX="21.0" layoutY="41.0" prefHeight="21.0" prefWidth="155.0" text="Ajout avec succés" visible="false" />
                               <Label layoutX="21.0" layoutY="41.0" prefHeight="21.0" prefWidth="155.0" text="Echèc" visible="false" />
-                              <Button id="showArtistes" layoutX="124.0" layoutY="10.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" text="Afficher" />
+                              <Button id="showArtistes" layoutX="124.0" layoutY="10.0" mnemonicParsing="false" onAction="#showArtistes" prefHeight="31.0" prefWidth="74.0" text="Afficher" />
                            </children>
                         </AnchorPane>
                     </items>

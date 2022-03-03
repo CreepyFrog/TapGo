@@ -5,12 +5,9 @@
  */
 package tn.esprit.services;
 
-import com.mysql.cj.jdbc.PreparedStatementWrapper;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import tn.esprit.entities.IService;
 import tn.esprit.entities.Artiste;
 import tn.esprit.utils.DataSource;
