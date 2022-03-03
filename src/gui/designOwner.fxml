@@ -15,7 +15,7 @@
       <AnchorPane fx:id="recpane" layoutX="147.0" layoutY="-1.0" prefHeight="623.0" prefWidth="710.0">
          <children>
             <Label fx:id="t01" layoutX="148.0" layoutY="404.0" prefHeight="39.0" prefWidth="288.0" />
-            <Label layoutX="264.0" layoutY="31.0" text="User">
+            <Label layoutX="264.0" layoutY="31.0" text="Owner">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

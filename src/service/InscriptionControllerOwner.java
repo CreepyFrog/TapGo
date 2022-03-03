@@ -5,6 +5,7 @@
  */
 package service;
 
+import service.*;
 import Util.DB.DBConnection;
 import java.io.IOException;
 import java.net.URL;
@@ -29,6 +30,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.User;
+import models.User;
 
 
 
@@ -36,7 +38,7 @@ import models.User;
  * FXML Controller class
  *
  */
-public class InscriptionController implements Initializable {
+public class InscriptionControllerOwner implements Initializable {
 
     
       @FXML
@@ -81,7 +83,7 @@ public class InscriptionController implements Initializable {
     
     }    
     
-    String Role="user",Gender,acces;
+    String Role="owner",Gender,acces;
         
     @FXML
     void Select1(ActionEvent event) {
@@ -144,7 +146,7 @@ public class InscriptionController implements Initializable {
             u.setBirthday(rs.getDate(9));
             u.setAcces(rs.getString(10));
     
-            if(rs.getString(4).equals(email)){ return x = 1; }
+            if(rs.getString(4).equals(email)){ x = 1; }
                      
         }
             
@@ -153,6 +155,7 @@ public class InscriptionController implements Initializable {
    
     @FXML
     void Insert1 ( ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+        
         
            if(tfLast.getText().equals("")||tfMail.getText().equals("")||tfName.getText().equals("")||tfPhone.getText().equals("")||tfid.getText().equals("")){
                 
@@ -171,36 +174,20 @@ public class InscriptionController implements Initializable {
          int S=verifier_auth( Mail );
         
          if(tfPass.getText().equals(tfPass1.getText())&& tfPass.getText().length()>6 ){
-          
              String acces="oui";
              if( S==0 ){
-                 
            String alexResult  =tfPass.getText().substring(0, 3)+"nisqpfdbn$hreb6b8e6"+tfPass.getText().substring(3);
    
         String query ="INSERT INTO user VALUES("+ tfid.getText()+",'"+ tfName.getText() +"','"+tfLast.getText()+"','"+ tfMail.getText() +"','"+alexResult +"','"+ Gender +"','"+ Role +"',"+ tfPhone.getText() +",'"+ java.sql.Date.valueOf(tfBir.getValue())  +"','"+ acces +"')";
         executeQuery(query);
         
           tfPass.getScene().getWindow().hide();
-          
           }
-                      else {
-          Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("gui/alertEmail.fxml")));
-            Stage mainStage = new Stage();
-            Scene scene = new Scene(root);
-            mainStage.setScene(scene);
-            mainStage.show();
-         }
-
+             
         }
-         else {
-          Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("gui/alertPassword.fxml")));
-            Stage mainStage = new Stage();
-            Scene scene = new Scene(root);
-            mainStage.setScene(scene);
-            mainStage.show();
-         }
+        
+    }
     }
       
-    }
       
 }

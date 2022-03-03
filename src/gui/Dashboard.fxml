@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root1" prefHeight="674.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.dashboardController">
+   <children>
+      <Pane prefHeight="81.0" prefWidth="30.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
+      <Pane fx:id="context" layoutX="189.0" layoutY="5.0" prefHeight="665.0" prefWidth="895.0" style="-fx-background-color: #0598ff;" />
+      <VBox alignment="TOP_CENTER" prefHeight="674.0" prefWidth="185.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+         <children>
+            <Button onAction="#btnHomeOnAction" prefHeight="99.0" prefWidth="192.0" style="-fx-background-color: #4b7bec;" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="dtnDashBoard" onAction="#DashBoardOnAction" prefHeight="87.0" prefWidth="184.0" style="-fx-background-color: #4F8AFF;" text="Gestion Owner" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+
+            <Pane prefHeight="85.0" prefWidth="185.0">
+               <children>
+                  <Button layoutX="1.0" layoutY="-7.0" onAction="#btnMailOnAction" prefHeight="99.0" prefWidth="184.0" style="-fx-background-color: #4b7bec;" text="Envoyer Mail" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Button fx:id="btnlodout" onAction="#btnLogOut" prefHeight="5.0" prefWidth="185.0" style="-fx-background-color: #4F8AFF;" text="LOGOUT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+   <effect>
+      <DropShadow height="24.11" radius="25.55" spread="0.07" width="80.09" />
+   </effect>
+</AnchorPane>
