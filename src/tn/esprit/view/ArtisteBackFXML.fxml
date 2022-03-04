@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ArtisteBackFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ArtisteController">
    <children>
       <SplitPane dividerPositions="0.3542757417102967" layoutX="14.0" layoutY="14.0" prefHeight="375.0" prefWidth="575.0">
         <items>
@@ -20,9 +20,9 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
                               <Label layoutX="5.0" layoutY="53.0" prefHeight="21.0" prefWidth="187.0" text="Nom" />
-                              <TextField id="nomArtiste" layoutX="5.0" layoutY="74.0" promptText="Artiste" />
+                              <TextField id="nomArtiste" fx:id="NomArtiste" layoutX="5.0" layoutY="74.0" promptText="Artiste" />
                               <Label layoutX="5.0" layoutY="137.0" prefHeight="21.0" prefWidth="187.0" text="Type de musique" />
-                              <TextField id="typeDeMusique" layoutX="5.0" layoutY="158.0" promptText="Genre" />
+                              <TextField id="typeDeMusique" fx:id="TypeMusique" layoutX="5.0" layoutY="158.0" promptText="Genre" />
                               <Label layoutX="6.0" layoutY="6.0" text="Artistes">
                                  <font>
                                     <Font size="18.0" />
@@ -32,9 +32,9 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Button id="addArtiste" layoutY="10.0" mnemonicParsing="false" onAction="#addArtiste" prefHeight="31.0" prefWidth="124.0" text="Ajouter" />
-                              <Label id="ajoutSucces" layoutX="21.0" layoutY="41.0" prefHeight="21.0" prefWidth="155.0" text="Ajout avec succés" visible="false" />
-                              <Label layoutX="21.0" layoutY="41.0" prefHeight="21.0" prefWidth="155.0" text="Echèc" visible="false" />
+                              <Button id="addArtiste" fx:id="ButtonAjouter" layoutY="10.0" mnemonicParsing="false" onAction="#addArtiste_Interface" prefHeight="31.0" prefWidth="124.0" text="Ajouter" />
+                              <Label id="ajoutSucces" fx:id="AddSucces" layoutX="21.0" layoutY="41.0" prefHeight="21.0" prefWidth="155.0" text="Ajout avec succés" visible="false" />
+                              <Label fx:id="AddEchec" layoutX="21.0" layoutY="41.0" prefHeight="21.0" prefWidth="155.0" text="Echèc" visible="false" />
                               <Button id="showArtistes" layoutX="124.0" layoutY="10.0" mnemonicParsing="false" onAction="#showArtistes" prefHeight="31.0" prefWidth="74.0" text="Afficher" />
                            </children>
                         </AnchorPane>
@@ -44,11 +44,11 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="373.0" prefWidth="352.0">
                <children>
-                  <TableView prefHeight="375.0" prefWidth="366.0">
+                  <TableView fx:id="listeArtiste" prefHeight="375.0" prefWidth="366.0">
                     <columns>
-                      <TableColumn id="idArtisteColumn" prefWidth="90.0" text="Id_Artiste" />
-                      <TableColumn id="nomArtisteColumn" prefWidth="138.0" text="Nom_Artiste" />
-                        <TableColumn id="typeDeMusiqueColumn" prefWidth="137.0" text="Type_De_Musique" />
+                      <TableColumn id="idArtisteColumn" fx:id="Id_Artiste" prefWidth="90.0" text="Id_Artiste" />
+                      <TableColumn id="nomArtisteColumn" fx:id="Nom_Artiste" prefWidth="138.0" text="Nom_Artiste" />
+                        <TableColumn id="typeDeMusiqueColumn" fx:id="Type_De_Musique" prefWidth="137.0" text="Type_De_Musique" />
                     </columns>
                   </TableView>
                </children></AnchorPane>

@@ -13,9 +13,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -23,7 +23,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import tn.esprit.entities.Artiste;
-import tn.esprit.services.ArtisteService;
 import tn.esprit.utils.DataSource;
 
 /**
@@ -31,39 +30,27 @@ import tn.esprit.utils.DataSource;
  *
  * @author ASUS
  */
-public class ArtisteBackFXMLController implements Initializable {
-    
-    /*
-    @FXML
-    private Button addArtiste;
-    @FXML
-    private Button showArtistes;
-    @FXML
-    */
-    private TextField nomArtiste;
-    private TextField typeDeMusique;
-    private Label ajoutSucces;
-    private Label ajoutEchec;
-    
-    private TableView<Artiste> listeArtiste;
-    private TableColumn<Artiste, Integer> Id_Artiste;
-    private TableColumn<Artiste, String> Nom_Artiste;
-    private TableColumn<Artiste, String> Type_De_Musique;
-    
-    private Connection conn;
+public class ArtisteController implements Initializable {
+private Connection conn = DataSource.getInstance().getConnection();;
     private PreparedStatement pst;
-    
-    
-    
-    ArtisteService as = new ArtisteService();
-    @FXML
-    private Button ButtonAjouter;
     @FXML
     private TextField NomArtiste;
     @FXML
     private TextField TypeMusique;
-    
-    //private Connection conn;
+    @FXML
+    private Button ButtonAjouter;
+    @FXML
+    private TableView listeArtiste;
+    @FXML
+    private TableColumn Id_Artiste;
+    @FXML
+    private TableColumn Nom_Artiste;
+    @FXML
+    private TableColumn Type_De_Musique;
+    @FXML
+    private Label AddSucces;
+    @FXML
+    private Label AddEchec;
 
     /**
      * Initializes the controller class.
@@ -71,11 +58,8 @@ public class ArtisteBackFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-        //conn = DataSource.getInstance().getConnection();
-        
+        getAllArtistes();
     }    
-    
     public void ajouter(Artiste a) {
         String req = "INSERT INTO `artiste`(`Nom_Artiste`, `Type_De_Musique`) VALUES (?,?)";
         
@@ -83,7 +67,6 @@ public class ArtisteBackFXMLController implements Initializable {
             pst = conn.prepareStatement(req);
             pst.setString(1, a.getNom_Artiste());
             pst.setString(2,a.getType_De_Musique());
-            
             pst.executeUpdate();
             System.out.println("Artiste ajouté");
             
@@ -91,22 +74,18 @@ public class ArtisteBackFXMLController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
-    
-    private void addArtiste(ActionEvent event) {
-        
-        Artiste a = new Artiste();
-//        nomArtiste.getText(),typeDeMusique.getText()
-        
-        ajoutSucces.setVisible(false);
-        ajoutEchec.setVisible(false);
+    @FXML
+    private void addArtiste_Interface(ActionEvent event) {
+        Artiste a =new Artiste();
+        AddSucces.setVisible(false);
+        AddEchec.setVisible(false);
         a.setNom_Artiste(NomArtiste.getText());
         a.setType_De_Musique(TypeMusique.getText());
-        this.ajouter(a);
-        nomArtiste.setText("");
-        typeDeMusique.setText("");
-        ajoutSucces.setVisible(true);
+        ajouter(a);
+        AddSucces.setVisible(true);
+        getAllArtistes();
     }
-    
+
     private ObservableList<Artiste> afficher() {
         ObservableList<Artiste> artistes = FXCollections.observableArrayList();
         
@@ -134,27 +113,18 @@ public class ArtisteBackFXMLController implements Initializable {
     
     @FXML void showArtistes(ActionEvent event) {
         
+        AddSucces.setVisible(false);
+        AddEchec.setVisible(false);
+        getAllArtistes();
+        
+    }
+    
+    public void getAllArtistes() {
         ObservableList<Artiste> la = afficher();
         Id_Artiste.setCellValueFactory(new PropertyValueFactory<Artiste, Integer>("Id_Artiste"));
         Nom_Artiste.setCellValueFactory(new PropertyValueFactory<Artiste, String>("Nom_Artiste"));
         Type_De_Musique.setCellValueFactory(new PropertyValueFactory<Artiste, String>("Type_De_Musique"));
         listeArtiste.setItems(la);
-        
     }
-
-    @FXML
-    private void addArtiste_Interface(ActionEvent event) {
-        
-        Artiste a = new Artiste();
-//        nomArtiste.getText(),typeDeMusique.getText()
-        
-        ajoutSucces.setVisible(false);
-        ajoutEchec.setVisible(false);
-        a.setNom_Artiste(NomArtiste.getText());
-        a.setType_De_Musique(TypeMusique.getText());
-        this.ajouter(a);
-        nomArtiste.setText("");
-        typeDeMusique.setText("");
-        ajoutSucces.setVisible(true);
-    }
+    
 }

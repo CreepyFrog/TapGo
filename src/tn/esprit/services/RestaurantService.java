@@ -18,7 +18,7 @@ import tn.esprit.utils.DataSource;
  */
 public class RestaurantService implements IService<Restaurant>{
     
-    private Connection conn;
+    private Connection conn = DataSource.getInstance().getConnection();;
     private PreparedStatement pst;
     
     public RestaurantService(){
