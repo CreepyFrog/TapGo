@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="704.0" prefWidth="1089.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ForumController">
+   <children>
+      <AnchorPane prefHeight="704.0" prefWidth="1089.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+         <children>
+            <Pane layoutX="525.0" layoutY="-1.0" prefHeight="93.0" prefWidth="405.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+               <children>
+                  <Label layoutX="297.0" layoutY="21.0" text="TAP &amp; GO" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Pane prefHeight="79.0" prefWidth="94.0" style="-fx-background-radius: 15 0 15 15;" />
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Profile" textFill="#a868a0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/cat.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Activity" textFill="#a868a0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/time.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Goals" textFill="#a868a0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/flag.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Mentors" textFill="#a868a0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/group.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <AnchorPane layoutX="123.0" layoutY="93.0" prefHeight="577.0" prefWidth="924.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
+               <children>
+                  <Label layoutX="19.0" layoutY="14.0" text="Espace" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="108.0" layoutY="14.0" text="Forum" textFill="#fff600">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="39.0" layoutY="144.0" text="Select options in order to find the best offer" textFill="#9a9292">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="39.0" layoutY="186.0" prefHeight="29.0" prefWidth="155.0" style="-fx-background-color: #a868a0;" stylesheets="@../css/fullpackstyling.css" />
+                  <ComboBox layoutX="229.0" layoutY="186.0" prefHeight="29.0" prefWidth="179.0" style="-fx-background-color: #a868a0;" styleClass="combo-box" stylesheets="@../css/fullpackstyling.css" />
+                  <Pane layoutX="569.0" layoutY="46.0" prefHeight="297.0" prefWidth="270.0" style="-fx-background-radius: 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <Pane layoutX="14.0" layoutY="20.0" prefHeight="66.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="11.0" layoutY="10.0" text="Gagner avec nous" textFill="#41951c">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="12.0" layoutY="34.0" text="Bon d'Achat" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="177.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/eruro.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="14.0" layoutY="103.0" prefHeight="66.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="12.0" layoutY="9.0" text="QUANTITY TIPS:" textFill="#41951c">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="13.0" layoutY="34.0" text="Une Réservation pour 4 p" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="175.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/eruro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="190.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/eruro.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="205.0" prefHeight="66.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="12.0" layoutY="9.0" text="TRACK PRICES" textFill="#41951c">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="29.0" text=" price changes" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="174.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/eruro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="193.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/eruro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="174.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/eruro.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Line endX="100.0" layoutX="445.0" layoutY="54.0" startX="100.0" startY="418.0" stroke="#b9b1b1" strokeDashOffset="2.0" />
+                  <Label layoutX="569.0" layoutY="377.0" text="What is wow " textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="675.0" layoutY="377.0" text="Gold?" textFill="#fff600">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <BorderPane layoutX="569.0" layoutY="404.0" prefHeight="66.0" prefWidth="270.0">
+                     <top>
+                        <Label alignment="CENTER" prefWidth="265.0" text="Mythic + dangerous 5 player dungeons where you must try to finish the run before a timer runs out. The time is applied to the dungeons you can play in normal/heroic/ mythic diff" textFill="#9a9292" wrapText="true" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </top>
+                  </BorderPane>
+                  <Button layoutX="380.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="ADD TO CART" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="29.0" text="Acceuil" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="945.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/ic_usr.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="986.0" layoutY="25.0" text="Chikaa" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="985.0" layoutY="42.0" text="77 réservations" textFill="#b5adad">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="704.0" prefWidth="1089.0" style="-fx-background-radius: 20;">
+         <children>
+            <AnchorPane prefHeight="704.0" prefWidth="1089.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+               <children>
+                  <Pane layoutX="525.0" layoutY="-1.0" prefHeight="93.0" prefWidth="405.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <Label layoutX="297.0" layoutY="21.0" text="TAP &amp; GO" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Pane prefHeight="79.0" prefWidth="94.0" style="-fx-background-radius: 15 0 15 15;" />
+                        <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Profile" textFill="#a868a0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/cat.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Activity" textFill="#a868a0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/time.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button contentDisplay="TOP" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Goals" textFill="#a868a0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/flag.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button contentDisplay="TOP" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Mentors" textFill="#a868a0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/group.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <AnchorPane layoutX="123.0" layoutY="93.0" prefHeight="577.0" prefWidth="924.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <Label layoutX="19.0" layoutY="14.0" text="Espace" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="108.0" layoutY="14.0" text="Forum" textFill="#fff600">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="39.0" layoutY="144.0" text="Select options in order to find the best offer" textFill="#9a9292">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <ComboBox layoutX="39.0" layoutY="186.0" prefHeight="29.0" prefWidth="155.0" style="-fx-background-color: #a868a0;" stylesheets="@../css/fullpackstyling.css" />
+                        <ComboBox layoutX="229.0" layoutY="186.0" prefHeight="29.0" prefWidth="179.0" style="-fx-background-color: #a868a0;" styleClass="combo-box" stylesheets="@../css/fullpackstyling.css" />
+                        <Pane layoutX="569.0" layoutY="46.0" prefHeight="297.0" prefWidth="270.0" style="-fx-background-radius: 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                           <children>
+                              <Pane layoutX="14.0" layoutY="21.0" prefHeight="66.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                                 <children>
+                                    <Label layoutX="11.0" layoutY="10.0" text="Gagner avec Tap&amp;Go :" textFill="#41951c">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="12.0" layoutY="34.0" text="Une Réservation pour 2 personnes" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="186.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/eruro.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="14.0" layoutY="112.0" prefHeight="66.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                                 <children>
+                                    <Label layoutX="12.0" layoutY="9.0" text="Gagner avec Tap&amp;Go :" textFill="#41951c">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="13.0" layoutY="34.0" text="Une Réservation pour 4 personnes" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="169.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/eruro.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="190.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/eruro.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="16.0" layoutY="205.0" prefHeight="66.0" prefWidth="230.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                                 <children>
+                                    <Label layoutX="12.0" layoutY="9.0" text="Gagner avec Tap&amp;Go :" textFill="#41951c">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="29.0" text="Passe pour un événement" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="174.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/eruro.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="193.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/eruro.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="174.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/eruro.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Line endX="100.0" layoutX="445.0" layoutY="54.0" startX="100.0" startY="418.0" stroke="#b9b1b1" strokeDashOffset="2.0" />
+                        <Label layoutX="569.0" layoutY="377.0" text="What is wow " textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="675.0" layoutY="377.0" text="Gold?" textFill="#fff600">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <BorderPane layoutX="569.0" layoutY="404.0" prefHeight="66.0" prefWidth="270.0">
+                           <top>
+                              <Label alignment="CENTER" prefWidth="265.0" text="Mythic + dangerous 5 player dungeons where you must try to finish the run before a timer runs out. The time is applied to the dungeons you can play in normal/heroic/ mythic diff" textFill="#9a9292" wrapText="true" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </top>
+                        </BorderPane>
+                        <Button layoutX="380.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="ADD TO CART" textFill="WHITE" />
+                        <ListView layoutX="129.0" layoutY="312.0" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </AnchorPane>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="134.0" layoutY="29.0" text="Acceuil" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="945.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/ic_usr.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="986.0" layoutY="25.0" text="Chikaa" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="985.0" layoutY="42.0" text="77 réservations" textFill="#b5adad">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

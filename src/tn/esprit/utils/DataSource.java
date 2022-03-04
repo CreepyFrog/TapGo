@@ -10,15 +10,17 @@ import java.sql.*;
  *
  * @author ASUS
  */
+
+//methode singleton : design pattern
 public class DataSource {
     private String url = "jdbc:mysql://localhost:3306/tapngo";
     private String user = "root";
     private String password = "";
     
-    private Connection cnx;
+    public Connection cnx;
     private static DataSource instance;
     
-    private DataSource(){
+    public DataSource(){
         
         try {
             cnx = DriverManager.getConnection(url, user, password);
