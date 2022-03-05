@@ -8,6 +8,8 @@ package tn.esprit.services;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import tn.esprit.entities.IService;
 import tn.esprit.entities.Artiste;
 import tn.esprit.utils.DataSource;
@@ -81,8 +83,8 @@ public class ArtisteService implements IService<Artiste>{
     }
 
     @Override
-    public List<Artiste> afficher() {
-        List<Artiste> artistes = new ArrayList<>();
+    public ObservableList<Artiste> afficher() {
+        ObservableList<Artiste> artistes = FXCollections.observableArrayList();
         
         String req = "SELECT * FROM `artiste`";
         
@@ -108,7 +110,7 @@ public class ArtisteService implements IService<Artiste>{
     
     @Override
     public Artiste findById(int id) {
-        List<Artiste> aList = new ArrayList<>();
+        ObservableList<Artiste> aList = FXCollections.observableArrayList();
         
         aList = this.afficher();
         Artiste a = aList.stream().filter(artiste -> id == artiste.getId_Artiste()).findAny().orElse(null);

@@ -1,11 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EvenementBackFXMLController">
-    
+
+<AnchorPane id="AnchorPane" minHeight="300.0" minWidth="450.0" prefHeight="536.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EvenementBackFXMLController">
+   <children>
+      <SplitPane dividerPositions="0.2506265664160401" layoutX="14.0" layoutY="14.0" minHeight="300.0" minWidth="450.0" prefHeight="375.0" prefWidth="707.0" stylesheets="@../styles/Template.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
+         <items>
+            <AnchorPane minHeight="300.0" minWidth="150.0">
+               <children>
+                  <SplitPane dividerPositions="0.7" maxHeight="1.7976931348623157E308" minHeight="300.0" minWidth="130.0" orientation="VERTICAL" prefHeight="375.0" stylesheets="@../styles/Template.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <AnchorPane minHeight="170.0" stylesheets="@../styles/Template.css">
+                           <children>
+                              <VBox layoutX="5.0" layoutY="53.0" spacing="5.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Label prefHeight="21.0" prefWidth="187.0" stylesheets="@../styles/Template.css" text="Nom" />
+                                    <TextField id="nomArtiste" fx:id="NomEvenement" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="100.0" promptText="Nom de l'Evenment" />
+                                    <Label prefHeight="21.0" prefWidth="187.0" text="Date" />
+                                    <DatePicker fx:id="DateEvenement" maxWidth="1.7976931348623157E308" minWidth="100.0" promptText="Choisir une Date" />
+                                    <Label text="Artiste" />
+                                    <ComboBox fx:id="ArtisteEvenement" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="150.0" promptText="Choisir Artiste" />
+                                    <Label text="Restaurant" />
+                                    <ComboBox fx:id="RestaurantEvenement" maxWidth="1.7976931348623157E308" minWidth="130.0" prefWidth="150.0" promptText="Choisir Restaurant" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="130.0" minWidth="0.0" prefWidth="160.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" minHeight="130.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Button id="addArtiste" fx:id="buttonAjouter" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#addEvenement" prefHeight="32.0" prefWidth="90.0" text="Ajouter" />
+                                    <Button fx:id="buttonSupprimer" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#supprimerEvenement" prefHeight="32.0" prefWidth="90.0" text="Supprimer">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="buttonModifier" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#modifierEvenement" prefHeight="32.0" prefWidth="130.0" text="Modifier" />
+                                    <Button id="showArtistes" fx:id="buttonAfficher" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#refreshTV" prefHeight="32.0" prefWidth="90.0" text="Rafraîchir" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="390.0">
+               <children>
+                  <TableView fx:id="listeEvenement" prefHeight="375.0" prefWidth="366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="Nom_Evenement" minWidth="130.0" prefWidth="-1.0" text="Nom_Evenement" />
+                        <TableColumn fx:id="Date_Evenement" minWidth="130.0" prefWidth="-1.0" text="Date_Evenement" />
+                        <TableColumn fx:id="Artiste_Evenement" minWidth="60.0" prefWidth="-1.0" text="Artiste" />
+                        <TableColumn fx:id="Restaurant_Evenement" minWidth="70.0" prefWidth="-1.0" text="Restaurant" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
 </AnchorPane>

@@ -8,17 +8,17 @@ package tn.esprit.services;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import tn.esprit.entities.Artiste;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import tn.esprit.entities.IService;
 import tn.esprit.entities.Evenement;
-import tn.esprit.entities.Restaurant;
 import tn.esprit.utils.DataSource;
 /**
  *
  * @author ASUS
  */
 public class EvenementService implements IService<Evenement> {
-    private Connection conn;
+    private final Connection conn;
     private PreparedStatement pst;
     
     ArtisteService aServ = new ArtisteService();
@@ -38,7 +38,7 @@ public class EvenementService implements IService<Evenement> {
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, e.getNom_Evenement());
-            pst.setString(2,e.getDate_Evenement());
+            pst.setDate(2,e.getDate_Evenement());
             pst.setInt(3, e.getArtiste().getId_Artiste());
             pst.setInt(4, e.getRestaurant().getId_Restaurant());
             
@@ -74,7 +74,7 @@ public class EvenementService implements IService<Evenement> {
             pst = conn.prepareStatement(req);
             
             pst.setString(1, e.getNom_Evenement());
-            pst.setString(2, e.getDate_Evenement());
+            pst.setDate(2, e.getDate_Evenement());
             //Foreign keys not updatable
             //pst.setInt(3, e.getArtiste().getId_Artiste());
             //pst.setInt(4, e.getRestaurant().getId_Restaurant());
@@ -89,8 +89,8 @@ public class EvenementService implements IService<Evenement> {
     }
 
     @Override
-    public List<Evenement> afficher() {
-        List<Evenement> evenements = new ArrayList<>();
+    public ObservableList<Evenement> afficher() {
+        ObservableList<Evenement> evenements = FXCollections.observableArrayList();
         
         String req = "SELECT * FROM `evenement`";
         
@@ -103,7 +103,7 @@ public class EvenementService implements IService<Evenement> {
                 
                 e.setId_Evenement(rs.getInt("Id_Evenement"));
                 e.setNom_Evenement(rs.getString(2));
-                e.setDate_Evenement(rs.getString(3));
+                e.setDate_Evenement(rs.getDate(3));
                 
                 int id_artiste = rs.getInt("Id_Artiste");
                 if (rs.wasNull()) e.setArtiste(null);

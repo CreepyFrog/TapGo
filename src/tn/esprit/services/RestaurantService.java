@@ -8,6 +8,8 @@ package tn.esprit.services;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import tn.esprit.entities.IService;
 import tn.esprit.entities.Restaurant;
 import tn.esprit.utils.DataSource;
@@ -41,8 +43,8 @@ public class RestaurantService implements IService<Restaurant>{
     }
 
     @Override
-    public List<Restaurant> afficher() {
-        List<Restaurant> restaurants = new ArrayList<>();
+    public ObservableList<Restaurant> afficher() {
+        ObservableList<Restaurant> restaurants = FXCollections.observableArrayList();
         
         String req = "SELECT * FROM `restaurant`";
         

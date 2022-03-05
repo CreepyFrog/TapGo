@@ -6,25 +6,18 @@
 package tn.esprit.controllers;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import tn.esprit.entities.Artiste;
 import tn.esprit.services.ArtisteService;
-import tn.esprit.utils.DataSource;
 
 /**
  * FXML Controller class
@@ -33,37 +26,29 @@ import tn.esprit.utils.DataSource;
  */
 public class ArtisteBackFXMLController implements Initializable {
     
-    /*
-    @FXML
-    private Button addArtiste;
-    @FXML
-    private Button showArtistes;
-    @FXML
-    */
-    private TextField nomArtiste;
-    private TextField typeDeMusique;
-    private Label ajoutSucces;
-    private Label ajoutEchec;
-    
-    private TableView<Artiste> listeArtiste;
-    private TableColumn<Artiste, Integer> Id_Artiste;
-    private TableColumn<Artiste, String> Nom_Artiste;
-    private TableColumn<Artiste, String> Type_De_Musique;
-    
-    private Connection conn;
-    private PreparedStatement pst;
-    
-    
-    
     ArtisteService as = new ArtisteService();
-    @FXML
-    private Button ButtonAjouter;
+    
     @FXML
     private TextField NomArtiste;
     @FXML
-    private TextField TypeMusique;
+    private TextField TypeDeMusique;
+    @FXML
+    private TableView<Artiste> listeArtiste;
+    @FXML
+    private TableColumn<Artiste, String> Nom_Artiste;
+    @FXML
+    private TableColumn<Artiste, String> Type_De_Musique;
+    @FXML
+    private Button buttonSupprimer;
+    @FXML
+    private Button buttonAfficher;
+    @FXML
+    private Button buttonAjouter;
+    @FXML
+    private Button buttonModifier;
     
-    //private Connection conn;
+    private final String DFBUTTONCOLOR = "#ff0000";
+    private final String CONFIRMEDBUTTON ="#90EE90";
 
     /**
      * Initializes the controller class.
@@ -71,90 +56,73 @@ public class ArtisteBackFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-        //conn = DataSource.getInstance().getConnection();
-        
-    }    
-    
-    public void ajouter(Artiste a) {
-        String req = "INSERT INTO `artiste`(`Nom_Artiste`, `Type_De_Musique`) VALUES (?,?)";
-        
-        try {
-            pst = conn.prepareStatement(req);
-            pst.setString(1, a.getNom_Artiste());
-            pst.setString(2,a.getType_De_Musique());
-            
-            pst.executeUpdate();
-            System.out.println("Artiste ajouté");
-            
-        } catch(SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+        setButtonsDefault();
+        fillArtisteTV();
     }
     
+    @FXML
     private void addArtiste(ActionEvent event) {
-        
-        Artiste a = new Artiste();
-//        nomArtiste.getText(),typeDeMusique.getText()
-        
-        ajoutSucces.setVisible(false);
-        ajoutEchec.setVisible(false);
-        a.setNom_Artiste(NomArtiste.getText());
-        a.setType_De_Musique(TypeMusique.getText());
-        this.ajouter(a);
-        nomArtiste.setText("");
-        typeDeMusique.setText("");
-        ajoutSucces.setVisible(true);
+        setButtonsDefault();
+        addArtisteDB();
+        buttonAjouter.setStyle("-fx-background-color:"+CONFIRMEDBUTTON+";");
+        fillArtisteTV();
     }
     
-    private ObservableList<Artiste> afficher() {
-        ObservableList<Artiste> artistes = FXCollections.observableArrayList();
-        
-        String req = "SELECT * FROM `artiste`";
-        
-        try {
-            pst = conn.prepareStatement(req);
-            ResultSet rs = pst.executeQuery();
-            
-            while(rs.next()){
-                Artiste a = new Artiste();
-                
-                a.setId_Artiste(rs.getInt("Id_Artiste"));
-                a.setNom_Artiste(rs.getString(2));
-                a.setType_De_Musique(rs.getString(3));
-                
-                artistes.add(a);
-            }
-        } catch(SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        return artistes;
+    @FXML
+    private void refreshTV(ActionEvent event) {
+        setButtonsDefault();
+        fillArtisteTV();
     }
     
-    @FXML void showArtistes(ActionEvent event) {
-        
-        ObservableList<Artiste> la = afficher();
-        Id_Artiste.setCellValueFactory(new PropertyValueFactory<Artiste, Integer>("Id_Artiste"));
+    @FXML
+    private void supprimerArtiste(ActionEvent event) {
+        setButtonsDefault();
+        supprimerArtisteDB();
+        buttonSupprimer.setStyle("-fx-background-color:"+CONFIRMEDBUTTON+";");
+        fillArtisteTV();
+    }
+    
+    @FXML
+    private void modifierArtiste(ActionEvent event) {
+        setButtonsDefault();
+        modifierArtisteDB();
+        buttonModifier.setStyle("-fx-background-color:"+CONFIRMEDBUTTON+";");
+        fillArtisteTV();
+    }
+    
+    public void fillArtisteTV() {
+        ObservableList<Artiste> la = as.afficher();
         Nom_Artiste.setCellValueFactory(new PropertyValueFactory<Artiste, String>("Nom_Artiste"));
         Type_De_Musique.setCellValueFactory(new PropertyValueFactory<Artiste, String>("Type_De_Musique"));
         listeArtiste.setItems(la);
-        
     }
-
-    @FXML
-    private void addArtiste_Interface(ActionEvent event) {
-        
-        Artiste a = new Artiste();
-//        nomArtiste.getText(),typeDeMusique.getText()
-        
-        ajoutSucces.setVisible(false);
-        ajoutEchec.setVisible(false);
-        a.setNom_Artiste(NomArtiste.getText());
-        a.setType_De_Musique(TypeMusique.getText());
-        this.ajouter(a);
-        nomArtiste.setText("");
-        typeDeMusique.setText("");
-        ajoutSucces.setVisible(true);
+    
+    public void addArtisteDB() {
+        Artiste a = new Artiste(NomArtiste.getText(),TypeDeMusique.getText());
+        as.ajouter(a);
+        NomArtiste.setText("");
+        TypeDeMusique.setText("");
     }
+    
+    private void supprimerArtisteDB(){
+        Artiste selected = listeArtiste.getSelectionModel().getSelectedItem();
+        as.supprimer(selected);
+    }
+    
+    private void modifierArtisteDB(){
+        Artiste selected = listeArtiste.getSelectionModel().getSelectedItem();
+        selected.setNom_Artiste(NomArtiste.getText());
+        selected.setType_De_Musique(TypeDeMusique.getText());
+        as.modifier(selected);
+        NomArtiste.setText("");
+        TypeDeMusique.setText("");
+    }
+    
+    private void setButtonsDefault(){
+        buttonAjouter.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
+        buttonSupprimer.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
+        buttonModifier.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
+        buttonAfficher.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
+    }
+    
 }
