@@ -5,6 +5,7 @@
  */
 package tn.esprit.GUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,12 +15,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import tn.esprit.entities.Chefs;
 import tn.esprit.entities.Cours;
 import tn.esprit.entities.Inscription;
@@ -34,11 +41,13 @@ public class FormationsController implements Initializable {
     private  Connection conn;
     private PreparedStatement pst;
     private Statement ste;
-
+    @FXML
+    private Button Button_Inscription3;
     @FXML
     private Button Button_Inscription2;
     @FXML
-    private Button Button_Inscription3;
+    private Button Button_Inscription31;
+
 
     /**
      * Initializes the controller class.
@@ -77,25 +86,54 @@ public class FormationsController implements Initializable {
 //    }
     
     
+    @FXML
+    private void Ajout1_Inscription(ActionEvent event) {
+       try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Ajout1.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+ } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        
+    }
+
+    @FXML
+    private void Ajout2_Inscription(ActionEvent event) {
+        
+          try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Ajout2.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+ } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        
+    }
+
     
-@FXML
-    private void Ajout_Inscription(ActionEvent event  ) {
+
+    @FXML
+    private void Ajout3_Inscription(ActionEvent event) {
+          try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Ajout3.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+ } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
         
-        List<Cours> Cours = new ArrayList<>();
-        Inscription_Service IS = new Inscription_Service();
-        Inscription I = new Inscription();
-        
-        
-        
-        I.setCours(new Cours());
-        IS.ajouter_Inscription(I);
-        
-        
-        
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setContentText("Inscription is added successfully!");
-        alert.show();
         
         
     }

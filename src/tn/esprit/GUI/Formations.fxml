@@ -74,53 +74,88 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="39.0" layoutY="352.0" prefHeight="66.0" prefWidth="643.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                  <Pane layoutX="323.0" layoutY="192.0" prefHeight="162.0" prefWidth="244.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <Label layoutX="27.0" layoutY="14.0" text="Tradition Tunisienne " textFill="#41951c">
+                        <Label layoutX="27.0" layoutY="14.0" text="Cour :Tradition Tunisienne " textFill="#41951c">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="28.0" layoutY="34.0" text="Jamilla Badi" textFill="WHITE">
+                        <Label layoutX="28.0" layoutY="58.0" text="Chef : Jamilla Badi" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="476.0" layoutY="35.0" text="Nbr Inscriptions : " textFill="#41951c">
+                        <Label layoutX="25.0" layoutY="105.0" text="Nbr Inscriptions : " textFill="#41951c">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="599.0" layoutY="37.0" text="10" textFill="#f8f8f8" />
+                        <Label layoutX="148.0" layoutY="107.0" text="10" textFill="#f8f8f8" />
                      </children>
                   </Pane>
-                  <Pane layoutX="39.0" layoutY="213.0" prefHeight="66.0" prefWidth="643.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                  <Pane layoutX="38.0" layoutY="192.0" prefHeight="162.0" prefWidth="200.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
                      <children>
-                        <Label layoutX="25.0" layoutY="9.0" text="Pasta" textFill="#41951c">
+                        <Label layoutX="25.0" layoutY="9.0" text="Cour : Pasta" textFill="#41951c">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="26.0" layoutY="27.0" text="Gorden Ramsey" textFill="WHITE">
+                        <Label layoutX="24.0" layoutY="57.0" text="Chef : Gorden Ramsey" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="473.0" layoutY="41.0" text="Nbr Inscriptions : " textFill="#41951c">
+                        <Label layoutX="24.0" layoutY="106.0" prefHeight="20.0" prefWidth="145.0" text="Nbr Inscriptions : " textFill="#41951c">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="594.0" layoutY="42.0" text="10" textFill="#f8f8f8" />
+                        <Label layoutX="140.0" layoutY="106.0" text="10" textFill="#f8f8f8" />
                      </children>
                   </Pane>
-                  <Label alignment="CENTER" layoutX="729.0" layoutY="461.0" prefHeight="78.0" prefWidth="200.0" text="TAP&amp;GO vous propose une large gamme de cours en lignes des meilleurs chefs du monde " textFill="#9a9292" wrapText="true">
+                  <Label alignment="CENTER" layoutX="692.0" layoutY="461.0" prefHeight="78.0" prefWidth="200.0" text="TAP&amp;GO vous propose une large gamme de cours en lignes des meilleurs chefs du monde " textFill="#9a9292" wrapText="true">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Button_Inscription3" layoutX="729.0" layoutY="370.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Ajout_Inscription" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="S'INSCRIRE" textFill="WHITE" />
-                  <Button fx:id="Button_Inscription2" layoutX="729.0" layoutY="231.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Ajout_Inscription" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="S'INSCRIRE" textFill="WHITE" />
+                  <Button fx:id="Button_Inscription3" layoutX="373.0" layoutY="400.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Ajout2_Inscription" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="S'INSCRIRE" textFill="WHITE" />
+                  <Button fx:id="Button_Inscription2" layoutX="65.0" layoutY="400.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Ajout1_Inscription" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="S'INSCRIRE" textFill="WHITE" />
+                  <Pane layoutX="707.0" layoutY="14.0" prefHeight="105.0" prefWidth="244.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <Label layoutX="27.0" layoutY="14.0" text="Cour le plus sélectionnée : " textFill="#41951c">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="28.0" layoutY="58.0" text="Pasta " textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="656.0" layoutY="192.0" prefHeight="162.0" prefWidth="244.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <Label layoutX="27.0" layoutY="14.0" text="Cour : Paella " textFill="#41951c">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="28.0" layoutY="58.0" text="Chef : Jordi Cruz" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="25.0" layoutY="105.0" text="Nbr Inscriptions : " textFill="#41951c">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="148.0" layoutY="107.0" text="10" textFill="#f8f8f8" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="Button_Inscription31" layoutX="712.0" layoutY="400.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Ajout3_Inscription" prefHeight="25.0" prefWidth="145.0" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="S'INSCRIRE" textFill="WHITE" />
                </children>
             </AnchorPane>
             <Label layoutX="134.0" layoutY="29.0" text="TAP&amp;GO" textFill="WHITE">

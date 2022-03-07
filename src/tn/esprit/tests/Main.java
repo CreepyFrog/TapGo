@@ -29,55 +29,55 @@ import tn.esprit.services.Cours_Services;
  * @author macbook
  */
 
-//public class Main extends Application {
-//    
-//    Parent parent;
-//    Stage stage;
-//    
-//    @Override
-//    public void start(Stage primaryStage) {
-//        this.stage = primaryStage;
-//        try {
-//        parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Admin.fxml"));
-//        } catch (IOException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//        Scene scene = new Scene(parent);
-//        stage.setScene(scene);
-//        stage.setTitle("Gestion de formations TAP&GO");
-//        stage.show();
-//
-//    }
-//
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-//}
+public class Main extends Application {
+    
+    Parent parent;
+    Stage stage;
+    
+    @Override
+    public void start(Stage primaryStage) {
+        this.stage = primaryStage;
+        try {
+        parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Formations.fxml"));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.setTitle("Gestion de formations TAP&GO");
+        stage.show();
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-         //TODO code application logic here
-// //crud Formations
-//Chef_Services cs = new Chef_Services()  ;
-//        Chefs c = new Chefs ("moi","Couscous ","TUNISIE");
-////        //Chefs ct = new Chefs ("Ahmed","Tajin","Tunis");
-//        cs.ajouter_Chef(c);
-        //cs.update_Chef(c);
-//       
-     // System.out.println( cs.afficher() );  
-      //System.out.println(cs.supprimer_Chef());
-        Cours_Services cs = new Cours_Services();
-        Cours c = new Cours ("Burger","Les ingrédients : Pure Meat",new Chefs(5));
-        cs.ajouter_Cours(c);
-//        System.out.println(cs.afficher_Cours()); 
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
 }
-        //cs.update_Cours(c);
-         
-        //System.out.println(cs.supprimer_Cours());
+
+//public class Main {
+//    public static void main(String[] args) throws IOException {
+//         //TODO code application logic here
+//// //crud Formations
+////Chef_Services cs = new Chef_Services()  ;
+////        Chefs c = new Chefs ("moi","Couscous ","TUNISIE");
+//////        //Chefs ct = new Chefs ("Ahmed","Tajin","Tunis");
+////        cs.ajouter_Chef(c);
+//        //cs.update_Chef(c);
+////       
+//     // System.out.println( cs.afficher() );  
+//      //System.out.println(cs.supprimer_Chef());
+//        Cours_Services cs = new Cours_Services();
+//        Cours c = new Cours ("Burger","Les ingrédients : Pure Meat",new Chefs(5));
+//        cs.ajouter_Cours(c);
+////        System.out.println(cs.afficher_Cours()); 
+//    }
+//}
+//        //cs.update_Cours(c);
+//         
+//        //System.out.println(cs.supprimer_Cours());
 
 
 
