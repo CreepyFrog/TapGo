@@ -32,8 +32,11 @@ public class Chefs {
         this.Adresse_Chef = Adresse_Chef;
     }
 
-  
+    public Chefs(int i) {
+    }
 
+  
+    
     public int getID_Chef() {
         return ID_Chef;
     }

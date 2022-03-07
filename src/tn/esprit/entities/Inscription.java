@@ -12,22 +12,27 @@ package tn.esprit.entities;
 public class Inscription {
     
     private int Id_Inscription;
-    private int Id_Cour;
-    private int Id_User;
+    private Cours c;
+    private User u;
 
-    public Inscription(int Id_Inscription, int Id_Cour, int Id_User) {
+    public Inscription(int Id_Inscription, Cours c, User u) {
         this.Id_Inscription = Id_Inscription;
-        this.Id_Cour = Id_Cour;
-        this.Id_User = Id_User;
+        this.c = c;
+        this.u = u;
     }
+
+ 
+ 
+    
 
     public Inscription() {
     }
 
-    public Inscription(int Id_Cour, int Id_User) {
-        this.Id_Cour = Id_Cour;
-        this.Id_User = Id_User;
+    public Inscription(Cours c, User u) {
+        this.c = c;
+        this.u = u;
     }
+
 
     public int getId_Inscription() {
         return Id_Inscription;
@@ -39,26 +44,28 @@ public class Inscription {
 
     @Override
     public String toString() {
-        return "Inscription{" + "Id_Inscription=" + Id_Inscription + ", Id_Cour=" + Id_Cour + ", Id_User=" + Id_User + '}';
+        return "Inscription{" + "Id_Inscription=" + Id_Inscription + ", Id_Cour=" + c.getId_Cour() + ", Id_User=" + u.getId() + '}';
     }
 
     
-    public int getId_Cour() {
-        return Id_Cour;
+    public Cours getCours() {
+        return this.c;
     }
 
-    public void setId_Cour(int Id_Cour) {
-        this.Id_Cour = Id_Cour;
+    public void setCours(Cours c) {
+        this.c=c;
     }
 
-    public int getId_User() {
-        return Id_User;
+    public User getU() {
+        return u;
     }
 
-    public void setId_User(int Id_User) {
-        this.Id_User = Id_User;
+    public void setU(User u) {
+        this.u = u;
     }
-    
+
+   
+   
     
     
     

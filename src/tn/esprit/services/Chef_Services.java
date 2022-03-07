@@ -48,10 +48,10 @@ public class Chef_Services {
         
     }
 
-    public List<Chefs> supprimer_Chef() {
+    public List<Chefs> supprimer_Chef(String Nom_Chef) {
         
         List<Chefs> Chefs = new ArrayList<>();
-        String sql="DELETE FROM Chefs WHERE Id_Chef=1";
+        String sql="DELETE FROM Chefs WHERE `Nom_Chef`='"+Nom_Chef+"'";
         try {
             pst=conn.prepareStatement(sql);
             pst.executeUpdate();
@@ -63,26 +63,51 @@ public class Chef_Services {
         
     }
 
-    public List<Chefs> update_Chef(Chefs c) {
-          List<Chefs> Chefs = new ArrayList<>();
-        String req;
-        req = "UPDATE Chefs SET Nom_Chef = ?, Cours_Associe = ? , Adresse_Chef = ? WHERE ID_Chef = 1";
-         try {
-            
-            pst = conn.prepareStatement(req);
-            pst.setString(1, c.getNom_Chef());
-            
-            pst.setString(2, c.getCours_Associe());
-            pst.setString(3, c.getAdresse_Chef());
-            pst.executeUpdate();
-            System.out.println("Chef Modifiée");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        return Chefs;
-    }
+//    public List<Chefs> update_Chef(Chefs c) {
+//          List<Chefs> Chefs = new ArrayList<>();
+//        String req;
+//        req = "UPDATE Chefs SET Nom_Chef = ?, Cours_Associe = ? , Adresse_Chef = ? WHERE Nom_Chef = ?";
+//         try {
+//            
+//            pst = conn.prepareStatement(req);
+//            pst.setString(1, c.getNom_Chef());
+//            pst.setString(2, c.getCours_Associe());
+//            pst.setString(3, c.getAdresse_Chef());
+//            pst.executeUpdate();
+//            System.out.println("Chef Modifiée");
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//        
+//        return Chefs;
+//    }
 
+    
+    
+    
+    
+//      public void modifier_Chef(int ID_Chef , String Nom_Chef , String Cours_Associe , String Adresse_Chef ) throws SQLException {
+//    try {    
+//    String req="UPDATE Chefs SET ID_Chef='"+ID_Chef+"',Nom_Chef='"+Nom_Chef+"',Cours_Associe='"+Cours_Associe+
+//                "',Adresse_Chef='"+Adresse_Chef+"'WHERE ID_Chef="+ID_Chef;
+//       
+//            ste = conn.prepareStatement(req);
+//            ste.executeUpdate(req);
+//            System.out.println("Le Chef "+ID_Chef+ "est modifier");
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//
+//    }
+//}
+
+    
+    
+    
+    
+    
+    
+    
+    
     public List<Chefs> afficher() {
         List<Chefs> Chefs = new ArrayList<>();
         

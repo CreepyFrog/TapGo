@@ -30,7 +30,25 @@ public class Cours_Services {
     public Cours_Services() {
         conn = DataSource.getInstance().getCnx();
     }
-    
+   
+//    public class ReactionService implements IReactionService<Reaction>{
+//      Connection cnx = Datasource.getInstance().getCnx();
+//
+//    @Override
+//    public void addReaction(Reaction r) {
+//        PreparedStatement pt;
+//        
+//          try {
+//              Statement ste = conn.createStatement();
+//              st.executeUpdate("INSERT INTO `Cours`(`Id_Cour`, `Nom_Cour`, `Libelle_Cour`,`ID_Chef`) VALUES ("+c.getId_Cour()+","+c.getLibelle_Cour()+","+r.getch().getID_Chef()+")");              
+//              System.err.println("Cour ajoutée");
+//    
+//          } catch (SQLException ex) {
+//              Logger.getLogger(ReactionService.class.getName()).log(Level.SEVERE, null, ex);
+//          }
+//    }
+
+    //
     public void ajouter_Cours(Cours c) {
         
          String req = "INSERT INTO `Cours` (`Id_Cour`,`Nom_Cour`,`Libelle_Cour`,`ID_Chef`) VALUES (?,?,?,?)";
@@ -40,9 +58,9 @@ public class Cours_Services {
             pst.setInt(1, c.getId_Cour());
             pst.setString(2, c.getNom_cour());
             pst.setString(3, c.getLibelle_Cour());
-            pst.setInt(4, c.getID_Chef());
+            pst.setInt(4,c.getChefs().getID_Chef());
             pst.executeUpdate();
-            System.out.println("cour ajoutée");
+            System.out.println("Cour ajoutée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -52,7 +70,7 @@ public class Cours_Services {
 
     public List<Cours> supprimer_Cours() {
        List<Cours> Cours = new ArrayList<>();
-        String sql="DELETE FROM Cours WHERE Id_Cour=1";
+        String sql="DELETE FROM Cours WHERE Id_Cour=6";
         try {
             pst=conn.prepareStatement(sql);
             pst.executeUpdate();
@@ -63,7 +81,7 @@ public class Cours_Services {
         return Cours;
     }
 
-    public List<Cours> update_Cours(Cours cc) {
+    public List<Cours> update_Cours(Cours cc ) {
          List<Cours> Cours = new ArrayList<>();
         String req;
         req = "UPDATE Cours SET Nom_Cour = ?, Libelle_Cour = ?, ID_Chef = ? WHERE Id_Cour = 1";
@@ -71,8 +89,7 @@ public class Cours_Services {
             
             pst = conn.prepareStatement(req);
             pst.setString(1, cc.getNom_cour());
-            pst.setString(2, cc.getLibelle_Cour());
-            pst.setInt(3, cc.getID_Chef());
+            pst.setString(2, cc.getLibelle_Cour());          
             pst.executeUpdate();
             System.out.println("Cour Modifiée");
         } catch (SQLException ex) {
@@ -94,12 +111,12 @@ public class Cours_Services {
             ResultSet rs= pst.executeQuery();
             
             while(rs.next()){
-                Cours cc = new Cours();
-                cc.setID_Chef( rs.getInt("Id_Cour") );
-                cc.setNom_cour(rs.getString(2));
-                cc.setLibelle_Cour(rs.getString(3));
-                cc.setID_Chef(rs.getInt(4));
-                Cours.add(cc);
+                Cours c = new Cours();
+                c.setId_Cour( rs.getInt("Id_Cour") );
+                c.setNom_cour(rs.getString(2));
+                c.setLibelle_Cour(rs.getString(3));
+                c.setChefs(new Chefs (rs.getInt(4)));
+                Cours.add(c);
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -110,7 +127,7 @@ public class Cours_Services {
         
     }
 
-    
+
         
         
     }

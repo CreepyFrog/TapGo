@@ -12,8 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import tn.esprit.entities.IService;
+import tn.esprit.entities.Cours;
 import tn.esprit.entities.Inscription;
+import tn.esprit.entities.User;
 import tn.esprit.utils.DataSource;
 
 /**
@@ -32,13 +33,15 @@ public class Inscription_Service  {
         
     
     public void ajouter_Inscription(Inscription I) {
-  String req = "INSERT INTO `Inscription` (`Id_inscription`,`Id_Cour`,`Id_User`) VALUES (?,?,?)";
+
+      
+  String req = "INSERT INTO `Inscription` (`Id_inscription`,`Id_Cour`,`id`) VALUES (?,?,?)";
         
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, I.getId_Inscription());
-            pst.setInt(2, I.getId_Cour());
-            pst.setInt(3, I.getId_User());
+            pst.setInt(2, I.getCours().getId_Cour());
+            pst.setInt(3, I.getU().getId());
             pst.executeUpdate();
             System.out.println("Inscription ajoutée");
         } catch (SQLException ex) {
@@ -59,8 +62,8 @@ public class Inscription_Service  {
             while(rs.next()){
                 Inscription I = new Inscription();
                 I.setId_Inscription(rs.getInt("Id_Inscription") );
-                I.setId_Cour(rs.getInt(2));
-                I.setId_User(rs.getInt(3));
+                I.setCours(new Cours (rs.getInt(1)));
+                I.setU(new User(rs.getInt(2)));
               
                 Inscription.add(I);
             }
@@ -80,9 +83,8 @@ public class Inscription_Service  {
          try {
             
             pst = conn.prepareStatement(req);
-            pst.setInt(1, I.getId_Cour());
-            pst.setInt(2, I.getId_User());
-          
+            pst.setInt(1, I.getCours().getId_Cour());
+            pst.setInt(2, I.getU().getId());
             pst.executeUpdate();
             System.out.println("Inscription Modifiée");
         } catch (SQLException ex) {
@@ -96,7 +98,7 @@ public class Inscription_Service  {
     public List<Inscription> supprimer_Inscription() {
         
         List<Inscription> Inscription = new ArrayList<>();
-        String sql="DELETE FROM Inscription WHERE Id_Inscription=1";
+        String sql="DELETE FROM Inscription WHERE Id_Inscription=?";
         try {
             pst=conn.prepareStatement(sql);
             pst.executeUpdate();

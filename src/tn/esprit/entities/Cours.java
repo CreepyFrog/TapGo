@@ -13,29 +13,30 @@ public class Cours {
     private int Id_Cour;
     private String Nom_cour; 
     private String Libelle_Cour;
-    private int ID_Chef;
+    private Chefs ch;
 
 
-    public Cours(int Id_Cour, String Nom_cour, String Libelle_Cour, int ID_Chef) {
+    public Cours(int Id_Cour, String Nom_cour, String Libelle_Cour, Chefs ch) {
         this.Id_Cour = Id_Cour;
         this.Nom_cour = Nom_cour;
         this.Libelle_Cour = Libelle_Cour;
-        this.ID_Chef = ID_Chef;
+        this.ch.setID_Chef(ch.getID_Chef());
     }
 
    
     public Cours() {
     }
 
-    public Cours(String Nom_cour, String Libelle, int ID_Chef) {
+    public Cours(String Nom_cour, String Libelle_Cour, Chefs ch) {
         this.Nom_cour = Nom_cour;
-        this.Libelle_Cour = Libelle;
-        this.ID_Chef = ID_Chef;
+        this.Libelle_Cour = Libelle_Cour;
+        this.ch = ch;
     }
 
-    public Cours(String pizza_maker, String pizza_is_an_italien_meal) {
+    public Cours(int aInt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 
 
     public int getId_Cour() {
@@ -46,13 +47,13 @@ public class Cours {
         this.Id_Cour = Id_Cour;
     }
 
-    @Override
-    public String toString() {
-        return "Cours{" + "Id_Cour=" + Id_Cour + ", Nom_cour=" + Nom_cour + ", Libelle_Cour=" + Libelle_Cour + ", ID_Chef=" + ID_Chef + '}';
-    }
-
     public String getNom_cour() {
         return Nom_cour;
+    }
+
+    @Override
+    public String toString() {
+        return "Cours{" + "Id_Cour=" + Id_Cour + ", Nom_cour=" + Nom_cour + ", Libelle_Cour=" + Libelle_Cour + ", ID_Chef" + ch.getID_Chef() + '}';
     }
 
     public void setNom_cour(String Nom_cour) {
@@ -67,17 +68,20 @@ public class Cours {
         this.Libelle_Cour = Libelle;
     }
 
-    public int getID_Chef() {
-        return ID_Chef;
+    public Chefs getChefs() {
+        return this.ch;
     }
 
-    public void setID_Chef(int ID_Chef) {
-        this.ID_Chef = ID_Chef;
+    public void setChefs(Chefs chef) {
+        this.ch=ch;
     }
 
 
 
 
+
+ 
+  
 
 
     
