@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EvenementBrowserFXMLController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EvenementBrowserFXMLController">
    <children>
-      <SplitPane dividerPositions="0.34673366834170855" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.4866666666666667" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                <children>
@@ -35,12 +35,12 @@
                            <children>
                               <VBox spacing="2.0">
                                  <children>
-                                    <RadioButton fx:id="DateOption" mnemonicParsing="false" text="Date Spécifique">
+                                    <RadioButton fx:id="DateSpecifique" mnemonicParsing="false" text="Date Spécifique">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="DateOptionGroup" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton fx:id="DateOption" mnemonicParsing="false" text="Période" toggleGroup="$DateOptionGroup" />
+                                    <RadioButton fx:id="DatePeriode" mnemonicParsing="false" text="Période" toggleGroup="$DateOptionGroup" />
                                  </children>
                                  <padding>
                                     <Insets top="2.0" />
@@ -48,8 +48,8 @@
                               </VBox>
                               <HBox spacing="10.0">
                                  <children>
-                                    <DatePicker promptText="Date minimum" />
-                                    <DatePicker promptText="Date maximum" />
+                                    <DatePicker fx:id="DateDebut" promptText="Date minimum" />
+                                    <DatePicker fx:id="DateFin" promptText="Date maximum" />
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -67,7 +67,7 @@
                   </VBox>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" />
+          <AnchorPane fx:id="PaneListe" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" />
         </items>
       </SplitPane>
    </children>

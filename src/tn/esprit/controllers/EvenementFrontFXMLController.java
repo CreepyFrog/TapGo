@@ -7,7 +7,9 @@ package tn.esprit.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -15,6 +17,11 @@ import javafx.fxml.Initializable;
  * @author ASUS
  */
 public class EvenementFrontFXMLController implements Initializable {
+
+    @FXML
+    private Label NomArtiste;
+    @FXML
+    private Label TypeDeMusique;
 
     /**
      * Initializes the controller class.
