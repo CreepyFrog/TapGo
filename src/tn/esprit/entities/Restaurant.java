@@ -47,7 +47,8 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant{" + "Id_Restaurant=" + Id_Restaurant + ", Nom_Restaurant=" + Nom_Restaurant + '}';
+        //return "Restaurant{" + "Id_Restaurant=" + Id_Restaurant + ", Nom_Restaurant=" + Nom_Restaurant + '}';
+        return Nom_Restaurant;
     }
     
 }

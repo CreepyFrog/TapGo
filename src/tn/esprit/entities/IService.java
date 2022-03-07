@@ -16,5 +16,6 @@ public interface IService<T> {
     void supprimer(T entity);
     void modifier(T entity);
     List<T> afficher();
-    T findById(int id);
+    T find(int id);
+    T find(String name);
 }

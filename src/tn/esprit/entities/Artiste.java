@@ -55,7 +55,8 @@ public class Artiste {
 
     @Override
     public String toString() {
-        return "Artiste{" + "Id_Artiste=" + Id_Artiste + ", Nom_Artiste=" + Nom_Artiste + ", Type_De_Musique=" + Type_De_Musique + '}';
+        //return "Artiste{" + "Id_Artiste=" + Id_Artiste + ", Nom_Artiste=" + Nom_Artiste + ", Type_De_Musique=" + Type_De_Musique + '}';
+        return Nom_Artiste;
     }
     
 }

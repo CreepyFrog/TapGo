@@ -5,7 +5,6 @@
  */
 package tn.esprit.controllers;
 
-import com.sun.xml.internal.bind.v2.runtime.property.PropertyFactory;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
@@ -37,6 +36,7 @@ public class EvenementBackFXMLController implements Initializable {
     EvenementService es = new EvenementService();
     ArtisteService as = new ArtisteService();
     RestaurantService rs = new RestaurantService();
+    Evenement selected = null;
 
     @FXML
     private TextField NomEvenement;
@@ -112,48 +112,55 @@ public class EvenementBackFXMLController implements Initializable {
     }
     
     private void modifierEvenementDB() {
-        Evenement selected = listeEvenement.getSelectionModel().getSelectedItem();
+        selected = listeEvenement.getSelectionModel().getSelectedItem();
         Date date = Date.valueOf(DateEvenement.getValue());
         selected.setNom_Evenement(NomEvenement.getText());
         selected.setDate_Evenement(date);
-        selected.setArtiste(ArtisteEvenement.getSelectionModel().getSelectedItem());
-        selected.setRestaurant(RestaurantEvenement.getSelectionModel().getSelectedItem());
+        selected.setArtiste(ArtisteEvenement.getSelectionModel()
+                .getSelectedItem());
+        selected.setRestaurant(RestaurantEvenement.getSelectionModel()
+                .getSelectedItem());
         es.modifier(selected);
     }
     
     private void supprimerEvenementDB() {
-        Evenement selected = listeEvenement.getSelectionModel().getSelectedItem();
+        selected = listeEvenement.getSelectionModel().getSelectedItem();
         es.supprimer(selected);
     }
     
     private void addEvenementDB() {
         
         Date date = Date.valueOf(DateEvenement.getValue());
-        Evenement e = new Evenement(NomEvenement.getText(), date, ArtisteEvenement.getSelectionModel().getSelectedItem(), RestaurantEvenement.getSelectionModel().getSelectedItem());
+        Evenement e = new Evenement(NomEvenement.getText(), date,
+                ArtisteEvenement.getSelectionModel().getSelectedItem(),
+                RestaurantEvenement.getSelectionModel().getSelectedItem());
         es.ajouter(e);
         NomEvenement.setText("");
     }
     
     private void fillEvenementTV() {
         ObservableList<Evenement> le = es.afficher();
-        Nom_Evenement.setCellValueFactory(new PropertyValueFactory<Evenement, String>("Nom_Evenement"));
-        Date_Evenement.setCellValueFactory(new PropertyValueFactory<Evenement, Date>("Date_Evenement"));
-        Artiste_Evenement.setCellValueFactory(new PropertyValueFactory<Evenement, Artiste>("Id_Artiste"));
-        Restaurant_Evenement.setCellValueFactory(new PropertyValueFactory<Evenement, Restaurant>("Id_Restaurant"));
+        Nom_Evenement.setCellValueFactory(new PropertyValueFactory
+                <Evenement,String>("Nom_Evenement"));
+        Date_Evenement.setCellValueFactory(new PropertyValueFactory
+                <Evenement, Date>("Date_Evenement"));
+        Artiste_Evenement.setCellValueFactory(new PropertyValueFactory
+                <Evenement, Artiste>("Id_Artiste"));
+        Restaurant_Evenement.setCellValueFactory(new PropertyValueFactory
+                <Evenement, Restaurant>("Id_Restaurant"));
         listeEvenement.setItems(le);
+        
         
     }
     
     private void fillCBArtiste() {
         ObservableList<Artiste> la = as.afficher();
         ArtisteEvenement.setItems(la);
-        //ArtisteEvenement.setCellFactory(new PropertyValueFactory<Artiste,String>("Nom_Artiste"));
     }
     
     private void fillCBRestaurant() {
         ObservableList<Restaurant> lr = rs.afficher();
         RestaurantEvenement.setItems(lr);
-        //ArtisteEvenement.setCellFactory(new PropertyValueFactory<Artiste,String>("Nom_Artiste"));
     }
     
     private void setButtonsDefault(){
@@ -162,4 +169,7 @@ public class EvenementBackFXMLController implements Initializable {
         buttonModifier.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
         buttonAfficher.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
     }
+    
+    
+                    
 }

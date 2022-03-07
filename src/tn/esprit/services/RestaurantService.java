@@ -72,13 +72,18 @@ public class RestaurantService implements IService<Restaurant>{
     }
 
     @Override
-    public Restaurant findById(int id) {
+    public Restaurant find(int id) {
         List<Restaurant> rList = new ArrayList<>();
         
         rList = this.afficher();
         Restaurant r = rList.stream().filter(restaurant -> id == restaurant.getId_Restaurant()).findAny().orElse(null);
         
         return r;
+    }
+
+    @Override
+    public Restaurant find(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
