@@ -28,7 +28,7 @@
             <children>
                 <VBox layoutX="34.0" layoutY="150.0" prefHeight="368.0" prefWidth="129.0" spacing="32.0">
                     <children>
-                        <Label text="ID" />
+                        <Label disable="true" opacity="0.0" text="ID" />
                         <Label text="Name" />
                         <Label prefHeight="17.0" prefWidth="72.0" text="Last Name" />
                   <Label text="Email" />
@@ -43,7 +43,7 @@
                 </VBox>
                 <VBox layoutX="179.0" layoutY="160.0" prefHeight="202.0" prefWidth="100.0" spacing="24.0">
                     <children>
-                        <TextField fx:id="tfid" />
+                        <TextField fx:id="tfid" disable="true" opacity="0.0" />
                         <TextField fx:id="tfName" />
                         <TextField fx:id="tfLast" />
                   <TextField fx:id="tfMail" />

@@ -3,19 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/gui/InscriptionOwner.fxml</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/gui/HomeAdmin.fxml</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/gui/Inscription.fxml</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/service/InscriptionControllerOwner.java</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/gui/design.fxml</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/service/MailController.java</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/service/dashboardController.java</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/service/Controller.java</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/gui/alertEmail.fxml</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/gui/Mail.fxml</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/service/InscriptionController.java</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/gui/Dashboard.fxml</file>
-            <file>file:/C:/Users/aymen/Desktop/PIDEVAPP/src/service/LoginFormController.java</file>
+            <file>file:/C:/Users/TECHNOPC/Desktop/PIDEVAPP/src/gui/Mail.fxml</file>
+            <file>file:/C:/Users/TECHNOPC/Desktop/PIDEVAPP/src/service/designController.java</file>
         </group>
     </open-files>
 </project-private>

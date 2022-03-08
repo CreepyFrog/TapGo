@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
@@ -20,54 +22,44 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+//import javafx.scene.control.Label;
+//import javafx.scene.layout.AnchorPane;
 import models.UserHolder;
 //import Controller.java;
 //import service.LoginFormController;
 
-public class dashboardController implements Initializable {
+public class designController implements Initializable {
     public Pane context;
 //    @FXML
 //    private AnchorPane root1;
 //    @FXML
 //    private Button dtnDashBoard;
-    @FXML
-    private AnchorPane root1;
+//    @FXML
+//    private AnchorPane root1;
     @FXML
     private Label userlabel;
     private UserHolder ur=UserHolder.getInstance();
-   // @FXML
-  //  private Button dtnDashBoard;
-
-    private void setUi(String location) throws IOException {
-        context.getChildren().clear();
-        context.getChildren().add(FXMLLoader.load(this.getClass().
-                getResource("/gui/" + location + ".fxml")));
-    }
     @FXML
-    public void DashBoardOnAction() throws IOException {
-        context.getChildren().clear();
-        context.getChildren().add(FXMLLoader.load(this.getClass().
-                getResource("/gui/InscriptionOwner.fxml")));
-    }
-    @FXML
-    public void btnHomeOnAction() throws IOException {
+    private AnchorPane root1;
 
-        setUi("HomeAdmin");
-    }
+//    private void setUi(String location) throws IOException {
+//        context.getChildren().clear();
+//        context.getChildren().add(FXMLLoader.load(this.getClass().
+//                getResource("/gui/" + location + ".fxml")));
+//    }
+//   
+   
     
-    @FXML
-          void btnMailOnAction(ActionEvent event) throws IOException {
-          setUi("Mail");
-    }
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            setUi("HomeAdmin");
-            userlabel.setText(ur.getUser().getName());
-        } catch (IOException ex) {
-            Logger.getLogger(dashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//      try {
+//            setUi("design");
+//            userlabel.setText(ur.getUser().getName());
+//        } catch (IOException ex) {
+//            Logger.getLogger(designController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+userlabel.setText(ur.getUser().getName());
     }
            @FXML
     private Button btnlodout;

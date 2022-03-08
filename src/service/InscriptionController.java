@@ -154,7 +154,7 @@ public class InscriptionController implements Initializable {
     @FXML
     void Insert1 ( ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         
-           if(tfLast.getText().equals("")||tfMail.getText().equals("")||tfName.getText().equals("")||tfPhone.getText().equals("")||tfid.getText().equals("")){
+           if(tfLast.getText().equals("")||tfMail.getText().equals("")||tfName.getText().equals("")||tfPhone.getText().equals("")){
                 
 
                            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("gui/alertRemplir.fxml")));
@@ -177,7 +177,7 @@ public class InscriptionController implements Initializable {
                  
            String alexResult  =tfPass.getText().substring(0, 3)+"nisqpfdbn$hreb6b8e6"+tfPass.getText().substring(3);
    
-        String query ="INSERT INTO user VALUES("+ tfid.getText()+",'"+ tfName.getText() +"','"+tfLast.getText()+"','"+ tfMail.getText() +"','"+alexResult +"','"+ Gender +"','"+ Role +"',"+ tfPhone.getText() +",'"+ java.sql.Date.valueOf(tfBir.getValue())  +"','"+ acces +"')";
+        String query ="INSERT INTO user(name,lastname,email,password,Gender,Role,phone,birthday,acces) VALUES("+"'"+ tfName.getText() +"','"+tfLast.getText()+"','"+ tfMail.getText() +"','"+alexResult +"','"+ Gender +"','"+ Role +"',"+ tfPhone.getText() +",'"+ java.sql.Date.valueOf(tfBir.getValue())  +"','"+ acces +"')";
         executeQuery(query);
         
           tfPass.getScene().getWindow().hide();

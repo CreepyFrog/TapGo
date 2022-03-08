@@ -18,9 +18,9 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import javafx.fxml.FXML;
 
 public class MailController {
-// For testing elyes.zneti.test@gmail.com less secure
 
     public TextField emailToField;
     public TextField emailFromField;
@@ -28,7 +28,10 @@ public class MailController {
     public TextField emailSubjectField;
     public PasswordField emailPasswordField;
     public Label sentBoolValue;
+    @FXML
+    private Button sendEmailButton;
 
+    @FXML
     public void buttonClicked(ActionEvent actionEvent){
         sendEmail();
     }

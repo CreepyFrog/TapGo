@@ -3,20 +3,22 @@ package models;
 import java.util.Date;
 
 public class User {
-    private int id;
-   private String name;
-   private String lastname;
-   private String email;
-   private String password;
-   private String gender;
-   private String role;
-   private int phone;
-   private Date birthday;
-      private String acces;
-   
-    public User(){}
 
-    public User(int id, String name, String lastname, String email, String password, String gender, String role, int phone, Date birthday,String acces) {
+    private int id;
+    private String name;
+    private String lastname;
+    private String email;
+    private String password;
+    private String gender;
+    private String role;
+    private int phone;
+    private Date birthday;
+    private String acces;
+
+    public User() {
+    }
+
+    public User(int id, String name, String lastname, String email, String password, String gender, String role, int phone, Date birthday, String acces) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -28,8 +30,18 @@ public class User {
         this.birthday = birthday;
         this.acces = acces;
     }
-   
-   
+
+    public User(String name, String lastname, String email, String password, String gender, String role, int phone, Date birthday, String acces) {
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;
+        this.role = role;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.acces = acces;
+    }
 
     public int getId() {
         return id;
@@ -110,6 +122,5 @@ public class User {
     public void setAcces(String acces) {
         this.acces = acces;
     }
-
 
 }
