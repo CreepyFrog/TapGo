@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" styleClass="CardArtiste" stylesheets="@../styles/ObjectCard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EvenementFrontFXMLController">
+<AnchorPane id="AnchorPane" fx:id="artisteFrontFXML" minHeight="-Infinity" minWidth="-Infinity" styleClass="CardArtiste" stylesheets="@../styles/ObjectCard.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ArtisteFrontFXMLController">
    <children>
       <VBox layoutX="13.0" layoutY="14.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>

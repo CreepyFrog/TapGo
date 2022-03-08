@@ -150,9 +150,15 @@ public class ArtisteService implements IService<Artiste>{
 //-------------------------------------------------------------------------- 
     public ObservableList<String> typesMusique(){
         ObservableList<String> types = FXCollections.observableArrayList();
-        ObservableList<Artiste> artistes = rechercheUniqueMusique();
-        for (Artiste a : artistes){
-            types.add(a.getType_De_Musique());
+        String req = "SELECT DISTINCT Type_De_Musique FROM artiste";
+        try {
+            pst = conn.prepareStatement(req);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                types.add(rs.getString(1));
+            }
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
         return types;
     }
@@ -174,20 +180,6 @@ public class ArtisteService implements IService<Artiste>{
                 artistes.add(a);
             }
         } catch(SQLException ex){
-            System.out.println(ex.getMessage());
-        }
-        return artistes;
-    }
-    
-    private ObservableList<Artiste> rechercheUniqueMusique(){
-        ObservableList<Artiste> artistes =
-                FXCollections.observableArrayList();
-        String req = "SELECT DISTINCT Type_De_Musique FROM artiste";
-        try {
-            pst = conn.prepareStatement(req);
-            ResultSet rs = pst.executeQuery();
-            artistes = fillAList(rs);
-        }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return artistes;

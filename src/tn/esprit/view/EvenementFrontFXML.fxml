@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.effect.DropShadow?>
@@ -7,34 +8,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" styleClass="CardEvent" stylesheets="@../styles/ObjectCard.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.esprit.controllers.EvenementFrontFXMLController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" styleClass="CardEvent" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EvenementFrontFXMLController">
    <children>
-      <VBox layoutX="13.0" layoutY="14.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <HBox layoutX="15.0" layoutY="15.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <HBox>
+            <VBox fx:id="eButton">
                <children>
-                  <Label text="Evenement :" />
-                  <Label fx:id="NomEvenement" styleClass="dynamiclabel" text="NomEvenement" />
-               </children>
-            </HBox>
-            <Separator opacity="0.2" />
-            <HBox prefHeight="22.0">
-               <children>
+                  <HBox>
+                     <children>
+                        <Label text="Evenement :" />
+                        <Label fx:id="NomEvenement" styleClass="dynamiclabel" text="NomEvenement" />
+                     </children>
+                  </HBox>
+                  <Separator opacity="0.2" />
                   <HBox>
                      <children>
                         <Label text="Date :" />
                         <Label fx:id="DateEvenement" styleClass="dynamiclabel" text="DateEvenement" />
                      </children>
                   </HBox>
-                  <Separator opacity="0.2" orientation="VERTICAL" prefHeight="27.0" prefWidth="25.0" />
-                  <HBox>
-                     <children>
-                        <Label text="Artiste :" />
-                        <Label fx:id="NomArtiste" styleClass="dynamiclabel" text="NomArtiste" />
-                     </children>
-                  </HBox>
-                  <Separator opacity="0.2" orientation="VERTICAL" prefHeight="27.0" prefWidth="25.0" />
+                  <Separator opacity="0.2" />
                   <HBox>
                      <children>
                         <Label text="Restaurant :" />
@@ -42,11 +35,43 @@
                      </children>
                   </HBox>
                </children>
-            </HBox>
+            </VBox>
+            <AnchorPane id="AnchorPane" fx:id="AnchorPaneArtiste" minHeight="-Infinity" minWidth="-Infinity" styleClass="CardArtiste" stylesheets="@../styles/ObjectCard.css">
+               <children>
+                  <VBox layoutX="13.0" layoutY="14.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label text="Artiste :" />
+                              <Label fx:id="NomArtiste" styleClass="dynamiclabel" text="NomArtiste" />
+                           </children>
+                        </HBox>
+                        <Separator opacity="0.2" />
+                        <HBox prefHeight="22.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label text="Genre :" />
+                                    <Label fx:id="TypeDeMusique" styleClass="dynamiclabel" text="TypeDeMusique" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
          </children>
-      </VBox>
+      </HBox>
    </children>
    <effect>
       <DropShadow />
    </effect>
+   <stylesheets>
+      <URL value="@../styles/ObjectCard.css" />
+      <URL value="@../../../css/ObjectCard.css" />
+   </stylesheets>
 </AnchorPane>

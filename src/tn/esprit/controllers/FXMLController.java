@@ -7,22 +7,14 @@ package tn.esprit.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import tn.esprit.entities.Artiste;
 
 /**
  * FXML Controller class
  *
  * @author ASUS
  */
-public class ArtisteFrontFXMLController implements Initializable {
-
-    @FXML
-    private Label NomArtiste;
-    @FXML
-    private Label TypeDeMusique;
+public class FXMLController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -32,8 +24,4 @@ public class ArtisteFrontFXMLController implements Initializable {
         // TODO
     }    
     
-    public void loadData(Artiste a){
-        NomArtiste.setText(a.getNom_Artiste());
-        TypeDeMusique.setText(a.getType_De_Musique());
-    }
 }

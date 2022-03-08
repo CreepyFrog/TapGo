@@ -11,10 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tn.esprit.entities.Artiste;
-import tn.esprit.entities.Evenement;
-import tn.esprit.services.ArtisteService;
-import tn.esprit.services.EvenementService;
 
 /**
  *
@@ -39,43 +35,45 @@ public class Main extends Application {
     }
     public static void main(String[] args) throws IOException {
         launch(args);
+
+        
         // TODO code application logic here
         
-        /*
-        ArtisteService as = new ArtisteService();
-        Artiste a = new Artiste("Elvis","Country");
-        //a.setId_Artiste(1);
-        //a.setType_De_Musique("classic");
         
-        //a = as.findById(10);
-        //a.setType_De_Musique("rock");
-        
-        //as.modifier(a);
-        
-        //as.supprimer(a);
-        
-        as.ajouter(a);
-        
-        //System.out.println(as.findById(11));
-        System.out.println(as.afficher());
-        
-        
-        /*
-        EvenementService es = new EvenementService();
-        Evenement e = new Evenement("Sahria","2022-11-11");
-        
-        //e.setId_Evenement(1);
-        e = es.findById(2);
-        e.setNom_Evenement("Sahria2");
-        
-        es.modifier(e);
-        
-        //es.supprimer(e);
-        
-        //es.ajouter(e);
-        
-        System.out.println(es.findById(2));
-        System.out.println(es.afficher());
-        */
+//        ArtisteService as = new ArtisteService();
+//        Artiste a = new Artiste("Elvis","Country");
+//        //a.setId_Artiste(1);
+//        //a.setType_De_Musique("classic");
+//        
+//        //a = as.findById(10);
+//        //a.setType_De_Musique("rock");
+//        
+//        //as.modifier(a);
+//        
+//        //as.supprimer(a);
+//        
+//        //as.ajouter(a);
+//        
+//        //System.out.println(as.findById(11));
+//        System.out.println(as.typesMusique());
+//        
+//        
+//        /*
+//        EvenementService es = new EvenementService();
+//        Evenement e = new Evenement("Sahria","2022-11-11");
+//        
+//        //e.setId_Evenement(1);
+//        e = es.findById(2);
+//        e.setNom_Evenement("Sahria2");
+//        
+//        es.modifier(e);
+//        
+//        //es.supprimer(e);
+//        
+//        //es.ajouter(e);
+//        
+//        System.out.println(es.findById(2));
+//        System.out.println(es.afficher());
+//        */
     }
 }

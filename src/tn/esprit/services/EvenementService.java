@@ -7,6 +7,7 @@ package tn.esprit.services;
 
 import java.sql.*;
 import java.util.List;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import tn.esprit.entities.IService;
@@ -131,6 +132,16 @@ public class EvenementService implements IService<Evenement> {
         return e;
     }
     
+    public ObservableList<Evenement> find(String name, ObservableList<Evenement> eList){
+        ObservableList<Evenement> resultat = FXCollections.observableArrayList();
+        for (Evenement ev : eList){
+            if(ev.getNom_Evenement()==name){
+                resultat.add(ev);
+            }
+        }
+        return resultat;
+    }
+    
 //--------------------------------------------------------------------------
 //  Rechechrche parametré
 //--------------------------------------------------------------------------
@@ -158,16 +169,10 @@ public class EvenementService implements IService<Evenement> {
                 FXCollections.observableArrayList();
         String req;
         if (isName){
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (\n" +
-                "SELECT * FROM `artiste` a\n" +
-                "WHERE e.Id_Artiste = a.Id_Artiste)\n" +
-                "AND a.Nom_Artiste = ?";
+            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste) AND a.Nom_Artiste = ?";
         }
         else{
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (\n" +
-                "SELECT * FROM `artiste` a\n" +
-                "WHERE e.Id_Artiste = a.Id_Artiste)\n" +
-                "AND a.Type_De_Musique = ?";
+            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND a.Type_De_Musique = ?)";
         }
         try {
             pst = conn.prepareStatement(req);
@@ -181,12 +186,16 @@ public class EvenementService implements IService<Evenement> {
         return evenements;
     }
     
+//    public ObseervableList<Evenement> recherche(String nom, String type){
+//        ObservableList<Evenement> evenements =
+//                FXCollections.observableArrayList();
+//        String req = 
+//    }
+    
     public ObservableList<Evenement> recherche(Date debut, Date fin){
         ObservableList<Evenement> evenements = 
                 FXCollections.observableArrayList();
-        String req = "SELECT * FROM `evenement` "
-                + "WHERE `Date_Evenement` "
-                + "BETWEEN ? AND ?";
+        String req = "SELECT * FROM `evenement` WHERE `Date_Evenement` BETWEEN ? AND ?";
         try {
             pst = conn.prepareStatement(req);
             pst.setDate(1, debut);
@@ -206,18 +215,10 @@ public class EvenementService implements IService<Evenement> {
                 FXCollections.observableArrayList();
         String req;
         if (isName){
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (" +
-                "SELECT * FROM `artiste` a " +
-                "WHERE e.Id_Artiste = a.Id_Artiste" +
-                "AND e.Date_Evenement = ?" +
-                "AND a.Nom_Artiste = ?)";
+            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement = ? AND a.Nom_Artiste = ?)";
         }
         else {
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (" +
-                "SELECT * FROM `artiste` a " +
-                "WHERE e.Id_Artiste = a.Id_Artiste" +
-                "AND e.Date_Evenement = ?" +
-                "AND a.Type_De_Musique = ?)";
+            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement = ? AND a.Type_De_Musique = ?)";
         }
         try {
             pst = conn.prepareStatement(req);
@@ -238,18 +239,10 @@ public class EvenementService implements IService<Evenement> {
                 FXCollections.observableArrayList();
         String req;
         if (isName){
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (" +
-                "SELECT * FROM `artiste` a " +
-                "WHERE e.Id_Artiste = a.Id_Artiste" +
-                "AND e.Date_Evenement BETWEEN ? AND ?" +
-                "AND a.Nom_Artiste = ?)";
+            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement BETWEEN ? AND ? AND a.Nom_Artiste = ?)";
         }
         else {
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (" +
-                "SELECT * FROM `artiste` a " +
-                "WHERE e.Id_Artiste = a.Id_Artiste" +
-                "AND e.Date_Evenement BETWEEN ? AND ?" +
-                "AND a.Type_De_Musique = ?)";
+            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement BETWEEN ? AND ? AND a.Type_De_Musique = ?)";
         }
         try {
             pst = conn.prepareStatement(req);
@@ -268,10 +261,7 @@ public class EvenementService implements IService<Evenement> {
     public ObservableList<Evenement> rechercheParRest(Restaurant r){
         ObservableList<Evenement> evenements = 
                 FXCollections.observableArrayList();
-        String req = "SELECT * FROM evenement e WHERE EXISTS("
-                + "SELECT * FROM restaurant r "
-                + "WHERE e.Id_Restaurant = r.Id_Restaurant"
-                + "AND r.Id_Restaurant = ?)";
+        String req = "SELECT * FROM evenement e WHERE EXISTS(SELECT * FROM restaurant r WHERE e.Id_Restaurant = r.Id_Restaurant AND r.Id_Restaurant = ?)";
         try {
             pst = conn.prepareStatement(req);
             pst.setInt(1, r.getId_Restaurant());

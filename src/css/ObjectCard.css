@@ -45,13 +45,13 @@ and open the template in the editor.
 }
 
 .label{
-    -fx-text-fill: lightgray;
-    -fx-font-weight: bold;
+    -fx-text-fill: white;
     -fx-padding: 3;
 }
 
 .dynamiclabel{
-    -fx-text-fill: white;
+    -fx-text-fill: #fff600;
+    -fx-font-weight: bold;
 }
 
 .separator{

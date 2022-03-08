@@ -1,13 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Mar 5, 2022, 12:38:14 PM
-    Author     : ASUS
-*/
-
 .button1
 {
 -fx-background-color : #393351;
@@ -69,13 +59,43 @@ and open the template in the editor.
     -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
     -fx-background-radius :  30 30 30 30;
 }
+.AppBackground {
+    -fx-background-color :  #030307;
+}
+.ModuleBackground {
+    -fx-background-color :  #131022;
+    -fx-border-radius : 10;
+}
 
+.split-pane {
+    -fx-background-color : transparent;
+}
+
+.split-pane-divider {
+    -fx-background-color : lightgrey;
+}
+
+.scroll-pane {
+    -fx-background : transparent;
+    -fx-background-color : transparent;
+}
 
 .combo-box
 {
     -fx-background-color : #141124;
     -fx-border-color:  #515658;
     -fx-border-radius: 30;
+}
+.combo-box .list-cell{
+    -fx-text-fill : white;
+}
+
+.combo-box .list-view .list-cell{
+    -fx-background-color : #393351;
+}
+
+.combo-box .list-view .list-cell:hover{
+    -fx-background-color : #41951C;
 }
 .combo-box:hover
 {
@@ -114,6 +134,69 @@ and open the template in the editor.
         -fx-fill : white ;
 
  }
+ 
+ .CardEvent{
+    -fx-background-color: #393351;
+    -fx-background-radius: 25px;
+
+    -fx-border-radius: 25px;
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+.CardEvent:hover{
+    -fx-background-color: #524A7B;
+}
+
+.CardEvent:pressed{
+    -fx-background-corlor: #2F2B43;
+}
+
+.CardArtiste{
+    -fx-background-color: #473351;
+    -fx-background-radius: 25px;
+
+    -fx-border-radius: 25px;
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+.CardArtiste:hover{
+    -fx-background-color: #714a7b;
+}
+
+.CardArtiste:pressed{
+    -fx-background-corlor: #412b43;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-padding: 3;
+}
+
+.dynamiclabel{
+    -fx-text-fill: #fff600;
+    -fx-font-weight: bold;
+}
+
+.radio-button {
+    -fx-text-fill : white;
+}
+
+.separator{
+    -fx-opacity: 0.2;
+}
+
+.HBox{
+    -fx-spacing : 10px;
+}
+
+.VBox{
+    -fx-spacing: 10;
+    -fx-alignment: top-right;
+}
 /* scroll bar starts here */
 
 /* The increment and decrement button CSS class of scrollbar */
