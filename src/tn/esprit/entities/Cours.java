@@ -15,14 +15,17 @@ public class Cours {
     private String Libelle_Cour;
     private Chefs ch;
 
-
+    
+    
     public Cours(int Id_Cour, String Nom_cour, String Libelle_Cour, Chefs ch) {
         this.Id_Cour = Id_Cour;
         this.Nom_cour = Nom_cour;
         this.Libelle_Cour = Libelle_Cour;
-        this.ch.setID_Chef(ch.getID_Chef());
+        this.ch = ch;
     }
 
+
+  
    
     public Cours() {
     }
@@ -33,10 +36,9 @@ public class Cours {
         this.ch = ch;
     }
 
-    public Cours(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Cours(int Id_Cour) {
+        this.Id_Cour = Id_Cour;
     }
-
 
 
     public int getId_Cour() {
@@ -53,8 +55,10 @@ public class Cours {
 
     @Override
     public String toString() {
-        return "Cours{" + "Id_Cour=" + Id_Cour + ", Nom_cour=" + Nom_cour + ", Libelle_Cour=" + Libelle_Cour + ", ID_Chef" + ch.getID_Chef() + '}';
+        return "Cours{" + "Id_Cour=" + Id_Cour + ", Nom_cour=" + Nom_cour + ", Libelle_Cour=" + Libelle_Cour + ", Id_Chef =  " + ch.getID_Chef() + '}';
     }
+
+
 
     public void setNom_cour(String Nom_cour) {
         this.Nom_cour = Nom_cour;
@@ -76,6 +80,14 @@ public class Cours {
         this.ch=ch;
     }
 
+    public Chefs getCh() {
+        return ch;
+    }
+
+    public void setCh(Chefs ch) {
+        this.ch = ch;
+    }
+    
 
 
 

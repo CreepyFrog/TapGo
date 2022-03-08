@@ -21,8 +21,11 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import tn.esprit.entities.Chefs;
 import tn.esprit.entities.Cours;
+import tn.esprit.entities.Inscription;
+import tn.esprit.entities.User;
 import tn.esprit.services.Chef_Services;
 import tn.esprit.services.Cours_Services;
+import tn.esprit.services.Inscription_Service;
 
 /**
  *
@@ -38,7 +41,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         this.stage = primaryStage;
         try {
-        parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Formations.fxml"));
+        parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Admin.fxml"));
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -60,7 +63,7 @@ public class Main extends Application {
 //public class Main {
 //    public static void main(String[] args) throws IOException {
 //         //TODO code application logic here
-//// //crud Formations
+//// crud Formations
 ////Chef_Services cs = new Chef_Services()  ;
 ////        Chefs c = new Chefs ("moi","Couscous ","TUNISIE");
 //////        //Chefs ct = new Chefs ("Ahmed","Tajin","Tunis");
@@ -69,12 +72,18 @@ public class Main extends Application {
 ////       
 //     // System.out.println( cs.afficher() );  
 //      //System.out.println(cs.supprimer_Chef());
-//        Cours_Services cs = new Cours_Services();
-//        Cours c = new Cours ("Burger","Les ingrédients : Pure Meat",new Chefs(5));
-//        cs.ajouter_Cours(c);
+////        Cours_Services cs = new Cours_Services();
+////        Cours c = new Cours ("Burger","Les ingrédients : Pure Meat",new Chefs(5));
+//////        cs.ajouter_Cours(c);
 ////        System.out.println(cs.afficher_Cours()); 
+//        Inscription_Service IS = new Inscription_Service();
+//        Inscription I=new Inscription(new Cours(10),new User(123456657));
+//        //IS.ajouter_Inscription(I);
+//        System.out.println( IS.afficher_Inscription() );
+////        System.out.println(IS.supprimer_Inscription() );
 //    }
 //}
+
 //        //cs.update_Cours(c);
 //         
 //        //System.out.println(cs.supprimer_Cours());

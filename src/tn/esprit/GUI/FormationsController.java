@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import tn.esprit.entities.Chefs;
@@ -42,12 +43,14 @@ public class FormationsController implements Initializable {
     private PreparedStatement pst;
     private Statement ste;
     @FXML
+    private AnchorPane pane_formation;
+    @FXML
     private Button Button_Inscription3;
     @FXML
     private Button Button_Inscription2;
     @FXML
     private Button Button_Inscription31;
-
+  
 
     /**
      * Initializes the controller class.
@@ -85,56 +88,31 @@ public class FormationsController implements Initializable {
 //        
 //    }
     
+    private void setInterface(String location) throws IOException {
+        pane_formation.getChildren().clear();
+        pane_formation.getChildren().add(FXMLLoader.load(this.getClass().
+                getResource("/tn/esprit/GUI/" + location + ".fxml")));
+    }
+    
+    
     
     @FXML
-    private void Ajout1_Inscription(ActionEvent event) {
-       try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Ajout1.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
- } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        
+    private void Ajout1_Inscription(ActionEvent event) throws IOException {
+    setInterface("Formulaire");
     }
 
     @FXML
-    private void Ajout2_Inscription(ActionEvent event) {
+    private void Ajout2_Inscription(ActionEvent event) throws IOException {
         
-          try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Ajout2.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
- } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        
+         setInterface("Formulaire"); 
     }
 
     
 
     @FXML
-    private void Ajout3_Inscription(ActionEvent event) {
-          try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/tn/esprit/GUI/Ajout3.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
- } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        
+    private void Ajout3_Inscription(ActionEvent event) throws IOException {
+         
+        setInterface("Formulaire");
         
     }
 

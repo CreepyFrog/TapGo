@@ -6,6 +6,7 @@
 package tn.esprit.GUI;
 
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,6 +25,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -31,6 +33,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javax.swing.JOptionPane;
 import tn.esprit.entities.Chefs;
 import tn.esprit.services.Chef_Services;
@@ -67,6 +70,8 @@ public class AdminController implements Initializable {
     private TextField mots;
     
     ObservableList ChefsList = FXCollections.observableArrayList();
+    @FXML
+    private AnchorPane paneAdmin;
     
     /**
      * Initializes the controller class.
@@ -84,7 +89,7 @@ public class AdminController implements Initializable {
            ResultSet rs=ste.executeQuery(sql);
                 while(rs.next()){
                 Chefs ch = new Chefs();
-                ch.setID_Chef(rs.getInt("ID_Chef"));
+                //ch.setID_Chef(rs.getInt("ID_Chef"));
                 ch.setNom_Chef(rs.getString("Nom_Chef"));
                 ch.setCours_Associe(rs.getString("Cours_Associe"));
                 ch.setAdresse_Chef(rs.getString("Adresse_Chef")) ;
@@ -95,7 +100,7 @@ public class AdminController implements Initializable {
         }
         
         
-        cId.setCellValueFactory(new PropertyValueFactory<Chefs, Integer>("ID_Chef"));
+        //cId.setCellValueFactory(new PropertyValueFactory<Chefs, Integer>("ID_Chef"));
         cNom.setCellValueFactory(new PropertyValueFactory<Chefs, String>("Nom_Chef"));
         ccour.setCellValueFactory(new PropertyValueFactory<Chefs, String>("Cours_Associe"));
         cadresse.setCellValueFactory(new PropertyValueFactory<Chefs, String>("Adresse_Chef"));
@@ -303,6 +308,19 @@ cadresse.setText(String.valueOf(clickedChefs.getAdresse_Chef()));
         
         
         
+        
+    }
+     private void setInterface(String location) throws IOException {
+        paneAdmin.getChildren().clear();
+        paneAdmin.getChildren().add(FXMLLoader.load(this.getClass().
+                getResource("/tn/esprit/GUI/" + location + ".fxml")));
+    }
+    
+
+    @FXML
+    private void addCour(ActionEvent event) throws IOException {
+        
+        setInterface("Admin_Cour");
         
     }
 

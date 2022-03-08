@@ -62,8 +62,8 @@ public class Inscription_Service  {
             while(rs.next()){
                 Inscription I = new Inscription();
                 I.setId_Inscription(rs.getInt("Id_Inscription") );
-                I.setCours(new Cours (rs.getInt(1)));
-                I.setU(new User(rs.getInt(2)));
+                I.setCours(new Cours (rs.getInt("Id_Cour")));
+                I.setU(new User(rs.getInt("id")));
               
                 Inscription.add(I);
             }

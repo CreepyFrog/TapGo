@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.GUI.AdminController">
+<AnchorPane id="AnchorPane" fx:id="paneAdmin" prefHeight="614.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.GUI.AdminController">
    <children>
       <Label layoutX="24.0" layoutY="128.0" text="Entrer le nom du chef : ">
          <font>
@@ -36,7 +36,7 @@
          <font>
             <Font name="Century Gothic" size="23.0" />
          </font></Button>
-      <Button layoutX="44.0" layoutY="524.0" mnemonicParsing="false" onAction="#Supprimer_Chef" style="-fx-background-color: red;" text="Supprimer Chef">
+      <Button layoutX="45.0" layoutY="455.0" mnemonicParsing="false" onAction="#Supprimer_Chef" style="-fx-background-color: red;" text="Supprimer Chef">
          <font>
             <Font name="Century Gothic" size="20.0" />
          </font></Button>
@@ -45,6 +45,11 @@
       <Button layoutX="25.0" layoutY="52.0" mnemonicParsing="false" onAction="#Refresh_Table" text="Refresh">
          <font>
             <Font name="Century Gothic" size="27.0" />
+         </font>
+      </Button>
+      <Button layoutX="44.0" layoutY="512.0" mnemonicParsing="false" onAction="#addCour" prefHeight="31.0" prefWidth="178.0" style="-fx-background-color: orange;" text="Ajouter Cour">
+         <font>
+            <Font name="Century Gothic" size="23.0" />
          </font>
       </Button>
    </children>

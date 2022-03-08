@@ -33,6 +33,10 @@ public class Inscription {
         this.u = u;
     }
 
+    public Inscription(int Id_Inscription) {
+        this.Id_Inscription = Id_Inscription;
+    }
+
 
     public int getId_Inscription() {
         return Id_Inscription;

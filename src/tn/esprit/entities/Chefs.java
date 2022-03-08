@@ -33,9 +33,9 @@ public class Chefs {
     }
 
     public Chefs(int i) {
+        this.ID_Chef=i;
     }
 
-  
     
     public int getID_Chef() {
         return ID_Chef;
@@ -47,8 +47,10 @@ public class Chefs {
 
     @Override
     public String toString() {
-        return "Chefs{" + "ID_Chef=" + ID_Chef + ", Nom_Chef=" + Nom_Chef + ", Adresse_Chef=" + Adresse_Chef + ", Cours_associe=" + Cours_Associe + '}';
+        return "Chefs{" + "ID_Chef=" + ID_Chef + ", Nom_Chef=" + Nom_Chef + ", Cours_Associe=" + Cours_Associe + ", Adresse_Chef=" + Adresse_Chef + '}';
     }
+
+   
 
     public String getNom_Chef() {
         return Nom_Chef;

@@ -115,7 +115,7 @@ public class Cours_Services {
                 c.setId_Cour( rs.getInt("Id_Cour") );
                 c.setNom_cour(rs.getString(2));
                 c.setLibelle_Cour(rs.getString(3));
-                c.setChefs(new Chefs (rs.getInt(4)));
+                c.setChefs(new Chefs (rs.getInt("ID_Chef")));
                 Cours.add(c);
             }
         } catch (SQLException ex) {
