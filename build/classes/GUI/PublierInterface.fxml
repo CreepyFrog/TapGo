@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="Publier_Interface_Pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="services.PublierInterfaceController">
+ <children>
+      <AnchorPane layoutX="-25.0" layoutY="164.0" prefHeight="633.0" prefWidth="1357.0" style="-fx-background-radius: 20;">
+         <children>
+            <AnchorPane fx:id="AnchorPanePubier" layoutX="23.0" layoutY="-165.0" prefHeight="795.0" prefWidth="1334.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+               <children>
+                  <Pane layoutX="525.0" layoutY="-1.0" prefHeight="93.0" prefWidth="405.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <Label layoutX="297.0" layoutY="21.0" text="TAP &amp; GO" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <VBox prefHeight="800.0" prefWidth="99.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Pane prefHeight="79.0" prefWidth="94.0" style="-fx-background-radius: 15 0 15 15;" />
+                        <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="145.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Profile" textFill="#a868a0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/cat.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="127.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Activity" textFill="#a868a0">
+                           <graphic>
+                              <ImageView fitHeight="64.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/time.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button contentDisplay="TOP" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" prefHeight="164.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Goals" textFill="#a868a0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/flag.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button contentDisplay="TOP" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" prefHeight="203.0" prefWidth="74.0" style="-fx-background-color: #131022;" styleClass="button3" stylesheets="@../css/fullpackstyling.css" text="Mentors" textFill="#a868a0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/group.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="123.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="170.0" layoutY="29.0" text="Acceuil" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="945.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/ic_usr.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="986.0" layoutY="25.0" text="Chikaa" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="985.0" layoutY="42.0" text="77 réservations" textFill="#b5adad">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="123.0" layoutY="93.0" prefHeight="669.0" prefWidth="1177.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <Label layoutX="33.0" layoutY="14.0" text="Publier Dans le Forum" textFill="#fff600">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="106.0" layoutY="140.0" opacity="0.32" prefHeight="127.0" prefWidth="719.0" style="-fx-background-radius: 20;" stylesheets="@../css/fullpackstyling.css">
+                           <children>
+                              <TextField fx:id="text_Publier" alignment="TOP_LEFT" layoutX="13.0" layoutY="10.0" prefHeight="100.0" prefWidth="693.0" promptText="Publier Ici ...." style="-fx-background-color: transparent; color: #000000;">
+                                 <font>
+                                    <Font name="System Italic" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <styleClass>
+                              <String fx:value="linear-grad" />
+                              <String fx:value="lin" />
+                           </styleClass>
+                        </Pane>
+                        <Label layoutX="774.0" layoutY="482.0" text="What is wow " textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="880.0" layoutY="482.0" text="Gold?" textFill="#fff600">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <BorderPane layoutX="569.0" layoutY="404.0" prefHeight="66.0" prefWidth="270.0" />
+                        <Pane layoutX="1042.0" layoutY="2.0" prefHeight="48.0" prefWidth="155.0" style="-fx-background-color: #131022; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="-8.0" layoutY="17.0" text="Reserver Une Table" textFill="#41951c">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="885.0" layoutY="3.0" prefHeight="39.0" prefWidth="81.0" style="-fx-background-color: #131022; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="4.0" layoutY="11.0" prefHeight="34.0" prefWidth="53.0" text="Menu" textFill="#41951c">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="968.0" layoutY="9.0" prefHeight="34.0" prefWidth="46.0" style="-fx-background-color: #131022; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="-7.0" layoutY="10.0" prefHeight="26.0" prefWidth="46.0" text="Cours" textFill="#41951c">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="121.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/ic_usr.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="id_user_Publier" layoutX="173.0" layoutY="99.0" text="Chikaa" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="754.0" layoutY="64.0" startX="100.0" startY="418.0" stroke="#b9b1b1" strokeDashOffset="2.0" />
+                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="909.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/profile-adam-levine.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="869.0" layoutY="76.0" prefHeight="27.0" prefWidth="155.0" text="Top Publication :" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="893.0" layoutY="201.0" opacity="0.32" prefHeight="145.0" prefWidth="277.0" style="-fx-background-radius: 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                           <children>
+                              <Label fx:id="libelle_TopPub" layoutX="23.0" layoutY="14.0" prefHeight="110.0" prefWidth="230.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Label layoutX="966.0" layoutY="140.0" text="Salim" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="Button_Publier" layoutX="503.0" layoutY="319.0" mnemonicParsing="false" onAction="#AddPublication" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #131022;" text="Publier" textFill="#fff600">
+                           <font>
+                              <Font name="System Italic" size="28.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="Anchor" layoutX="133.0" layoutY="103.0" onMouseClicked="#GetPanePubEmty" prefHeight="669.0" prefWidth="1177.0" style="-fx-background-color: #131022; -fx-size: 100px; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <Label layoutX="33.0" layoutY="14.0" text="Publier Dans le Forum" textFill="#fff600">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="106.0" layoutY="140.0" opacity="0.78" prefHeight="127.0" prefWidth="709.0" style="-fx-background-radius: 20;" stylesheets="@../css/fullpackstyling.css">
+                           <children>
+                              <TextField fx:id="text_Publier1" alignment="TOP_LEFT" layoutX="18.0" layoutY="14.0" prefHeight="100.0" prefWidth="676.0" promptText="Publier Ici ...." style="-fx-background-color: transparent; -fx-border-color: black;" styleClass="text">
+                                 <font>
+                                    <Font name="System Bold Italic" size="24.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <styleClass>
+                              <String fx:value="linear-grad" />
+                              <String fx:value="lin" />
+                           </styleClass>
+                        </Pane>
+                        <Pane layoutX="1042.0" layoutY="2.0" prefHeight="48.0" prefWidth="155.0" style="-fx-background-color: #131022; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="-8.0" layoutY="17.0" text="Reserver Une Table" textFill="#41951c">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="885.0" layoutY="3.0" prefHeight="39.0" prefWidth="81.0" style="-fx-background-color: #131022; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="4.0" layoutY="11.0" prefHeight="34.0" prefWidth="53.0" text="Menu" textFill="#41951c">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="968.0" layoutY="9.0" prefHeight="34.0" prefWidth="46.0" style="-fx-background-color: #131022; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="-7.0" layoutY="10.0" prefHeight="26.0" prefWidth="46.0" text="Cours" textFill="#41951c">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <ImageView fitHeight="48.0" fitWidth="53.0" layoutX="102.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/ic_usr.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="id_user_Publier1" layoutX="173.0" layoutY="99.0" text="Chikaa" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="754.0" layoutY="64.0" startX="100.0" startY="579.0" stroke="#b9b1b1" strokeDashOffset="2.0" />
+                        <ImageView fitHeight="58.0" fitWidth="53.0" layoutX="890.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/profile-adam-levine.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="869.0" layoutY="76.0" prefHeight="27.0" prefWidth="155.0" text="Top Publication :" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="868.0" layoutY="201.0" opacity="0.78" prefHeight="145.0" prefWidth="321.0" style="-fx-background-radius: 20;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                           <children>
+                              <Label fx:id="libelle_TopPub1" alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" layoutX="16.0" layoutY="18.0" prefHeight="110.0" prefWidth="290.0" styleClass="text" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Label fx:id="NB_Reaction" layoutX="911.0" layoutY="175.0" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="Button_Publier1" layoutX="670.0" layoutY="274.0" mnemonicParsing="false" onAction="#AddPublication" onMouseClicked="#Verif" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #131022;" text="Publier" textFill="#fff600">
+                           <font>
+                              <Font name="System Italic" size="28.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="Remplir_Labelle" layoutX="173.0" layoutY="286.0" prefHeight="27.0" prefWidth="202.0" textFill="#41951c">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="Like" alignment="CENTER" layoutX="869.0" layoutY="354.0" mnemonicParsing="false" onAction="#like_Reaction" prefHeight="51.0" prefWidth="57.0" style="-fx-background-color: white;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="#131022">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/Like.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="Dislike" layoutX="938.0" layoutY="356.0" mnemonicParsing="false" onAction="#Dislike_Reaction" prefHeight="45.0" prefWidth="41.0" style="-fx-background-color: white;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="#131022">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="34.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/Dislike.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <ImageView fitHeight="79.0" fitWidth="88.0" layoutX="1242.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/272956165_471764927906855_423575246222129710_n.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>   
+</AnchorPane>
