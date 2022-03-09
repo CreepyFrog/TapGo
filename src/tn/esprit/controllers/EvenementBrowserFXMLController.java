@@ -101,6 +101,15 @@ public class EvenementBrowserFXMLController implements Initializable {
         DateFin.setValue(null);
         feedbackLabel.setText("");
     }
+    
+//    @FXML
+//    private void chercher(ActionEvent event) {
+//        try {
+//            chargerEvenements(es.afficher());
+//        } catch (IOException ex) {
+//            
+//        }
+//    }
        
     @FXML
     private void setDateSearch(ActionEvent event) {

@@ -272,13 +272,16 @@ public class EvenementService implements IService<Evenement> {
         ObservableList<Evenement> evenements = 
                 FXCollections.observableArrayList();
         String req;
+        if(nomEvenement == ""){
+            nomEvenement=null;
+        }
         try {
             req = "SELECT * FROM `evenement` e WHERE Exists( SELECT * from artiste a " +
-"                                         WHERE e.Id_Artiste = a.Id_Artiste" +
-"                                         AND ((e.Date_Evenement = ? OR ? IS NULL) OR ((e.Date_Evenement BETWEEN ? AND ?) OR (? IS NULL OR ? is NULL)))" +
-"                                         AND (a.Nom_Artiste = ? OR ? IS NULL)" +
-"                                         AND (a.Type_De_Musique = ? OR ? IS NULL)" +
-"                                         AND (e.Nom_Evenement = ? or ? IS NULL))";
+                "WHERE e.Id_Artiste = a.Id_Artiste" +
+                "AND ((e.Date_Evenement = ? OR ? IS NULL) OR ((e.Date_Evenement BETWEEN ? AND ?) OR (? IS NULL OR ? is NULL)))" +
+                "AND (a.Nom_Artiste = ? OR ? IS NULL)" +
+                "AND (a.Type_De_Musique = ? OR ? IS NULL)" +
+                "AND (e.Nom_Evenement = ? or ? IS NULL))";
             pst = conn.prepareStatement(req);
             pst.setDate(1, debut);
             pst.setDate(2, debut);
