@@ -38,7 +38,8 @@ import javax.swing.JOptionPane;
 import tn.esprit.entities.Chefs;
 import tn.esprit.services.Chef_Services;
 import tn.esprit.utils.DataSource;
-
+import java.awt.*;
+import java.awt.TrayIcon.MessageType;
 /**
  * FXML Controller class
  *
@@ -138,15 +139,25 @@ public class AdminController implements Initializable {
     }    
 
     @FXML
-    private void Ajouter_Chef(ActionEvent event) {
+    private void Ajouter_Chef(ActionEvent event) throws AWTException {
         
         Chef_Services ch = new Chef_Services();
         Chefs c = new Chefs (lNom_Chef.getText(),lCour_associé.getText(),lAdresse.getText());
         ch.ajouter_Chef(c);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setContentText("Chef is added successfully!");
-        alert.show();
+          SystemTray tray = SystemTray.getSystemTray();
+
+        //If the icon is a file
+        Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+        //Alternative (if the icon is on the classpath):
+        //Image image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("icon.png"));
+
+        TrayIcon trayIcon = new TrayIcon(image, "Tray Demo");
+        //Let the system resize the image if needed
+        trayIcon.setImageAutoSize(true);
+        //Set tooltip text for the tray icon
+        trayIcon.setToolTip("System tray icon demo");
+        tray.add(trayIcon);
+        trayIcon.displayMessage("Gestion de formation", "Chef ajoutée avec succée", MessageType.INFO);
         lNom_Chef.setText("");
         lCour_associé.setText("");
         lAdresse.setText("");
@@ -227,7 +238,7 @@ public class AdminController implements Initializable {
     
     
     @FXML
-    private void Supprimer_Chef(ActionEvent event) throws SQLException {
+    private void Supprimer_Chef(ActionEvent event) throws SQLException, AWTException {
         
 
         Chef_Services cs = new Chef_Services();
@@ -237,10 +248,20 @@ public class AdminController implements Initializable {
                
             ch.setNom_Chef(nom);
             cs.supprimer_Chef(nom);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setContentText("chef supprimé avec succes!");
-            alert.show();
+           SystemTray tray = SystemTray.getSystemTray();
+
+        //If the icon is a file
+        Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+        //Alternative (if the icon is on the classpath):
+        //Image image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("icon.png"));
+
+        TrayIcon trayIcon = new TrayIcon(image, "Tray Demo");
+        //Let the system resize the image if needed
+        trayIcon.setImageAutoSize(true);
+        //Set tooltip text for the tray icon
+        trayIcon.setToolTip("System tray icon demo");
+        tray.add(trayIcon);
+        trayIcon.displayMessage("Gestion de formation", "Chef supprimé avec succée", MessageType.INFO);
             lNom_Chef.setText("");
             
     }

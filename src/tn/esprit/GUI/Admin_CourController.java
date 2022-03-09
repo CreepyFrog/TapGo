@@ -30,7 +30,8 @@ import tn.esprit.entities.Cours;
 import tn.esprit.services.Chef_Services;
 import tn.esprit.services.Cours_Services;
 import tn.esprit.utils.DataSource;
-
+import java.awt.*;
+import java.awt.TrayIcon.MessageType;
 /**
  * FXML Controller class
  *
@@ -128,35 +129,79 @@ public class Admin_CourController implements Initializable {
 
     @FXML
     private void Refresh_Table(ActionEvent event) {
+        try {
+           
+            CoursList.clear();
+            
+            String sql = "SELECT * FROM `Cours`";
+             ste=conn.prepareStatement(sql);
+               ResultSet rs=ste.executeQuery(sql);
+            
+            while (rs.next()){
+                CoursList.add(new  Cours(
+                        rs.getString("Nom_Cour"),
+                        rs.getString("Libelle_Cour"),
+                        new Chefs (rs.getInt("ID_Chef"))));                        
+                Table_Cours.setItems(CoursList);
+                
+            }
+            
+            
+       } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        
+        
     }
 
     @FXML
-    private void Ajouter_Cour(ActionEvent event) {
+    private void Ajouter_Cour(ActionEvent event) throws AWTException {
         
         Cours_Services cs = new Cours_Services();
         Cours c = new Cours (lNom_Cour.getText(),llibelle.getText(),new Chefs(5));
         cs.ajouter_Cours(c);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setContentText("cour is added successfully!");
-        alert.show();
+        SystemTray tray = SystemTray.getSystemTray();
+
+        //If the icon is a file
+        Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+        //Alternative (if the icon is on the classpath):
+        //Image image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("icon.png"));
+
+        TrayIcon trayIcon = new TrayIcon(image, "Tray Demo");
+        //Let the system resize the image if needed
+        trayIcon.setImageAutoSize(true);
+        //Set tooltip text for the tray icon
+        trayIcon.setToolTip("System tray icon demo");
+        tray.add(trayIcon);
+        trayIcon.displayMessage("Gestion de formation", "cour ajoutée avec succée", MessageType.INFO);
         lNom_Cour.setText("");
         llibelle.setText("");
         
     }
 
     @FXML
-    private void Supprimer_Cour(ActionEvent event) {
+    private void Supprimer_Cour(ActionEvent event) throws AWTException {
         Cours_Services cs = new Cours_Services();
         Cours c = new Cours();
         String nom=lNom_Cour.getText();
                
             c.setNom_cour(nom);
             cs.supprimer_Cours();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setContentText("cour supprimé avec succes!");
-            alert.show();
+           SystemTray tray = SystemTray.getSystemTray();
+
+        //If the icon is a file
+        Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+        //Alternative (if the icon is on the classpath):
+        //Image image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("icon.png"));
+
+        TrayIcon trayIcon = new TrayIcon(image, "Tray Demo");
+        //Let the system resize the image if needed
+        trayIcon.setImageAutoSize(true);
+        //Set tooltip text for the tray icon
+        trayIcon.setToolTip("System tray icon demo");
+        tray.add(trayIcon);
+        trayIcon.displayMessage("Gestion de formation", "Chef supprimé avec succée", MessageType.INFO);
             lNom_Cour.setText("");
     }
         

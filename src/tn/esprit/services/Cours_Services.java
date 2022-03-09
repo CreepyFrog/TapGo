@@ -70,7 +70,7 @@ public class Cours_Services {
 
     public List<Cours> supprimer_Cours() {
        List<Cours> Cours = new ArrayList<>();
-        String sql="DELETE FROM Cours WHERE Id_Cour=6";
+        String sql="DELETE FROM Cours WHERE Id_Cour=24";
         try {
             pst=conn.prepareStatement(sql);
             pst.executeUpdate();

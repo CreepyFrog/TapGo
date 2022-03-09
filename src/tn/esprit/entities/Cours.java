@@ -40,6 +40,8 @@ public class Cours {
         this.Id_Cour = Id_Cour;
     }
 
+ 
+
 
     public int getId_Cour() {
         return Id_Cour;

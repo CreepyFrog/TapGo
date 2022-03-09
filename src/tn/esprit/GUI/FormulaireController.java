@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import tn.esprit.services.EnvoyerMail;
 
 /**
  * FXML Controller class
@@ -44,7 +45,14 @@ public class FormulaireController implements Initializable {
                 getResource("/tn/esprit/GUI/" + location + ".fxml")));
     }
     @FXML
-    private void Envoyer_mail(ActionEvent event) {
+    private void Envoyer_mail(ActionEvent event) throws Exception {
+        
+        String nom=lnom.getText();
+        String Ncour=lcour.getText();
+        String mail=lemail.getText();
+            
+    EnvoyerMail.sendMail(mail,nom,Ncour);
+     
     }
 
 
