@@ -154,7 +154,6 @@ public class EvenementService implements IService<Evenement> {
         try {
             pst = conn.prepareStatement(req);
             pst.setDate(1, d);
-            pst.executeUpdate();
             ResultSet rs = pst.executeQuery();
             evenements = fillEList(rs);
         } catch (SQLException ex) {
@@ -169,7 +168,7 @@ public class EvenementService implements IService<Evenement> {
                 FXCollections.observableArrayList();
         String req;
         if (isName){
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste) AND a.Nom_Artiste = ?";
+            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND a.Nom_Artiste = ?)";
         }
         else{
             req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND a.Type_De_Musique = ?)";
@@ -177,7 +176,6 @@ public class EvenementService implements IService<Evenement> {
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, element);
-            pst.executeUpdate();
             ResultSet rs = pst.executeQuery();
             evenements = fillEList(rs);
         } catch (SQLException ex) {
@@ -192,64 +190,92 @@ public class EvenementService implements IService<Evenement> {
 //        String req = 
 //    }
     
-    public ObservableList<Evenement> recherche(Date debut, Date fin){
-        ObservableList<Evenement> evenements = 
-                FXCollections.observableArrayList();
-        String req = "SELECT * FROM `evenement` WHERE `Date_Evenement` BETWEEN ? AND ?";
-        try {
-            pst = conn.prepareStatement(req);
-            pst.setDate(1, debut);
-            pst.setDate(2, fin);
-            pst.executeUpdate();
-            ResultSet rs = pst.executeQuery();
-            evenements = fillEList(rs);
-        } catch(SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return evenements;
-    }
+//    public ObservableList<Evenement> recherche(Date debut, Date fin){
+//        ObservableList<Evenement> evenements = 
+//                FXCollections.observableArrayList();
+//        String req = "SELECT * FROM `evenement` WHERE `Date_Evenement` BETWEEN ? AND ?";
+//        try {
+//            pst = conn.prepareStatement(req);
+//            pst.setDate(1, debut);
+//            pst.setDate(2, fin);
+//            ResultSet rs = pst.executeQuery();
+//            evenements = fillEList(rs);
+//        } catch(SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//        return evenements;
+//    }
+//    
+//    public ObservableList<Evenement> recherche(Date d, boolean isName,
+//            String element){
+//        ObservableList<Evenement> evenements = 
+//                FXCollections.observableArrayList();
+//        String req;
+//        if (isName){
+//            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement = ? AND a.Nom_Artiste = ?)";
+//        }
+//        else {
+//            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement = ? AND a.Type_De_Musique = ?)";
+//        }
+//        try {
+//            pst = conn.prepareStatement(req);
+//            pst.setDate(1, d);
+//            pst.setString(2, element);
+//            ResultSet rs = pst.executeQuery();
+//            evenements = fillEList(rs);
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//        return evenements;
+//    }
+//    
+//    public ObservableList<Evenement> recherche(Date debut, Date fin,
+//            boolean isName, String element){
+//        ObservableList<Evenement> evenements = 
+//                FXCollections.observableArrayList();
+//        String req;
+//        if (isName){
+//            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement BETWEEN ? AND ? AND a.Nom_Artiste = ?)";
+//        }
+//        else {
+//            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement BETWEEN ? AND ? AND a.Type_De_Musique = ?)";
+//        }
+//        try {
+//            pst = conn.prepareStatement(req);
+//            pst.setDate(1, debut);
+//            pst.setDate(2, fin);
+//            pst.setString(3, element);
+//            ResultSet rs = pst.executeQuery();
+//            evenements = fillEList(rs);
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//        return evenements;
+//    }
     
-    public ObservableList<Evenement> recherche(Date d, boolean isName,
-            String element){
+    public ObservableList<Evenement> recherche(Date debut, Date fin,String nomArtiste,String type,String nomEvenement){
         ObservableList<Evenement> evenements = 
                 FXCollections.observableArrayList();
         String req;
-        if (isName){
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement = ? AND a.Nom_Artiste = ?)";
-        }
-        else {
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement = ? AND a.Type_De_Musique = ?)";
-        }
         try {
-            pst = conn.prepareStatement(req);
-            pst.setDate(1, d);
-            pst.setString(2, element);
-            pst.executeUpdate();
-            ResultSet rs = pst.executeQuery();
-            evenements = fillEList(rs);
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return evenements;
-    }
-    
-    public ObservableList<Evenement> recherche(Date debut, Date fin,
-            boolean isName, String element){
-        ObservableList<Evenement> evenements = 
-                FXCollections.observableArrayList();
-        String req;
-        if (isName){
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement BETWEEN ? AND ? AND a.Nom_Artiste = ?)";
-        }
-        else {
-            req = "SELECT * FROM `evenement` e WHERE EXISTS (SELECT * FROM `artiste` a WHERE e.Id_Artiste = a.Id_Artiste AND e.Date_Evenement BETWEEN ? AND ? AND a.Type_De_Musique = ?)";
-        }
-        try {
+            req = "SELECT * FROM `evenement` e WHERE Exists( SELECT * from artiste a " +
+"                                         WHERE e.Id_Artiste = a.Id_Artiste" +
+"                                         AND ((e.Date_Evenement = ? OR ? IS NULL) OR ((e.Date_Evenement BETWEEN ? AND ?) OR (? IS NULL OR ? is NULL)))" +
+"                                         AND (a.Nom_Artiste = ? OR ? IS NULL)" +
+"                                         AND (a.Type_De_Musique = ? OR ? IS NULL)" +
+"                                         AND (e.Nom_Evenement = ? or ? IS NULL))";
             pst = conn.prepareStatement(req);
             pst.setDate(1, debut);
-            pst.setDate(2, fin);
-            pst.setString(3, element);
-            pst.executeUpdate();
+            pst.setDate(2, debut);
+            pst.setDate(3, debut);
+            pst.setDate(4, fin);
+            pst.setDate(5, debut);
+            pst.setDate(6, fin);
+            pst.setString(7, nomArtiste);
+            pst.setString(8, type);
+            pst.setString(9, type);
+            pst.setString(10, nomEvenement);
+            pst.setString(11, nomEvenement);
             ResultSet rs = pst.executeQuery();
             evenements = fillEList(rs);
         } catch (SQLException ex) {

@@ -15,13 +15,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
@@ -60,15 +59,9 @@ public class EvenementBrowserFXMLController implements Initializable {
     @FXML
     private DatePicker DateFin;
     @FXML
-    private ScrollPane PaneList;
-    @FXML
     private Label feedbackLabel;
     @FXML
-    private ToggleGroup ArtisteGenreGroup;
-    @FXML
-    private RadioButton ActiverArtiste;
-    @FXML
-    private RadioButton ActiverGenre;
+    private VBox vboxE;
 
     /**
      * Initializes the controller class.
@@ -91,192 +84,195 @@ public class EvenementBrowserFXMLController implements Initializable {
     @FXML
     private void chercher(ActionEvent event) {
         ObservableList<Evenement> evenements = FXCollections.observableArrayList();
-        if (NomEvenement.getText() != null) {
-            if (NomArtiste.getValue() != null) {
-                if(DateSpecifique.isSelected()){
-                    if(DateDebut.getValue() != null){//nomEvenement && nomArtiste && Date
-                        Date date = Date.valueOf(DateDebut.getValue());
-                        evenements = es.recherche(date, true,NomArtiste.getValue().getNom_Artiste());
-                        evenements = es.find(NomEvenement.getText(), evenements);
-                    }
-                    else { //nomEvenement && nomArtiste
-                        evenements = es.recherche(true,NomArtiste.getValue().getNom_Artiste());
-                        evenements = es.find(NomEvenement.getText(), evenements);
-                    }
-                }
-                else {
-                    if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //nomEvenement && nomArtiste && periode
-                        Date dd = Date.valueOf(DateDebut.getValue());
-                        Date df = Date.valueOf(DateFin.getValue());
-                        evenements = es.recherche(dd, df, true, NomArtiste.getValue().getNom_Artiste());
-                        evenements = es.find(NomEvenement.getText(), evenements);
-                    }
-                    else{ //nomEvenement && nomArtiste && periode?
-                        if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { //nomEvenement && nomArtiste
-                            evenements = es.recherche(true,NomArtiste.getValue().getNom_Artiste());
-                            evenements = es.find(NomEvenement.getText(), evenements);
-                        }
-                        else { //periodeError
-                            feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
-                            feedbackLabel.setVisible(true);
-                            evenements = null;
-                        }
-                    }
-                }
-            }
-            else { //nomEvenement !nomArtiste
-                if(TypeDeMusique.getValue() != null) { //nomEvenement Type
-                    if(DateSpecifique.isSelected()){
-                        if(DateDebut.getValue() != null){//nomEvenement && Type && Date
-                            Date date = Date.valueOf(DateDebut.getValue());
-                            evenements = es.recherche(date, false, TypeDeMusique.getValue());
-                            evenements = es.find(NomEvenement.getText(), evenements);
-                        }
-                        else { //nomEvenement && Type
-                            evenements = es.recherche(false, TypeDeMusique.getValue());
-                            evenements = es.find(NomEvenement.getText(), evenements);
-                        }
-                    }
-                    else {
-                        if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //nomEvenement && Type && periode
-                            Date dd = Date.valueOf(DateDebut.getValue());
-                            Date df = Date.valueOf(DateFin.getValue());
-                            evenements = es.recherche(dd, df,false, TypeDeMusique.getValue());
-                            evenements = es.find(NomEvenement.getText(), evenements);
-                        }
-                        else{ //nomEvenement && Type && periode?
-                            if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { //nomEvenement && Type
-                                evenements = es.recherche(false, TypeDeMusique.getValue());
-                                evenements = es.find(NomEvenement.getText(), evenements);
-                            }
-                            else { //periodeError
-                                feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
-                                feedbackLabel.setVisible(true);
-                                evenements = null;
-                            }
-                        }
-                    }
-                }
-                else { //nomEvenement !Type
-                    if(DateSpecifique.isSelected()){
-                        if(DateDebut.getValue() != null){//nomEvenement && Date
-                            Date date = Date.valueOf(DateDebut.getValue());
-                            evenements = es.recherche(date);
-                            evenements = es.find(NomEvenement.getText(), evenements);
-                        }
-                        else { //nomEvenement
-                            evenements = es.find(NomEvenement.getText(), es.afficher());
-                        }
-                    }
-                    else {
-                        if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //nomEvenement && periode
-                            Date dd = Date.valueOf(DateDebut.getValue());
-                            Date df = Date.valueOf(DateFin.getValue());
-                            evenements = es.recherche(dd, df);
-                            evenements = es.find(NomEvenement.getText(), evenements);
-                        }
-                        else{ //nomEvenement && nomArtiste && periode?
-                            if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { //nomEvenement
-                                evenements = es.find(NomEvenement.getText(), es.afficher());
-                            }
-                            else { //periodeError
-                                feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
-                                feedbackLabel.setVisible(true);
-                                evenements = null;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        else { // !nomEvenement
-            if (NomArtiste.getValue() != null) { // nomArtiste
-                if(DateSpecifique.isSelected()){
-                    if(DateDebut.getValue() != null){//nomArtiste && Date
-                        Date date = Date.valueOf(DateDebut.getValue());
-                        evenements = es.recherche(date, true, NomArtiste.getValue().getNom_Artiste());
-                    }
-                    else { //nomArtiste
-                        evenements = es.recherche(true, NomArtiste.getValue().getNom_Artiste());
-                    }
-                }
-                else {
-                    if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //nomArtiste && periode
-                        Date dd = Date.valueOf(DateDebut.getValue());
-                        Date df = Date.valueOf(DateFin.getValue());
-                        evenements = es.recherche(dd, df, true, NomArtiste.getValue().getNom_Artiste());
-                    }
-                    else{ //nomArtiste && periode?
-                        if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { //nomArtiste
-                            evenements = es.recherche(true, NomArtiste.getValue().getNom_Artiste());
-                        }
-                        else { //periodeError
-                            feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
-                            feedbackLabel.setVisible(true);
-                            evenements = null;
-                        }
-                    }
-                }
-            }
-            else { // !nomArtiste
-                if (TypeDeMusique.getValue() != null){ // Type
-                    if(DateSpecifique.isSelected()){
-                        if(DateDebut.getValue() != null){// Type && Date
-                            Date date = Date.valueOf(DateDebut.getValue());
-                            evenements = es.recherche(date, false, TypeDeMusique.getValue());
-                        }
-                        else { // Type
-                            evenements = es.recherche(false, TypeDeMusique.getValue());
-                        }
-                    }
-                    else {
-                        if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //Type && periode
-                            Date dd = Date.valueOf(DateDebut.getValue());
-                            Date df = Date.valueOf(DateFin.getValue());
-                            evenements = es.recherche(dd, df, false, TypeDeMusique.getValue());
-                        }
-                        else{ //Type && periode?
-                            if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { // Type
-                                evenements = es.recherche(false, TypeDeMusique.getValue());
-                            }
-                            else { //periodeError
-                                feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
-                                feedbackLabel.setVisible(true);
-                                evenements = null;
-                            }
-                        }
-                    }
-                }
-                else {
-                    if(DateSpecifique.isSelected()){
-                        if(DateDebut.getValue() != null){// Date
-                            Date date = Date.valueOf(DateDebut.getValue());
-                            evenements = es.recherche(date);
-                        }
-                        else { // All
-                            evenements = es.afficher();
-                        }
-                    }
-                    else {
-                        if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //periode
-                            Date dd = Date.valueOf(DateDebut.getValue());
-                            Date df = Date.valueOf(DateFin.getValue());
-                            evenements = es.recherche(dd, df);
-                        }
-                        else{ //nomEvenement && nomArtiste && periode?
-                            if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { // All
-                                evenements = es.afficher();
-                            }
-                            else { //periodeError
-                                feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
-                                feedbackLabel.setVisible(true);
-                                evenements = null;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+//        if (NomEvenement.getText() != null) {
+//            if (NomArtiste.getValue() != null) {
+//                if(DateSpecifique.isSelected()){
+//                    if(DateDebut.getValue() != null){//nomEvenement && nomArtiste && Date
+//                        Date date = Date.valueOf(DateDebut.getValue());
+//                        evenements = es.recherche(date, true,NomArtiste.getValue().getNom_Artiste());
+//                        evenements = es.find(NomEvenement.getText(), evenements);
+//                    }
+//                    else { //nomEvenement && nomArtiste
+//                        evenements = es.recherche(true,NomArtiste.getValue().getNom_Artiste());
+//                        evenements = es.find(NomEvenement.getText(), evenements);
+//                    }
+//                }
+//                else {
+//                    if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //nomEvenement && nomArtiste && periode
+//                        Date dd = Date.valueOf(DateDebut.getValue());
+//                        Date df = Date.valueOf(DateFin.getValue());
+//                        evenements = es.recherche(dd, df, true, NomArtiste.getValue().getNom_Artiste());
+//                        evenements = es.find(NomEvenement.getText(), evenements);
+//                    }
+//                    else{ //nomEvenement && nomArtiste && periode?
+//                        if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { //nomEvenement && nomArtiste
+//                            evenements = es.recherche(true,NomArtiste.getValue().getNom_Artiste());
+//                            evenements = es.find(NomEvenement.getText(), evenements);
+//                        }
+//                        else { //periodeError
+//                            feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
+//                            feedbackLabel.setVisible(true);
+//                            evenements = null;
+//                        }
+//                    }
+//                }
+//            }
+//            else { //nomEvenement !nomArtiste
+//                if(TypeDeMusique.getValue() != null) { //nomEvenement Type
+//                    if(DateSpecifique.isSelected()){
+//                        if(DateDebut.getValue() != null){//nomEvenement && Type && Date
+//                            Date date = Date.valueOf(DateDebut.getValue());
+//                            evenements = es.recherche(date, false, TypeDeMusique.getValue());
+//                            evenements = es.find(NomEvenement.getText(), evenements);
+//                        }
+//                        else { //nomEvenement && Type
+//                            evenements = es.recherche(false, TypeDeMusique.getValue());
+//                            evenements = es.find(NomEvenement.getText(), evenements);
+//                        }
+//                    }
+//                    else {
+//                        if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //nomEvenement && Type && periode
+//                            Date dd = Date.valueOf(DateDebut.getValue());
+//                            Date df = Date.valueOf(DateFin.getValue());
+//                            evenements = es.recherche(dd, df,false, TypeDeMusique.getValue());
+//                            evenements = es.find(NomEvenement.getText(), evenements);
+//                        }
+//                        else{ //nomEvenement && Type && periode?
+//                            if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { //nomEvenement && Type
+//                                evenements = es.recherche(false, TypeDeMusique.getValue());
+//                                evenements = es.find(NomEvenement.getText(), evenements);
+//                            }
+//                            else { //periodeError
+//                                feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
+//                                feedbackLabel.setVisible(true);
+//                                evenements = null;
+//                            }
+//                        }
+//                    }
+//                }
+//                else { //nomEvenement !Type
+//                    if(DateSpecifique.isSelected()){
+//                        if(DateDebut.getValue() != null){//nomEvenement && Date
+//                            Date date = Date.valueOf(DateDebut.getValue());
+//                            evenements = es.recherche(date);
+//                            evenements = es.find(NomEvenement.getText(), evenements);
+//                        }
+//                        else { //nomEvenement
+//                            evenements = es.find(NomEvenement.getText(), es.afficher());
+//                        }
+//                    }
+//                    else {
+//                        if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //nomEvenement && periode
+//                            Date dd = Date.valueOf(DateDebut.getValue());
+//                            Date df = Date.valueOf(DateFin.getValue());
+//                            evenements = es.recherche(dd, df);
+//                            evenements = es.find(NomEvenement.getText(), evenements);
+//                        }
+//                        else{ //nomEvenement && nomArtiste && periode?
+//                            if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { //nomEvenement
+//                                evenements = es.find(NomEvenement.getText(), es.afficher());
+//                            }
+//                            else { //periodeError
+//                                feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
+//                                feedbackLabel.setVisible(true);
+//                                evenements = null;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        else { // !nomEvenement
+//            if (NomArtiste.getValue() != null) { // nomArtiste
+//                if(DateSpecifique.isSelected()){
+//                    if(DateDebut.getValue() != null){//nomArtiste && Date
+//                        Date date = Date.valueOf(DateDebut.getValue());
+//                        evenements = es.recherche(date, true, NomArtiste.getValue().getNom_Artiste());
+//                    }
+//                    else { //nomArtiste
+//                        evenements = es.recherche(true, NomArtiste.getValue().getNom_Artiste());
+//                    }
+//                }
+//                else {
+//                    if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //nomArtiste && periode
+//                        Date dd = Date.valueOf(DateDebut.getValue());
+//                        Date df = Date.valueOf(DateFin.getValue());
+//                        evenements = es.recherche(dd, df, true, NomArtiste.getValue().getNom_Artiste());
+//                    }
+//                    else{ //nomArtiste && periode?
+//                        if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { //nomArtiste
+//                            evenements = es.recherche(true, NomArtiste.getValue().getNom_Artiste());
+//                        }
+//                        else { //periodeError
+//                            feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
+//                            feedbackLabel.setVisible(true);
+//                            evenements = null;
+//                        }
+//                    }
+//                }
+//            }
+//            else { // !nomArtiste
+//                if (TypeDeMusique.getValue() != null){ // Type
+//                    if(DateSpecifique.isSelected()){
+//                        if(DateDebut.getValue() != null){// Type && Date
+//                            Date date = Date.valueOf(DateDebut.getValue());
+//                            evenements = es.recherche(date, false, TypeDeMusique.getValue());
+//                        }
+//                        else { // Type
+//                            evenements = es.recherche(false, TypeDeMusique.getValue());
+//                        }
+//                    }
+//                    else {
+//                        if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //Type && periode
+//                            Date dd = Date.valueOf(DateDebut.getValue());
+//                            Date df = Date.valueOf(DateFin.getValue());
+//                            evenements = es.recherche(dd, df, false, TypeDeMusique.getValue());
+//                        }
+//                        else{ //Type && periode?
+//                            if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { // Type
+//                                evenements = es.recherche(false, TypeDeMusique.getValue());
+//                            }
+//                            else { //periodeError
+//                                feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
+//                                feedbackLabel.setVisible(true);
+//                                evenements = null;
+//                            }
+//                        }
+//                    }
+//                }
+//                else {
+//                    if(DateSpecifique.isSelected()){
+//                        if(DateDebut.getValue() != null){// Date
+//                            Date date = Date.valueOf(DateDebut.getValue());
+//                            evenements = es.recherche(date);
+//                        }
+//                        else { // All
+//                            evenements = es.afficher();
+//                        }
+//                    }
+//                    else {
+//                        if ((DateDebut.getValue() != null)&&(DateFin.getValue() != null)){ //periode
+//                            Date dd = Date.valueOf(DateDebut.getValue());
+//                            Date df = Date.valueOf(DateFin.getValue());
+//                            evenements = es.recherche(dd, df);
+//                        }
+//                        else{ //nomEvenement && nomArtiste && periode?
+//                            if ((DateDebut.getValue() == null)&&(DateFin.getValue() == null)) { // All
+//                                evenements = es.afficher();
+//                            }
+//                            else { //periodeError
+//                                feedbackLabel.setText("Vous devez specifier les dates limites de votre recherche");
+//                                feedbackLabel.setVisible(true);
+//                                evenements = null;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        Date dd = Date.valueOf(DateDebut.getValue());
+        Date df = Date.valueOf(DateFin.getValue());
+        evenements = es.recherche(dd, df, NomArtiste.getValue().getNom_Artiste(), TypeDeMusique.getValue(), NomEvenement.getText());
         try{
             chargerEvenements(evenements);
         } catch (IOException ex) {
@@ -313,6 +309,19 @@ public class EvenementBrowserFXMLController implements Initializable {
         NomArtiste.setValue(null);
     }
     
+    @FXML
+    private void getStats(ActionEvent event) {
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList();
+        for (String type : as.typesMusique()){
+            pieChartData.add(new PieChart.Data(type,es.numberByType(type)));
+        }
+        final PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Genre de Musique dans les evenements");
+        vboxE.getChildren().clear();
+        vboxE.getChildren().add(chart);
+    }
+    
 //--------------------------------------------------------------------------
 //  Fonctions Utilises par le controleur
 //--------------------------------------------------------------------------
@@ -320,15 +329,13 @@ public class EvenementBrowserFXMLController implements Initializable {
     //afficher un liste d'evenements dans la page
     private void chargerEvenements(ObservableList<Evenement> evenements) 
             throws IOException{
-        VBox vboxE = new VBox();
-        vboxE.setSpacing(10);
+        vboxE.getChildren().clear();
         for (Evenement e :evenements){
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(
                         "/tn/esprit/view/EvenementFrontFXML.fxml"));
-                AnchorPane APane = null;
-                APane = loader.load();
+                AnchorPane APane = loader.load();
                 
                 EvenementFrontFXMLController eController = 
                         loader.getController();
@@ -339,7 +346,7 @@ public class EvenementBrowserFXMLController implements Initializable {
                 System.out.println(ex.getMessage());
             }
         }
-        PaneList.setContent(vboxE);
+//        PaneList.setContent(vboxE);
     }
     
     private void fillCBArtiste() {
@@ -351,5 +358,7 @@ public class EvenementBrowserFXMLController implements Initializable {
         ObservableList<String> lt = as.typesMusique();
         TypeDeMusique.getItems().addAll(lt);
     }
+
+    
     
 }

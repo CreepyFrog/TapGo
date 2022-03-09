@@ -28,69 +28,78 @@
               <items>
                 <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                      <children>
-                        <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" spacing="15.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <HBox>
                            <children>
-                              <HBox spacing="10.0">
+                              <VBox alignment="TOP_CENTER" spacing="15.0">
                                  <children>
-                                    <TextField fx:id="NomEvenement" promptText="Evenement" styleClass="text" />
-                                    <VBox>
-                                       <children>
-                                          <ComboBox fx:id="NomArtiste" onAction="#setActiverArtiste" prefWidth="150.0" promptText="Artiste" />
-                                       </children>
-                                    </VBox>
-                                    <VBox>
-                                       <children>
-                                          <ComboBox fx:id="TypeDeMusique" onAction="#setActiverGenre" prefWidth="150.0" promptText="Genre" />
-                                       </children>
-                                    </VBox>
-                                    <Button fx:id="ButtonChercher" minWidth="100.0" mnemonicParsing="false" onAction="#chercher" styleClass="button4" text="Recherche" />
-                                 </children>
-                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </padding>
-                              </HBox>
-                              <HBox spacing="10.0">
-                                 <children>
-                                    <VBox spacing="2.0">
-                                       <children>
-                                          <RadioButton fx:id="DateSpecifique" mnemonicParsing="false" onAction="#setDateSearch" selected="true" text="Date Spécifique">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="DateOptionGroup" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="DatePeriode" mnemonicParsing="false" onAction="#setPeriodSearch" text="Période" toggleGroup="$DateOptionGroup" />
-                                       </children>
-                                       <padding>
-                                          <Insets top="2.0" />
-                                       </padding>
-                                    </VBox>
                                     <HBox spacing="10.0">
                                        <children>
-                                          <DatePicker fx:id="DateDebut" promptText="Date" />
-                                          <DatePicker fx:id="DateFin" disable="true" promptText="Date fin de recherche" />
+                                          <TextField fx:id="NomEvenement" promptText="Evenement" styleClass="text" />
+                                          <VBox>
+                                             <children>
+                                                <ComboBox fx:id="NomArtiste" onAction="#setActiverArtiste" prefWidth="150.0" promptText="Artiste" />
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <ComboBox fx:id="TypeDeMusique" onAction="#setActiverGenre" prefWidth="150.0" promptText="Genre" />
+                                             </children>
+                                          </VBox>
+                                          <Button fx:id="ButtonChercher" minWidth="100.0" mnemonicParsing="false" onAction="#chercher" styleClass="button4" text="Recherche" />
                                        </children>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
                                     </HBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <VBox spacing="2.0">
+                                             <children>
+                                                <RadioButton fx:id="DateSpecifique" mnemonicParsing="false" onAction="#setDateSearch" selected="true" text="Date Spécifique">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="DateOptionGroup" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="DatePeriode" mnemonicParsing="false" onAction="#setPeriodSearch" text="Période" toggleGroup="$DateOptionGroup" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="2.0" />
+                                             </padding>
+                                          </VBox>
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <DatePicker fx:id="DateDebut" promptText="Date" />
+                                                <DatePicker fx:id="DateFin" disable="true" promptText="Date fin de recherche" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <Label fx:id="feedbackLabel" text="Label" visible="false" />
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
-                              </HBox>
-                              <Label fx:id="feedbackLabel" text="Label" visible="false" />
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#getStats" prefHeight="106.0" prefWidth="100.0" styleClass="button4" text="Statistiques par genre de musique" textAlignment="CENTER" wrapText="true" />
+                                 </children>
+                              </VBox>
                            </children>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </VBox>
+                        </HBox>
                      </children>
                   </AnchorPane>
                 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0" minWidth="-Infinity">
                      <children>
-                        <ScrollPane fx:id="PaneList" layoutY="5.0" minHeight="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane layoutY="5.0" minHeight="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                              <VBox fx:id="vboxE" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" />
                           </content>
                            <padding>
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />

@@ -10,50 +10,55 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" style="-fx-background-color: transparent;" stylesheets="@../styles/Template.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ArtisteBackFXMLController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPaneArtiste" styleClass="ModuleBackground" stylesheets="@../../../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ArtisteBackFXMLController">
    <children>
       <SplitPane dividerPositions="0.2506265664160401" layoutX="14.0" layoutY="14.0" minHeight="280.0" minWidth="420.0" prefHeight="375.0" prefWidth="707.0" stylesheets="@../styles/Template.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
         <items>
           <AnchorPane minHeight="280.0" minWidth="150.0">
                <children>
-                  <SplitPane dividerPositions="0.7" maxHeight="1.7976931348623157E308" minHeight="280.0" minWidth="130.0" orientation="VERTICAL" prefHeight="375.0" stylesheets="@../styles/Template.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <items>
-                      <AnchorPane minHeight="150.0" stylesheets="@../styles/Template.css">
-                           <children>
-                              <VBox layoutX="5.0" layoutY="53.0" spacing="5.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="10.0">
+                  <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#chargerEvenement" styleClass="button4" text="Gestion Evenement" />
+                        <SplitPane dividerPositions="0.9" maxHeight="1.7976931348623157E308" orientation="VERTICAL" stylesheets="@../styles/Template.css">
+                          <items>
+                            <AnchorPane minHeight="150.0" stylesheets="@../styles/Template.css">
                                  <children>
-                                    <Label prefHeight="21.0" prefWidth="187.0" stylesheets="@../styles/Template.css" text="Nom" />
-                                    <TextField id="nomArtiste" fx:id="NomArtiste" maxWidth="200.0" minWidth="100.0" prefWidth="100.0" promptText="Artiste" />
-                                    <Label prefHeight="21.0" prefWidth="187.0" text="Type de musique" />
-                                    <TextField id="typeDeMusique" fx:id="TypeDeMusique" maxWidth="1.7976931348623157E308" minWidth="130.0" promptText="Genre" />
+                                    <VBox layoutX="5.0" layoutY="53.0" spacing="5.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="10.0">
+                                       <children>
+                                          <Label prefHeight="21.0" prefWidth="187.0" stylesheets="@../styles/Template.css" text="Nom" />
+                                          <TextField id="nomArtiste" fx:id="NomArtiste" maxWidth="200.0" minWidth="100.0" prefWidth="100.0" promptText="Artiste" />
+                                          <Label prefHeight="21.0" prefWidth="187.0" text="Type de musique" />
+                                          <TextField id="typeDeMusique" fx:id="TypeDeMusique" maxWidth="1.7976931348623157E308" minWidth="130.0" promptText="Genre" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
                                  </children>
-                                 <padding>
-                                    <Insets top="10.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                      <AnchorPane minHeight="130.0" minWidth="0.0" prefWidth="160.0">
-                           <children>
-                              <VBox alignment="TOP_CENTER" minHeight="130.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              </AnchorPane>
+                            <AnchorPane minHeight="130.0" minWidth="0.0" prefWidth="160.0">
                                  <children>
-                                    <Button id="addArtiste" fx:id="buttonAjouter" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#addArtiste" prefHeight="32.0" prefWidth="90.0" text="Ajouter" />
-                                    <Button fx:id="buttonSupprimer" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#supprimerArtiste" prefHeight="32.0" prefWidth="90.0" text="Supprimer">
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </Button>
-                                    <Button fx:id="buttonModifier" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#modifierArtiste" prefHeight="32.0" prefWidth="130.0" text="Modifier" />
-                                    <Button id="showArtistes" fx:id="buttonAfficher" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#refreshTV" prefHeight="32.0" prefWidth="90.0" text="Rafraîchir" />
+                                    <VBox alignment="TOP_CENTER" minHeight="130.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button id="addArtiste" fx:id="buttonAjouter" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#addArtiste" prefHeight="32.0" prefWidth="90.0" text="Ajouter" />
+                                          <Button fx:id="buttonSupprimer" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#supprimerArtiste" prefHeight="32.0" prefWidth="90.0" text="Supprimer">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button fx:id="buttonModifier" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#modifierArtiste" prefHeight="32.0" prefWidth="130.0" text="Modifier" />
+                                          <Button id="showArtistes" fx:id="buttonAfficher" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#refreshTV" prefHeight="32.0" prefWidth="90.0" text="Rafraîchir" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </VBox>
                                  </children>
-                                 <padding>
-                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                    </items>
-                  </SplitPane>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="270.0">

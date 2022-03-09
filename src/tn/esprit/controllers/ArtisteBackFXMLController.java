@@ -5,17 +5,20 @@
  */
 package tn.esprit.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import tn.esprit.entities.Artiste;
 import tn.esprit.services.ArtisteService;
 
@@ -47,8 +50,10 @@ public class ArtisteBackFXMLController implements Initializable {
     @FXML
     private Button buttonModifier;
     
-    private final String DFBUTTONCOLOR = "#ff0000";
+    private final String DFBUTTONCOLOR = "#a550de";
     private final String CONFIRMEDBUTTON ="#90EE90";
+    @FXML
+    private AnchorPane AnchorPaneArtiste;
 
     /**
      * Initializes the controller class.
@@ -123,6 +128,21 @@ public class ArtisteBackFXMLController implements Initializable {
         buttonSupprimer.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
         buttonModifier.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
         buttonAfficher.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
+    }
+    
+    private void setInterface(String location) throws IOException {
+        AnchorPaneArtiste.getChildren().clear();
+        AnchorPaneArtiste.getChildren().add(FXMLLoader.load(this.getClass().
+                getResource("/tn/esprit/view/" + location + ".fxml")));
+    }
+
+    @FXML
+    private void chargerEvenement(ActionEvent event) {
+        try{
+            setInterface("EvenementBackFXML");
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }
