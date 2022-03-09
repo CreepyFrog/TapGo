@@ -40,14 +40,14 @@
                                  <children>
                                     <VBox alignment="TOP_CENTER" minHeight="130.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Button id="addArtiste" fx:id="buttonAjouter" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#addArtiste" prefHeight="32.0" prefWidth="90.0" text="Ajouter" />
-                                          <Button fx:id="buttonSupprimer" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#supprimerArtiste" prefHeight="32.0" prefWidth="90.0" text="Supprimer">
+                                          <Button id="addArtiste" fx:id="buttonAjouter" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#addArtiste" prefHeight="32.0" prefWidth="90.0" styleClass="button5" text="Ajouter" />
+                                          <Button fx:id="buttonSupprimer" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#supprimerArtiste" prefHeight="32.0" prefWidth="90.0" styleClass="button5" text="Supprimer">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
                                           </Button>
-                                          <Button fx:id="buttonModifier" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#modifierArtiste" prefHeight="32.0" prefWidth="130.0" text="Modifier" />
-                                          <Button id="showArtistes" fx:id="buttonAfficher" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#refreshTV" prefHeight="32.0" prefWidth="90.0" text="Rafraîchir" />
+                                          <Button fx:id="buttonModifier" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#modifierArtiste" prefHeight="32.0" prefWidth="130.0" styleClass="button5" text="Modifier" />
+                                          <Button id="showArtistes" fx:id="buttonAfficher" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="90.0" mnemonicParsing="false" onAction="#refreshTV" prefHeight="32.0" prefWidth="90.0" styleClass="button5" text="Rafraîchir" />
                                        </children>
                                        <padding>
                                           <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />

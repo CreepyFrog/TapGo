@@ -5,8 +5,15 @@
  */
 package tn.esprit.controllers;
 
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +27,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import tn.esprit.entities.Artiste;
+import tn.esprit.entities.Evenement;
 import tn.esprit.services.ArtisteService;
+import tn.esprit.services.EvenementService;
 
 /**
  * FXML Controller class
@@ -30,6 +39,7 @@ import tn.esprit.services.ArtisteService;
 public class ArtisteBackFXMLController implements Initializable {
     
     ArtisteService as = new ArtisteService();
+    EvenementService es = new EvenementService();
     
     @FXML
     private TextField NomArtiste;
@@ -85,6 +95,7 @@ public class ArtisteBackFXMLController implements Initializable {
         supprimerArtisteDB();
         buttonSupprimer.setStyle("-fx-background-color:"+CONFIRMEDBUTTON+";");
         fillArtisteTV();
+        
     }
     
     @FXML
@@ -111,6 +122,32 @@ public class ArtisteBackFXMLController implements Initializable {
     
     private void supprimerArtisteDB(){
         Artiste selected = listeArtiste.getSelectionModel().getSelectedItem();
+        ObservableList<Evenement> evenements = es.recherche(selected.getId_Artiste());
+        List<Integer> idEv = new ArrayList<Integer>();
+        for (Evenement e : evenements){
+            idEv.add(e.getId_Evenement());
+        }
+        if (evenements != null) {
+            SystemTray tray = SystemTray.getSystemTray();
+
+            //If the icon is a file
+            Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+            //Alternative (if the icon is on the classpath):
+            //Image image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("icon.png"));
+
+            TrayIcon trayIcon = new TrayIcon(image, "Tray Demo");
+            //Let the system resize the image if needed
+            trayIcon.setImageAutoSize(true);
+            //Set tooltip text for the tray icon
+            trayIcon.setToolTip("System tray icon demo");
+            try {
+                tray.add(trayIcon);
+            } catch(AWTException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+            trayIcon.displayMessage("Gestion Artiste", "Artiste selectionné existe dans les evenements : "+evenements, TrayIcon.MessageType.INFO);
+        }
         as.supprimer(selected);
     }
     

@@ -97,7 +97,7 @@ public class Evenement {
         if (this.restaurant == null) r = "Pas de Restaurant Associé";
         else r = String.valueOf(restaurant.getId_Restaurant());
         
-        return "Evenement{" + "Id_Evenement=" + Id_Evenement + ", Nom_Evenement=" + Nom_Evenement + ", Date_Evenement=" + Date_Evenement + ", artiste=" + a + ", restaurant=" + r +'}';
+        return Nom_Evenement;
     }
     
 }

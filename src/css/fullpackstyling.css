@@ -59,6 +59,16 @@
     -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
     -fx-background-radius :  30 30 30 30;
 }
+.button5{
+    -fx-background-color :#a550de;
+    -fx-background-radius : 30 30 30 30;
+}
+.buton5:hover{
+    -fx-background-color : #c168fc;
+}
+.button5:pressed{
+    -fx-background-color : #d861f2;
+}
 .AppBackground {
     -fx-background-color :  #030307;
 }

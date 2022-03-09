@@ -145,24 +145,24 @@ public class EvenementService implements IService<Evenement> {
 //--------------------------------------------------------------------------
 //  Rechechrche parametré
 //--------------------------------------------------------------------------
-    public ObservableList<Evenement> recherche(Date d){
-        ObservableList<Evenement> evenements = 
-                FXCollections.observableArrayList();
-        
-        String req = "SELECT * FROM `evenement` WHERE Date_Evenement = ?";
-        
-        try {
-            pst = conn.prepareStatement(req);
-            pst.setDate(1, d);
-            ResultSet rs = pst.executeQuery();
-            evenements = fillEList(rs);
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        return evenements;
-    }
-    
+//    public ObservableList<Evenement> recherche(Date d){
+//        ObservableList<Evenement> evenements = 
+//                FXCollections.observableArrayList();
+//        
+//        String req = "SELECT * FROM `evenement` WHERE Date_Evenement = ?";
+//        
+//        try {
+//            pst = conn.prepareStatement(req);
+//            pst.setDate(1, d);
+//            ResultSet rs = pst.executeQuery();
+//            evenements = fillEList(rs);
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//        
+//        return evenements;
+//    }
+//    
     public ObservableList<Evenement> recherche(boolean isName, String element){
         ObservableList<Evenement> evenements = 
                 FXCollections.observableArrayList();
@@ -176,6 +176,21 @@ public class EvenementService implements IService<Evenement> {
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, element);
+            ResultSet rs = pst.executeQuery();
+            evenements = fillEList(rs);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return evenements;
+    }
+    
+    public ObservableList<Evenement> recherche(int idArtiste){
+        ObservableList<Evenement> evenements =
+                FXCollections.observableArrayList();
+        String req = "Select * from evenement e where exists(select * from artiste a where e.Id_Artiste = a.Id_Artiste and e.Id_Artiste = ?)";
+        try {
+            pst = conn.prepareStatement(req);
+            pst.setInt(1, idArtiste);
             ResultSet rs = pst.executeQuery();
             evenements = fillEList(rs);
         } catch (SQLException ex) {

@@ -5,6 +5,12 @@
  */
 package tn.esprit.controllers;
 
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.TrayIcon.MessageType;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -67,9 +73,6 @@ public class EvenementBackFXMLController implements Initializable {
     private TableColumn<Evenement, Artiste> Artiste_Evenement;
     @FXML
     private TableColumn<Evenement, Restaurant> Restaurant_Evenement;
-
-    private final String DFBUTTONCOLOR = "#a550de";
-    private final String CONFIRMEDBUTTON ="#90EE90";
     @FXML
     private AnchorPane AnchorPaneEvenement;
 
@@ -79,7 +82,6 @@ public class EvenementBackFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        setButtonsDefault();
         fillEvenementTV();
         fillCBArtiste();
         fillCBRestaurant();
@@ -88,31 +90,43 @@ public class EvenementBackFXMLController implements Initializable {
 
     @FXML
     private void refreshTV(ActionEvent event) {
-        setButtonsDefault();
         fillEvenementTV();
     }
 
     @FXML
     private void addEvenement(ActionEvent event) {
-        setButtonsDefault();
         addEvenementDB();
-        buttonAjouter.setStyle("-fx-background-color:"+CONFIRMEDBUTTON+";");
         fillEvenementTV();
     }
 
     @FXML
     private void supprimerEvenement(ActionEvent event) {
-        setButtonsDefault();
         supprimerEvenementDB();
-        buttonSupprimer.setStyle("-fx-background-color:"+CONFIRMEDBUTTON+";");
         fillEvenementTV();
+        SystemTray tray = SystemTray.getSystemTray();
+
+        //If the icon is a file
+        Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+        //Alternative (if the icon is on the classpath):
+        //Image image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("icon.png"));
+
+        TrayIcon trayIcon = new TrayIcon(image, "Tray Demo");
+        //Let the system resize the image if needed
+        trayIcon.setImageAutoSize(true);
+        //Set tooltip text for the tray icon
+        trayIcon.setToolTip("System tray icon demo");
+        try {
+            tray.add(trayIcon);
+        } catch(AWTException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        trayIcon.displayMessage("Gestion Evenement", "Evenement supprimé avec succée", MessageType.INFO);
     }
 
     @FXML
     private void modifierEvenement(ActionEvent event) {
-        setButtonsDefault();
         modifierEvenementDB();
-        buttonModifier.setStyle("-fx-background-color:"+CONFIRMEDBUTTON+";");
         fillEvenementTV();
     }
     
@@ -150,9 +164,9 @@ public class EvenementBackFXMLController implements Initializable {
         Date_Evenement.setCellValueFactory(new PropertyValueFactory
                 <Evenement, Date>("Date_Evenement"));
         Artiste_Evenement.setCellValueFactory(new PropertyValueFactory
-                <Evenement, Artiste>("Id_Artiste"));
+                <Evenement, Artiste>("artiste"));
         Restaurant_Evenement.setCellValueFactory(new PropertyValueFactory
-                <Evenement, Restaurant>("Id_Restaurant"));
+                <Evenement, Restaurant>("restaurant"));
         listeEvenement.setItems(le);
         
         
@@ -166,13 +180,6 @@ public class EvenementBackFXMLController implements Initializable {
     private void fillCBRestaurant() {
         ObservableList<Restaurant> lr = rs.afficher();
         RestaurantEvenement.setItems(lr);
-    }
-    
-    private void setButtonsDefault(){
-        buttonAjouter.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
-        buttonSupprimer.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
-        buttonModifier.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
-        buttonAfficher.setStyle("-fx-background-color:"+DFBUTTONCOLOR+";");
     }
 
     private void setInterface(String location) throws IOException {
