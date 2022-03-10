@@ -20,8 +20,17 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(int id_restaurant) {
+    public Restaurant(String nom) {
+        this.nom = nom;
+    }
+
+    public Restaurant(int id_restaurant, String nom) {
         this.id_restaurant = id_restaurant;
+        this.nom = nom;
+    }
+
+    public Restaurant(int b) {
+        this.id_restaurant = b;
     }
     
 
@@ -101,8 +110,9 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return ""+id_restaurant+"" ;
+        return  ""+id_restaurant+"" ;
     }
+
     
     
 }

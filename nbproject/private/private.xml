@@ -3,7 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/tapgo/src/tn/esprit/entites/User.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/tn/esprit/entites/table.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/service/ServiceTable.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/StatisticsController.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/EnvoyerMail.fxml</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/PIDEV/NewMain.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/AfficherReservationAdmin.fxml</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/AfficherTableAdminController.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/service/EnvoyerMail.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/tn/esprit/entites/Reservation.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/service/ServiceReservation.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/EnvoyerMailController.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/Table.fxml</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/TableController.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/tn/esprit/entites/Restaurant.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/HomeReservationController.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/AfficherReservationAdminController.java</file>
             <file>file:/C:/xampp/htdocs/tapgo/src/gui/Reserver.fxml</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/PIDEV/PIDEV.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/ReserverController.java</file>
+            <file>file:/C:/xampp/htdocs/tapgo/src/gui/AfficherTableAdmin.fxml</file>
         </group>
     </open-files>
 </project-private>

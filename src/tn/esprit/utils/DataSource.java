@@ -13,7 +13,7 @@ import java.sql.*;
 
 //methode singleton : design pattern
 public class DataSource {
-    private String url = "jdbc:mysql://localhost:3306/tapngo";
+    private String url = "jdbc:mysql://localhost:3306/tapngo1";
     private String user = "root";
     private String password = "";
     

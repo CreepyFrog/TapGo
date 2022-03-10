@@ -36,6 +36,10 @@ import tn.esprit.entites.Restaurant;
 import tn.esprit.entites.User;
 import tn.esprit.entites.table;
 import tn.esprit.utils.DataSource;
+import java.awt.*;
+import java.awt.TrayIcon.MessageType;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
 
 /**
  * FXML Controller class
@@ -50,10 +54,7 @@ public class TableController implements Initializable {
  ObservableList<table> TR =FXCollections.observableArrayList();
  
     @FXML
-    private TextField search;
-    @FXML
     private AnchorPane espaceTable;
-    @FXML
     private TableView<table> ListTable;
     @FXML
     private JFXTextField TextID_Table;
@@ -61,20 +62,15 @@ public class TableController implements Initializable {
     private JFXTextField TextType;
     @FXML
     private JFXTextField TextTableRestaurant;
-    @FXML
     private TableColumn<table, Integer> Id_Tablecol;
-    @FXML
     private TableColumn<table, Integer> Typecol;
-    @FXML
     private TableColumn<table, Restaurant> Restaurantcol;
     @FXML
     private Button AjouterButton;
     @FXML
-    private Button AfficherButton;
-    @FXML
-    private Button DeleteButton;
-    @FXML
     private Button ModifierButton;
+    @FXML
+    private Button back;
 
     /**
      * Initializes the controller class.
@@ -85,41 +81,11 @@ public class TableController implements Initializable {
         
             ServiceTable t = new ServiceTable();
         TR = t.Afficher();
-        getAllTable();
+      
     }    
 
-        public ObservableList<table> getListTable() { 
-      ObservableList<table> TR =FXCollections.observableArrayList();
-        try{
-        String requete = "SELECT * FROM table_restaurant";
-        PreparedStatement pst = cnx.prepareStatement(requete);
-        ResultSet rs = pst.executeQuery();
-        while(rs.next()){
-            
-            table b = new table();
-            b.setId_Table(rs.getInt(1));
-            b.setType_Table(rs.getInt(2));
-            b.setrest(new Restaurant(rs.getInt(3)));
-            TR.add(b);
-        }
-        System.out.println("table affiché!");
-        }catch(SQLException ex){
-        System.err.println(ex.getMessage());
-        }
-        System.out.println(TR);
-        return TR;
-}
- public void getAllTable(){
-        ObservableList<table> TR =getListTable();
         
-        Id_Tablecol.setCellValueFactory(new PropertyValueFactory<table,Integer>("Id_Table"));
-        Typecol.setCellValueFactory(new PropertyValueFactory<table,Integer>("Type_Table"));
-        Restaurantcol.setCellValueFactory(new PropertyValueFactory<table,Restaurant>("rest"));
-        
-        ListTable.setItems(TR);
-        System.out.println("Houssemmmm");
-        
-        }  
+ 
   public void Supprimer(int id) {
         try{
         String requete = "DELETE FROM table_restaurant WHERE Id_Table=?";
@@ -131,8 +97,8 @@ public class TableController implements Initializable {
         System.err.println(ex.getMessage());
         }
     }
- 
-   /* @FXML
+ /*
+    @FXML
     private void searchLabel(ActionEvent event) {
         Id_Tablecol.setCellValueFactory(new PropertyValueFactory<table,Integer>("Id_Table"));
         Typecol.setCellValueFactory(new PropertyValueFactory<table,Integer>("Type_Table"));
@@ -147,9 +113,9 @@ public class TableController implements Initializable {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
-                String lowerCaseFilter = newValue.toLowerCase();
+                //String lowerCaseFilter = newValue.toLowerCase();
 
-                if (a.getType_Table().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                if (a.getType_Table() != null) {
                     return true; // Filter Auteur
                 } else {
                     return false; // Does not match.
@@ -162,7 +128,7 @@ public class TableController implements Initializable {
     }*/
 
     @FXML
-    private void HandlerAjouter(ActionEvent event) {
+    private void HandlerAjouter(ActionEvent event) throws AWTException {
       
     
         String value1 = TextID_Table.getText();
@@ -173,16 +139,30 @@ public class TableController implements Initializable {
         table t = new table();
         t.setId_Table(0);
         t.setType_Table(Integer.parseInt(TextType.getText()));
-        t.setrest(new Restaurant(17));
+        t.setRest1(new Restaurant(17));
         
        // addReservationToBase(t);
         sr.Ajouter(t);
+        SystemTray tray = SystemTray.getSystemTray();
+
+        //If the icon is a file
+        Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
+        //Alternative (if the icon is on the classpath):
+        //Image image = Toolkit.getDefaultToolkit().createImage(getClass().getResource("icon.png"));
+
+        TrayIcon trayIcon = new TrayIcon(image, "Tray Demo");
+        //Let the system resize the image if needed
+        trayIcon.setImageAutoSize(true);
+        //Set tooltip text for the tray icon
+        trayIcon.setToolTip("System tray icon demo");
+        tray.add(trayIcon);
+        trayIcon.displayMessage("Gestion des tables", "table ajouter avec succée", MessageType.INFO);
     }
     
     public void addTableToBase(table t) {
          try{
         Statement st=cnx.createStatement();  
-        String req="INSERT INTO table_restaurant(Type_Table,Id_Restaurant) VALUES ("+t.getType_Table()+","+t.getrest().getId_restaurant()+")";;
+        String req="INSERT INTO table_restaurant(Type_Table,Id_Restaurant) VALUES ("+t.getType_Table()+","+t.getRest1().getId_restaurant()+")";;
         st.executeUpdate(req);
         System.out.println("table ajouté !");
         }catch(SQLException ex){    
@@ -190,21 +170,34 @@ public class TableController implements Initializable {
         }
     }
 
-    @FXML
     private void HandlerAfficher(ActionEvent event) {
-        getAllTable();
+        
     }
 
-    @FXML
     private void HandlerDelete(ActionEvent event) {
                 Supprimer(ListTable.getSelectionModel().getSelectedItem().getId_Table());
         ListTable.getItems().removeAll(ListTable.getSelectionModel().getSelectedItem()); 
         
-        getAllTable();
+       
     }
 
     @FXML
     private void HandlerModifier(ActionEvent event) {
     }
+
+    
+    private void setInterface(String location) throws IOException {
+        espaceTable.getChildren().clear();
+        espaceTable.getChildren().add(FXMLLoader.load(this.getClass().
+                getResource("/gui/" + location + ".fxml")));
+    }
+    
+    
+    
+    @FXML
+    private void goBack(ActionEvent event) throws IOException {
+        setInterface("HomeUser");
+    }
+
     
 }

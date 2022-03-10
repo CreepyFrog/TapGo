@@ -66,6 +66,10 @@ public class Reservation {
         this.Heure = Heure;
     }
 
+    public Reservation(Restaurant rest) {
+        this.rest = rest;
+    }
+
     public User getUsr() {
         return Usr;
     }
@@ -83,11 +87,11 @@ public class Reservation {
         this.Id_Reservation = Id_Reservation;
     }
 
-    public Restaurant getrest() {
+    public Restaurant getRest() {
         return rest;
     }
 
-    public void setrest(Restaurant rest) {
+    public void setRest(Restaurant rest) {
         this.rest = rest;
     }
 
@@ -99,18 +103,20 @@ public class Reservation {
         this.Heure = Heure;
     }
     
-        public table gettbl() {
+        public table getTbl() {
         return tbl;
     }
 
-    public void settbl(table tbl) {
+    public void setTbl(table tbl) {
         this.tbl = tbl;
     }
 
     @Override
     public String toString() {
-        return "Reservation{" + "Id_Reservation=" + Id_Reservation + ", Heure=" + Heure + ", Date=" + Date + ", tbl=" + tbl.getId_Table() + ", rest=" + rest.getId_restaurant() + ", Usr=" + Usr.getId() + '}'+"\n";
+        return "Reservation{" + "Id_Reservation=" + Id_Reservation + ", Heure=" + Heure + ", Date=" + Date + ", tbl=" + tbl.getId_Table() + ", rest=" + rest + ", Usr=" + Usr + '}';
     }
+
+   
 
    
     

@@ -49,7 +49,7 @@ public class ServiceReservation  {
 
     public void Ajouter(Reservation t) {
         try{
-        String requete = "INSERT INTO reservation(Heure,Date,Id_Table,Id_Restaurant,Id_User) VALUES ("+t.getHeure()+","+t.getDate()+","+t.gettbl().getId_Table()+","+t.getrest().getId_restaurant()+","+t.getUsr().getId()+")";
+        String requete = "INSERT INTO reservation(Heure,Date,Id_Table,Id_Restaurant,Id_User) VALUES ("+t.getHeure()+","+t.getDate()+","+t.getTbl().getId_Table()+","+t.getRest().getId_restaurant()+","+t.getUsr().getId()+")";
         
         PreparedStatement pst =new DataSource().cnx.prepareStatement(requete);
         
@@ -64,7 +64,28 @@ public class ServiceReservation  {
         pst.executeUpdate();
         System.out.println("Reservation ajouté !");
         }catch (SQLException ex) {
-              Logger.getLogger(services.ReactionService.class.getName()).log(Level.SEVERE, null, ex);
+              Logger.getLogger(service.ServiceReservation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+        public void AjouterParNom(Reservation t) {
+        try{
+        String requete = "INSERT INTO reservation(Heure,Date,Id_Table,Nom_Restaurant,Nom_User) VALUES ("+t.getHeure()+","+t.getDate()+","+t.getTbl().getId_Table()+","+t.getRest().getNom()+","+t.getUsr().getName()+")";
+        
+        PreparedStatement pst =new DataSource().cnx.prepareStatement(requete);
+        
+       /* pst.setInt(1, t.getHeure());
+        pst.setString(2, t.getDate());
+        pst.setInt(3, t.getId_Table());
+        pst.setInt(4, t.getId_Restaurant());
+        pst.setInt(5, t.getId_User());
+        */
+        
+        
+        pst.executeUpdate();
+        System.out.println("Reservation ajouté !");
+        }catch (SQLException ex) {
+              Logger.getLogger(service.ServiceReservation.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -178,11 +199,33 @@ public class ServiceReservation  {
             a.setId_Reservation(rs.getInt(1));
             a.setHeure(rs.getInt(2));
             a.setDate(rs.getString(3));
-            a.settbl(new table(rs.getInt(4)));
-            a.setrest(new Restaurant(rs.getInt(5)));
+            a.setTbl(new table(rs.getInt(4)));
+            a.setRest(new Restaurant(rs.getInt(5)));
             a.setUsr(new User(rs.getInt(6)));
             list.add(a);
-           // int Heure, String Date, table tbl, Restaurant rest, User Usr
+           // int Heure, Date Date, table tbl, Restaurant rest, User Usr
+        }
+        System.out.println("Reservation !");
+        }catch(SQLException ex){
+        System.err.println(ex.getMessage());
+        }
+        return list;
+    }
+    
+        public ObservableList<Reservation> AfficherNom() {
+         
+        try{
+        String requete = "SELECT `Nom_Restaurant` FROM `restaurant`";
+        PreparedStatement pst = cnx.prepareStatement(requete);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            
+            Reservation a = new Reservation();
+            a.setRest(new Restaurant(rs.getString(1)));
+                    //(new Restaurant(rs.getString(5)));
+           
+            list.add(a);
+           // int Heure, Date Date, table tbl, Restaurant rest, User Usr
         }
         System.out.println("Reservation !");
         }catch(SQLException ex){
@@ -201,14 +244,14 @@ public class ServiceReservation  {
         for (Reservation r : res) {
             Paragraph reservation = new Paragraph("Reservation " + r.getId_Reservation());
             reservation.setAlignment(Element.ALIGN_CENTER);
-            document.add(reservation);
+            //document.add(reservation);
             Paragraph Heure = new Paragraph("Heure : " + r.getHeure());
             Heure.setAlignment(Element.ALIGN_LEFT);
             Paragraph Date = new Paragraph("Date : " + r.getClass());
             Date.setAlignment(Element.ALIGN_LEFT);
-            Paragraph Table = new Paragraph("Table: " + r.gettbl());
+            Paragraph Table = new Paragraph("Table: " + r.getTbl());
             Table.setAlignment(Element.ALIGN_LEFT);
-            Paragraph Restaurant = new Paragraph("Restaurant : " + r.getrest());
+            Paragraph Restaurant = new Paragraph("Restaurant : " + r.getRest());
             Restaurant.setAlignment(Element.ALIGN_LEFT);
             Paragraph User = new Paragraph("User : " + r.getUsr());
             User.setAlignment(Element.ALIGN_LEFT);

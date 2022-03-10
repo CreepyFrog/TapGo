@@ -10,6 +10,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
@@ -22,6 +24,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -50,11 +54,23 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.transform.Scale;
 import javax.swing.JOptionPane;
 import service.ServiceReservation;
-import services.ReactionService;
 import tn.esprit.entites.Restaurant;
 import tn.esprit.entites.User;
 import tn.esprit.entites.table;
-
+import tn.esprit.entites.Maptet;
+import com.google.api.services.calendar.Calendar;
+import java.awt.*;
+import java.awt.TrayIcon.MessageType;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 /**
  * FXML Controller class
  *
@@ -73,32 +89,16 @@ public class ReserverController implements Initializable {
     private ComboBox<?> ComboUser;
     private JFXDatePicker DatePickReservation;
     private JFXTimePicker TimePickReservation;
-    @FXML
     private TableView<Reservation> ListReservation;
-    @FXML
     private TableColumn<Reservation, Integer> Idcol;
-    @FXML
     private TableColumn<Reservation, Integer> Heurecol;
-    @FXML
     private TableColumn<Reservation, String> Datecol;
-    @FXML
     private TableColumn<Reservation, table> Tablecol;
-    @FXML
-    private TableColumn<Reservation, Restaurant> Restaurantcol;
-    @FXML
-    private TableColumn<Reservation, Integer> Usercol;
-    @FXML
-    private JFXButton AfficherButton;
-    @FXML
-    private JFXButton DeleteButton;
+    private TableColumn<Reservation, String> Restaurantcol;
+    private TableColumn<Reservation, User> Usercol;
     @FXML
     private JFXButton AjouterButton;
-    @FXML
     private TextField search;
-    @FXML
-    private Button ImprimerReservation;
-    @FXML
-    private JFXButton PdfButton;
     @FXML
     private JFXTextField TextDate;
     @FXML
@@ -111,6 +111,10 @@ public class ReserverController implements Initializable {
     private JFXTextField TextUser;
     @FXML
     private Button ModifierButton;
+    @FXML
+    private Button back;
+    @FXML
+    private JFXButton ButtonMap;
     
 
     /**
@@ -121,7 +125,7 @@ public class ReserverController implements Initializable {
 
             ServiceReservation r = new ServiceReservation();
         LR = r.Afficher();
-        getAllReservation();
+       
     }    
 
     public ObservableList<Reservation> getListReservation() { 
@@ -137,8 +141,8 @@ public class ReserverController implements Initializable {
             a.setId_Reservation(rs.getInt(1));
             a.setHeure(rs.getInt(2));
             a.setDate(rs.getString(3));
-            a.settbl(new table(rs.getInt(4)));
-            a.setrest(new Restaurant(rs.getInt(5)));
+            a.setTbl(new table(rs.getInt(4)));
+            a.setRest(new Restaurant(rs.getInt(5)));
             a.setUsr(new User(rs.getInt(6)));
             LR.add(a);
            // int Heure, String Date, table tbl, Restaurant rest, User Usr
@@ -150,25 +154,24 @@ public class ReserverController implements Initializable {
        System.out.println(LR);
         return LR;
 }
- public void getAllReservation(){
+ /*public void getAllReservation(){
         ObservableList<Reservation> LR =getListReservation();
 
         Idcol.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("Id_Reservation"));
         Heurecol.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("Heure"));
         Datecol.setCellValueFactory(new PropertyValueFactory<Reservation,String>("Date"));
         Tablecol.setCellValueFactory(new PropertyValueFactory<Reservation,table>("tbl"));
-        Restaurantcol.setCellValueFactory(new PropertyValueFactory<Reservation,Restaurant>("rest"));
-        Usercol.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("Usr"));
+        Restaurantcol.setCellValueFactory(new PropertyValueFactory<Reservation,String>("rest"));
+        Usercol.setCellValueFactory(new PropertyValueFactory<Reservation,User>("Usr"));
         ListReservation.setItems(LR);
         System.out.println("Houssemmmm");
         
-        }  
+        }  */
  
  
 
-    @FXML
     private void handlerAfficherButton(ActionEvent event) {
-        getAllReservation();
+       // getAllReservation();
         //System.out.println(rs.afficherPublication());
     }
 
@@ -221,13 +224,12 @@ public class ReserverController implements Initializable {
     }
    
 
-    @FXML
     private void handlerDeleteButton(ActionEvent event) {
                 
         Supprimer(ListReservation.getSelectionModel().getSelectedItem().getId_Reservation());
         ListReservation.getItems().removeAll(ListReservation.getSelectionModel().getSelectedItem()); 
         
-        getAllReservation();
+     //   getAllReservation();
     }
 
    
@@ -243,7 +245,11 @@ public class ReserverController implements Initializable {
                 String lowerCaseFilter = newValue.toLowerCase();
                 if (tff.getDate().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true;
-                } else {
+                    
+                    
+                } 
+                
+                else {
                     return false;
                 }
             });
@@ -253,14 +259,13 @@ public class ReserverController implements Initializable {
         ListReservation.setItems(sortedData);
     }
      
-    @FXML
     private void searchLabel(ActionEvent event) {
           Idcol.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("Id_Reservation"));
         Heurecol.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("Heure"));
         Datecol.setCellValueFactory(new PropertyValueFactory<Reservation,String>("Date"));
         Tablecol.setCellValueFactory(new PropertyValueFactory<Reservation,table>("tbl"));
-        Restaurantcol.setCellValueFactory(new PropertyValueFactory<Reservation,Restaurant>("rest"));
-        Usercol.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("Usr"));
+        Restaurantcol.setCellValueFactory(new PropertyValueFactory<Reservation,String>("rest"));
+        Usercol.setCellValueFactory(new PropertyValueFactory<Reservation,User>("Usr"));
         ServiceReservation r = new ServiceReservation();
         LR= (ObservableList<Reservation>) r.Afficher();
         ListReservation.setItems(LR);
@@ -284,7 +289,6 @@ public class ReserverController implements Initializable {
         ListReservation.setItems(sortedData);
     }
 
-    @FXML
     private void Imprimer(ActionEvent event) {
          try {
             printNode(ListReservation);
@@ -325,8 +329,7 @@ public class ReserverController implements Initializable {
         node.getTransforms().remove(scale);
     }
 
-    @FXML
-    private void GetPDF(ActionEvent event) {
+    private void GetPDF(ActionEvent event) throws IOException {
                try {
             ServiceReservation pdf = new ServiceReservation();
             pdf.e_bookPDF();
@@ -344,14 +347,14 @@ public class ReserverController implements Initializable {
         alert.setContentText("Vous voulez ouvrir le fichier PDF ?!");
         Optional<ButtonType> action = alert.showAndWait();
         if (action.get() == ButtonType.OK) {
-           // Desktop.getDesktop().open(new File("C:\\Users\\Kenza\\Desktop\\Meliora-java-melioraa2\\Meliora-java-meliora\\document\\e_bookPDF.pdf"));
+            Desktop.getDesktop().open(new File("C:\\xampp\\htdocs\\tapgo\\document\\ReservationPDF.pdf"));
 
         }
     }
 
     @FXML
     private void HandlerAjouterButton(ActionEvent event) {
-         
+          if (validateNumber() && validateFields()) {
         
         String value1 = TextDate.getText();
         String value3 = TextTable.getText();
@@ -362,15 +365,29 @@ public class ReserverController implements Initializable {
         t.setId_Reservation(0);
         t.setDate(value1);
         t.setHeure(Integer.parseInt(TextHeure.getText()));
-        t.settbl(new table(2));
-        t.setrest(new Restaurant(17));
-        t.setUsr(new User(1));
+        t.setTbl(new table(3));
+        t.setRest(new Restaurant(17));
+        t.setUsr(new User(35));
        // addReservationToBase(t);
         sr.Ajouter(t);
+        
+        } else if(validateNumber()==false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur Validation!");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez saisir un nombre de personne valide");
+            alert.showAndWait();
+        } else if(validateFields()==false){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur Validation!");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs");
+            alert.showAndWait();
+        }
     }
    public void addReservationToBase(Reservation t) {
         try{
-        String requete = "INSERT INTO reservation(Heure,Date,Id_Table,Id_Restaurant,Id_User) VALUES ("+t.getHeure()+","+t.getDate()+","+t.gettbl().getId_Table()+","+t.getrest().getId_restaurant()+","+t.getUsr().getId()+")";
+        String requete = "INSERT INTO reservation(Heure,Date,Id_Table,Id_Restaurant,Id_User) VALUES ("+t.getHeure()+","+t.getDate()+","+t.getTbl().getId_Table()+","+t.getRest().getId_restaurant()+","+t.getUsr().getId()+")";
         
         PreparedStatement pst =new DataSource().cnx.prepareStatement(requete);
         
@@ -385,10 +402,114 @@ public class ReserverController implements Initializable {
         pst.executeUpdate();
         System.out.println("Reservation ajouté !");
         }catch (SQLException ex) {
-              Logger.getLogger(services.ReactionService.class.getName()).log(Level.SEVERE, null, ex);
+              Logger.getLogger(service.ServiceReservation.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+ private boolean validateNumber() {
+        Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
+        Matcher m = p.matcher(TextDate.getText());
+        if(m.find() && m.group().equals(TextDate.getText())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // Test de validation de saisie
+    private boolean validateFields(){
+        if( TextRestaurant.getText().isEmpty()|| TextUser.getText().isEmpty() || TextHeure.getText().isEmpty() || TextDate.getText().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    
+    private void setInterface(String location) throws IOException {
+        espaceReservation.getChildren().clear();
+        espaceReservation.getChildren().add(FXMLLoader.load(this.getClass().
+                getResource("/gui/" + location + ".fxml")));
+    }
+    
+    
+    @FXML
+    private void goBack(ActionEvent event) throws IOException {
+        setInterface("HomeUser");
+    }
+
+    
+    String localisation;
+    
+       
+   Stage stage1;
+    FXMLLoader loader;
+      public void showMap(Stage stage) {
+       
+            // create web engine and view
+         WebEngine webEngine = new WebEngine(
+                getClass().getResource("/tn/esprit/utils/googleMap.html").toString());
+         WebView webView = new WebView();
+         webView.getEngine().load("file:///C:\\xampp\\htdocs\\tapgo\\src\\tn\\esprit\\utils\\googleMap.html");
+        // create map type buttons
+               
+             stage = new Stage(StageStyle.UTILITY);
+            stage.setScene(new Scene(webView));
+            stage.show();
+        
+        final ToggleGroup mapTypeGroup = new ToggleGroup();
+        final ToggleButton road = new ToggleButton("Road");
+        road.setSelected(true);
+        road.setToggleGroup(mapTypeGroup);
+        final ToggleButton satellite = new ToggleButton("Retour");
+        
+        satellite.setOnAction(new EventHandler<ActionEvent>() {
+             @Override
+             public void handle(ActionEvent event) {
+                stage1 = new Stage(StageStyle.UTILITY);
+                   loader= new FXMLLoader(getClass().getResource("Evenement.fxml"));
+                    loader.setController(new MapsController());
+                 try {
+                     stage1.setScene(new Scene(loader.load()));
+                 } catch (IOException ex) {
+                     Logger.getLogger(MapsController.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+            stage1.show();
+                 
+             }
+         });
+    
+        stage.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>(){
+             @Override
+             public void handle(WindowEvent event) {
+                 System.out.println("close");
+                 String adresse =webView.getEngine().executeScript("fullName").toString();
+                 
+                 
+                 
+                   System.out.println("localisation = "+adresse);
+                 
+                 
+             }
+            
+        });
+       
+        
+     
+        
+
+   }
+    
+    
+    
+    
+    
+    @FXML
+    private void HandlerMap(ActionEvent event) {
+        
+                   Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+     
+        showMap(stage);
+    }
 
    
 

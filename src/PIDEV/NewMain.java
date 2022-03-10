@@ -22,8 +22,19 @@ public class NewMain extends Application {
     private double yOffset = 0;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/statistics.fxml"));
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        //Parent root = FXMLLoader.load(getClass().getResource("/gui/Table.fxml"));
+      // Parent root = FXMLLoader.load(getClass().getResource("/gui/Reserver.fxml"));
+       //Parent root = FXMLLoader.load(getClass().getResource("/gui/statistics.fxml"));
+       // Parent root = FXMLLoader.load(getClass().getResource("/gui/EnvoyerMail.fxml"));
+       //Parent root = FXMLLoader.load(getClass().getResource("/gui/AfficherReservationAdmin.fxml"));
+       // Parent root = FXMLLoader.load(getClass().getResource("/gui/AfficherTableAdmin.fxml"));
+       
+       // Interface Admin
+       //  Parent root = FXMLLoader.load(getClass().getResource("/gui/HomeReservation.fxml"));
+       // Interface User
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/HomeUser.fxml"));
+       //   Parent root = FXMLLoader.load(getClass().getResource("/gui/Maps.fxml"));
+       primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         //grab your root here
         root.setOnMousePressed(event -> {
@@ -48,3 +59,6 @@ public class NewMain extends Application {
         launch(args);
     }
 }
+
+
+

@@ -14,7 +14,7 @@ import java.sql.Date;
 public class table {
     private int Id_Table ;
     private int Type_Table;
-    private Restaurant rest;
+    private Restaurant rest1;
 
     public table() {
     }
@@ -34,16 +34,16 @@ public class table {
     } */
     
     //ajouter
-        public table(int Type_Table, Restaurant rest) {
+        public table(int Type_Table, Restaurant rest1) {
         this.Type_Table=Type_Table;
-        this.rest = rest;
+        this.rest1 = rest1;
         
     }
     
-    public table(int Id_Table, int Type_Table, Restaurant rest) {
+    public table(int Id_Table, int Type_Table, Restaurant rest1) {
         this.Id_Table = Id_Table;
         this.Type_Table = Type_Table;
-        this.rest = rest;
+        this.rest1 = rest1;
     }
 
     
@@ -66,21 +66,23 @@ public class table {
         this.Id_Table = Id_Table;
     }
 
-    public Restaurant getrest() {
-        return rest;
+    public Restaurant getRest1() {
+        return rest1;
     }
 
-    public void setrest(Restaurant rest) {
-        this.rest = rest;
+    public void setRest1(Restaurant rest1) {
+        this.rest1 = rest1;
     }
-
-
-    
 
     @Override
     public String toString() {
         return  ""+Id_Table+"" ;
     }
+
+
+    
+
+    
    
     
 }

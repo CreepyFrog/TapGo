@@ -33,7 +33,7 @@ public class ServiceTable  {
     public void Ajouter(table t) {
         try{
         Statement st=cnx.createStatement();  
-        String req="INSERT INTO table_restaurant(Type_Table,Id_Restaurant) VALUES ("+t.getType_Table()+","+t.getrest().getId_restaurant()+")";;
+        String req="INSERT INTO table_restaurant(Type_Table,Id_Restaurant) VALUES ("+t.getType_Table()+","+t.getRest1().getId_restaurant()+")";;
         st.executeUpdate(req);
         System.out.println("table ajouté !");
         }catch(SQLException ex){    
@@ -95,7 +95,7 @@ public class ServiceTable  {
             table b = new table();
             b.setId_Table(rs.getInt(1));
             b.setType_Table(rs.getInt(2));
-            b.setrest(new Restaurant(rs.getInt(3)));
+            b.setRest1(new Restaurant(rs.getInt(3)));
             list.add(b);
         }
         System.out.println("table affiché!");

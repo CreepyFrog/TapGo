@@ -37,6 +37,10 @@ import java.sql.Date;
 //        this.birthday = birthday;  
     }
 
+    public User(String name) {
+        this.name = name;
+    }
+
     public User(int id, String name, String lastname, String email, String password, String gender, String role, int phone, Date birthday) {
         this.id = id;
         this.name = name;
@@ -139,10 +143,16 @@ import java.sql.Date;
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
-
+/*
     @Override
     public String toString() {
         return  ""+id+"" ;
+    }
+    */
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", name=" + name + ", lastname=" + lastname + ", email=" + email + ", password=" + password + ", gender=" + gender + ", role=" + role + ", phone=" + phone + ", birthday=" + birthday + '}';
     }
 
     
