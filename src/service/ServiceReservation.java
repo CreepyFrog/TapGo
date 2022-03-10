@@ -6,6 +6,7 @@
 package service;
 
 
+<<<<<<< HEAD
 
 import java.awt.Image;
 import java.io.File;
@@ -13,11 +14,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+=======
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
 import tn.esprit.utils.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +42,14 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+=======
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import tn.esprit.entites.Reservation;
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
 
 /**
  *
@@ -45,6 +57,7 @@ import com.itextpdf.text.pdf.PdfWriter;
  */
 public class ServiceReservation  {
     Connection cnx = DataSource.getInstance().getConnection();
+<<<<<<< HEAD
     ObservableList<Reservation> list = FXCollections.observableArrayList();
 
     public void Ajouter(Reservation t) {
@@ -54,10 +67,21 @@ public class ServiceReservation  {
         PreparedStatement pst =new DataSource().cnx.prepareStatement(requete);
         
        /* pst.setInt(1, t.getHeure());
+=======
+
+    public void Ajouter(Reservation t) {
+        try{
+        String requete = "INSERT INTO reservation(Heure,Date,Id_Table,Id_Restaurant,Id_User) VALUES (?,?,?,?,?)";
+        
+        PreparedStatement pst =new DataSource().cnx.prepareStatement(requete);
+        
+        pst.setInt(1, t.getHeure());
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
         pst.setString(2, t.getDate());
         pst.setInt(3, t.getId_Table());
         pst.setInt(4, t.getId_Restaurant());
         pst.setInt(5, t.getId_User());
+<<<<<<< HEAD
         */
         
         
@@ -145,6 +169,17 @@ public class ServiceReservation  {
     
     
     
+=======
+        
+        
+        
+        pst.executeUpdate();
+        System.out.println("Reservation ajouté !");
+        }catch(SQLException ex){
+        System.err.println(ex.getMessage());
+        }
+    }
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
        public int getNbrReserv(int idl) {
         String sql="SELECT COUNT(*) FROM reservation where Id_Restaurant='"+idl+"'";
         ResultSet rs;
@@ -187,13 +222,19 @@ public class ServiceReservation  {
         }
     }
 
+<<<<<<< HEAD
     public ObservableList<Reservation> Afficher() {
          
+=======
+    public List<Reservation> Afficher() {
+         List<Reservation> list = new ArrayList<>();
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
         try{
         String requete = "SELECT * FROM reservation";
         PreparedStatement pst = cnx.prepareStatement(requete);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
+<<<<<<< HEAD
             
             Reservation a = new Reservation();
             a.setId_Reservation(rs.getInt(1));
@@ -226,6 +267,9 @@ public class ServiceReservation  {
            
             list.add(a);
            // int Heure, Date Date, table tbl, Restaurant rest, User Usr
+=======
+            list.add(new Reservation(rs.getInt(1),rs.getInt(2)));
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
         }
         System.out.println("Reservation !");
         }catch(SQLException ex){
@@ -234,6 +278,7 @@ public class ServiceReservation  {
         return list;
     }
 
+<<<<<<< HEAD
    public void e_bookPDF() throws FileNotFoundException, DocumentException, MalformedURLException, IOException {
         Document document = new Document();
         ServiceReservation rm = new ServiceReservation();
@@ -264,5 +309,8 @@ public class ServiceReservation  {
         }
         document.close();
     }
+=======
+   
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
     
 }

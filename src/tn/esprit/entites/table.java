@@ -14,6 +14,7 @@ import java.sql.Date;
 public class table {
     private int Id_Table ;
     private int Type_Table;
+<<<<<<< HEAD
     private Restaurant rest1;
 
     public table() {
@@ -44,6 +45,27 @@ public class table {
         this.Id_Table = Id_Table;
         this.Type_Table = Type_Table;
         this.rest1 = rest1;
+=======
+    private int Id_Restaurant;
+
+    public table() {
+    }
+    
+    
+    
+    public table(int Id_Table,int Type_Table) {
+        this.Id_Table=Id_Table;
+        this.Type_Table = Type_Table;
+        
+    }
+
+    
+    
+    public table(int Id_Table, int Type_Table, int Id_Restaurant) {
+        this.Id_Table = Id_Table;
+        this.Type_Table = Type_Table;
+        this.Id_Restaurant = Id_Restaurant;
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
     }
 
     
@@ -66,6 +88,7 @@ public class table {
         this.Id_Table = Id_Table;
     }
 
+<<<<<<< HEAD
     public Restaurant getRest1() {
         return rest1;
     }
@@ -84,5 +107,20 @@ public class table {
 
     
    
+=======
+    public int getId_Restaurant() {
+        return Id_Restaurant;
+    }
+
+    public void setId_Restaurant(int Id_Restaurant) {
+        this.Id_Restaurant = Id_Restaurant;
+    }
+
+
+    @Override
+    public String toString() {
+        return "table{" + "Id_Table=" + Id_Table + ", Type_Tablet=" + Type_Table + ", Id_Restaurant=" + Id_Restaurant +'}';
+    }
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
     
 }

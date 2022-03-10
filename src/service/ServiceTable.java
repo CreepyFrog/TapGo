@@ -16,10 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+<<<<<<< HEAD
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import tn.esprit.entites.Reservation;
 import tn.esprit.entites.Restaurant;
+=======
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
 import tn.esprit.entites.table;
 
 /**
@@ -28,12 +31,19 @@ import tn.esprit.entites.table;
  */
 public class ServiceTable  {
     Connection cnx = DataSource.getInstance().getConnection();
+<<<<<<< HEAD
     ObservableList<table> list = FXCollections.observableArrayList();
+=======
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
 
     public void Ajouter(table t) {
         try{
         Statement st=cnx.createStatement();  
+<<<<<<< HEAD
         String req="INSERT INTO table_restaurant(Type_Table,Id_Restaurant) VALUES ("+t.getType_Table()+","+t.getRest1().getId_restaurant()+")";;
+=======
+        String req="INSERT INTO table_restaurant(Type_Table,Id_Restaurant) VALUES ("+t.getType_Table()+","+t.getId_Restaurant()+")";;
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
         st.executeUpdate(req);
         System.out.println("table ajouté !");
         }catch(SQLException ex){    
@@ -85,18 +95,27 @@ public class ServiceTable  {
         }
     }
 
+<<<<<<< HEAD
     public ObservableList<table> Afficher() {
          
+=======
+    public List<table> Afficher() {
+         List<table> list = new ArrayList<>();
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
         try{
         String requete = "SELECT * FROM table_restaurant";
         PreparedStatement pst = cnx.prepareStatement(requete);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
+<<<<<<< HEAD
             table b = new table();
             b.setId_Table(rs.getInt(1));
             b.setType_Table(rs.getInt(2));
             b.setRest1(new Restaurant(rs.getInt(3)));
             list.add(b);
+=======
+            list.add(new table(rs.getInt(1),rs.getInt(2)));
+>>>>>>> b3cc4a281f7d715182cabcc571100ee6eb7bf765
         }
         System.out.println("table affiché!");
         }catch(SQLException ex){
