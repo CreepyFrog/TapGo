@@ -39,6 +39,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -47,8 +48,6 @@ import javafx.scene.layout.Region;
  */
 public class CommentairesController implements Initializable {
  Connection cnx = Datasource.getInstance().getCnx();
-    @FXML
-    private Button Publier;
     @FXML
     private TableColumn<Commentaire, String> lib_comm_Interface;
     @FXML
@@ -59,12 +58,15 @@ public class CommentairesController implements Initializable {
     private Button Button_Commenter;
     @FXML
     private Label AddedLabel;
-    @FXML
     private GridPane gridPane;
     @FXML
     private AnchorPane anchorPaneCommentairesBlock;
     @FXML
     private AnchorPane anchorPaneCommentaireInterface;
+    @FXML
+    private Button BackHome;
+    @FXML
+    private GridPane gridPaneComms;
  
 
     /**
@@ -111,14 +113,14 @@ public class CommentairesController implements Initializable {
 //                anchorPane.setMinHeight(50);
                 CommfxmlController itemController = Loader1.getController();
                 itemController.setBlock(LC.get(i));
-                gridPane.add(anchorPane, 0, i);
-                gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
-                gridPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                gridPane.setMaxWidth(Region.USE_PREF_SIZE);
+                gridPaneComms.add(anchorPane, 0, i);
+                gridPaneComms.setMinWidth(Region.USE_COMPUTED_SIZE);
+                gridPaneComms.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                gridPaneComms.setMaxWidth(Region.USE_PREF_SIZE);
                 //set grid height
-                gridPane.setMinHeight(Region.USE_COMPUTED_SIZE);
-                gridPane.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                gridPane.setMaxHeight(Region.USE_PREF_SIZE);
+                gridPaneComms.setMinHeight(Region.USE_COMPUTED_SIZE);
+                gridPaneComms.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                gridPaneComms.setMaxHeight(Region.USE_PREF_SIZE);
                 GridPane.setMargin(anchorPane, new Insets(10));
             
             
@@ -212,7 +214,14 @@ public void getAllCommentaires(){
     }
 
     @FXML
-    private void AddComment(ActionEvent event) {
+    private void AddComment(ActionEvent event) throws IOException {
+       
+                 Boolean ok=false;
+     if ((text_Commenter.getText().toString().compareTo("") == 0) ) {
+         ok=true;
+            JOptionPane.showMessageDialog(null, "champs vide");
+
+} else {
         String libelle=text_Commenter.getText();
         Commentaire c =new Commentaire();
         c.setLibelle_commentaire(libelle);
@@ -223,8 +232,13 @@ public void getAllCommentaires(){
         text_Commenter.setText("");
         AddedLabel.setText("Commentaire Ajoutée !");
         getAllCommentaires();
+        gridPaneComms.getChildren().clear();
+        insertCommentaires();
+        
+        
         
     }
+                }
 
     
     

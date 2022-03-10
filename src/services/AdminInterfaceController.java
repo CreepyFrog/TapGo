@@ -49,61 +49,97 @@ import javafx.util.Callback;
  *
  * @author Chikaaa
  */
-public class ForumController implements Initializable {
-Connection cnx = Datasource.getInstance().getCnx();
-     @FXML
-    private Button Publier;
+public class AdminInterfaceController implements Initializable {
+
     @FXML
     private TableView<Publication> ListPubs2;
     @FXML
     private TableColumn<Publication, String> libelle_Pubs;
     @FXML
     private TableColumn<Publication, Integer> Nbr_Reaction;
-//    @FXML
-//    private TableColumn<Integer,Integer > commButton;
-//    @FXML
-//    private TableColumn<Integer, Integer> commReact;
+    @FXML
+    private TextField SearchString;
     @FXML
     private Button Button_Delete_Search;
     @FXML
     private Button Button_Search;
+    Connection cnx = Datasource.getInstance().getCnx();
     @FXML
-    private TextField SearchString;
+    private TableColumn<Commentaire, String> lib_comm_Interface;
     @FXML
-    private AnchorPane AnchorPaneForum;
-   
-    @FXML
-    private AnchorPane anchorPanePubBlock;
-    @FXML
-    private GridPane gridPanePub;
-    @FXML
-    private Button BackHome;
+    private TableView<Commentaire> ListCommentaire_Interface;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        ListPubs2.getSelectionModel().setCellSelectionEnabled(true);
+         ListPubs2.getSelectionModel().setCellSelectionEnabled(true);
         ListPubs2.setEditable(true);
         libelle_Pubs.setCellFactory(TextFieldTableCell.forTableColumn());
         getAllPublications();
         addButtonDeleteToTable();
-        addButtonUpdateToTable();
-        addButtonReactToTable();
-        addButtonDislikeToTable();
+//        addButtonUpdateToTable();
+//        addButtonReactToTable();
+//        addButtonDislikeToTable();
         addButtonGoToCommentaireToTable(); 
-    try {
-        insertPublication();
-    } catch (IOException ex) {
-        Logger.getLogger(ForumController.class.getName()).log(Level.SEVERE, null, ex);
-    }
+//        getAllCommentaires();
+        
+        // TODO
     }    
 
+    @FXML
+    private void DeleteTextFromTextField(ActionEvent event) {
+        SearchString.setText("");
+    }
+    public ObservableList<Publication> getListPubsByLibelleFromBase(String s) { 
+    ObservableList<Publication> LPL =FXCollections.observableArrayList();
+            
+        try {
+            Statement st = cnx.createStatement();
+            String req=("select * from publication where Libelle_Publication like '%"+s+"%'");
+            ResultSet rs=st.executeQuery(req);
+            while (rs.next()) {
+                Publication p1=new Publication();
+//               rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4);
+                p1.setId_Publication(rs.getInt(1));
+                p1.setLibelle_Publication(rs.getString(2));
+                p1.setNb_Reaction(rs.getInt(3));
+                p1.setU(new User(rs.getInt(4)));
+                LPL.add(p1);  
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(LPL);
+             return LPL;
+}
+public void getAllListPubsByLibelleToTableView(){
+         
+        ObservableList<Publication> LPL =getListPubsByLibelleFromBase(SearchString.getText());
+//        idPubs.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Id_Publication"));
+//        libelle.setCellValueFactory(new PropertyValueFactory<Publication,String>("Libelle_Publication"));
+//        reaction.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Nb_Réaction"));
+//        user.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Id_User"));
+//        tableView.setItems(LP);
+//        id.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Id_Publication"));
+        libelle_Pubs.setCellValueFactory(new PropertyValueFactory<Publication,String>("Libelle_Publication"));
+        Nbr_Reaction.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Nb_Reaction"));
+//        userId.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("u"));
+        ListPubs2.setItems(LPL);
+        System.out.println("Chikaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        //PropertyValueFactory<Publication,User> pvid=new PropertyValueFactory<Publication,User>("u");
+         }
+    @FXML
+    private void FindByLibelle(ActionEvent event) {
+        getAllListPubsByLibelleToTableView();
+        ObservableList<Publication> LP =getListPubsByLibelleFromBase(SearchString.getText());
+        libelle_Pubs.setCellValueFactory(new PropertyValueFactory<Publication,String>("Libelle_Publication"));
+        Nbr_Reaction.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Nb_Reaction"));
+        ListPubs2.setItems(LP);
+    }
     
-  
-       public ObservableList<Publication> getListPubs() { 
+     public ObservableList<Publication> getListPubs() { 
     ObservableList<Publication> LP =FXCollections.observableArrayList();
             
         try {
@@ -140,7 +176,36 @@ Connection cnx = Datasource.getInstance().getCnx();
         System.out.println("Chikaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         //PropertyValueFactory<Publication,User> pvid=new PropertyValueFactory<Publication,User>("u");
         } 
-    
+    public ObservableList<Commentaire> getAllCommsFromDatabase(int a) {
+        ObservableList<Commentaire> LC=FXCollections.observableArrayList();
+         try {
+             Statement st = cnx.createStatement();
+             String req=("select * from commentaire where id_publication="+a);
+             ResultSet rs=st.executeQuery(req);
+             while (rs.next()) {
+                 Commentaire c1= new Commentaire();
+                 c1.setId_Commentaire(rs.getInt(1));
+                 c1.setLibelle_commentaire(rs.getString(2));
+                 c1.setU(new User(rs.getInt(3)));
+                 c1.setP(new Publication(rs.getInt(4)));  
+            LC.add(c1);
+                }    
+         } catch (SQLException ex) {
+             Logger.getLogger(CommentaireService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        return LC;
+    }
+
+public void getAllCommentaires(){
+        
+        ObservableList<Commentaire> LC =getAllCommsFromDatabase(1);
+        System.out.println(LC);
+        lib_comm_Interface.setCellValueFactory(new PropertyValueFactory<Commentaire,String>("libelle_commentaire"));
+        ListCommentaire_Interface.setItems(LC);
+        System.out.println("Chikaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        } 
+
+   
     public void supprimerPublication(int id ) {
         PreparedStatement pt;
         try {
@@ -350,7 +415,14 @@ Connection cnx = Datasource.getInstance().getCnx();
                             Publication p1 = ListPubs2.getItems().get(getIndex());
                             System.out.println("selectedData: " + p1);
                             p1.setNb_Reaction(p1.getNb_Reaction()-1);
-                            getAllPublications();
+                            int a=p1.getId_Publication();
+                            
+                            ObservableList<Commentaire> LC =getAllCommsFromDatabase(a);
+                            System.out.println(LC);
+                            lib_comm_Interface.setCellValueFactory(new PropertyValueFactory<Commentaire,String>("libelle_commentaire"));
+                            ListCommentaire_Interface.setItems(LC);
+//                            getAllCommentaires(a);
+                            
                             
                         });
                     }
@@ -414,172 +486,4 @@ Connection cnx = Datasource.getInstance().getCnx();
 
     //Find Section
 
-    @FXML
-    private void DeleteTextFromTextField(ActionEvent event) {
-        SearchString.setText("");
-    }
-
-    private void ReloadListPubs2(ActionEvent event) {
-        getAllPublications();
-    }
-    
-    public ObservableList<Publication> getListPubsByLibelleFromBase(String s) { 
-    ObservableList<Publication> LPL =FXCollections.observableArrayList();
-            
-        try {
-            Statement st = cnx.createStatement();
-            String req=("select * from publication where Libelle_Publication like '%"+s+"%'");
-            ResultSet rs=st.executeQuery(req);
-            while (rs.next()) {
-                Publication p1=new Publication();
-//               rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4);
-                p1.setId_Publication(rs.getInt(1));
-                p1.setLibelle_Publication(rs.getString(2));
-                p1.setNb_Reaction(rs.getInt(3));
-                p1.setU(new User(rs.getInt(4)));
-                LPL.add(p1);  
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println(LPL);
-             return LPL;
 }
-
-     public void getAllListPubsByLibelleToTableView(){
-         
-        ObservableList<Publication> LPL =getListPubsByLibelleFromBase(SearchString.getText());
-//        idPubs.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Id_Publication"));
-//        libelle.setCellValueFactory(new PropertyValueFactory<Publication,String>("Libelle_Publication"));
-//        reaction.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Nb_Réaction"));
-//        user.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Id_User"));
-//        tableView.setItems(LP);
-//        id.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Id_Publication"));
-        libelle_Pubs.setCellValueFactory(new PropertyValueFactory<Publication,String>("Libelle_Publication"));
-        Nbr_Reaction.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Nb_Reaction"));
-//        userId.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("u"));
-        ListPubs2.setItems(LPL);
-        System.out.println("Chikaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        //PropertyValueFactory<Publication,User> pvid=new PropertyValueFactory<Publication,User>("u");
-         }
-     
-    @FXML 
-    private void FindByLibelle(ActionEvent event) throws IOException {
-        getAllListPubsByLibelleToTableView();
-        ObservableList<Publication> LP =getListPubsByLibelleFromBase(SearchString.getText());
-        libelle_Pubs.setCellValueFactory(new PropertyValueFactory<Publication,String>("Libelle_Publication"));
-        Nbr_Reaction.setCellValueFactory(new PropertyValueFactory<Publication,Integer>("Nb_Reaction"));
-        ListPubs2.setItems(LP);
-
-
-            gridPanePub.getChildren().clear();
-            ObservableList<Publication> LPL =getListPubsByLibelleFromBase(SearchString.getText());
-            
-                for (int i=0;i<LPL.size();i++)
-                {
-                    FXMLLoader Loader1 = new FXMLLoader();
-                    Loader1.setLocation(getClass().getResource("/GUI/PublicationFXML.fxml"));
-                    AnchorPane anchorPane = Loader1.load();
-//                 anchorPane.setMinHeight(50);
-                   PubController pController = Loader1.getController();
-                   pController.setBlock(LPL.get(i));
-                gridPanePub.add(anchorPane, 0, i);
-                gridPanePub.setMinWidth(Region.USE_COMPUTED_SIZE);
-                gridPanePub.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                gridPanePub.setMaxWidth(Region.USE_PREF_SIZE);
-                //set grid height
-                gridPanePub.setMinHeight(Region.USE_COMPUTED_SIZE);
-                gridPanePub.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                gridPanePub.setMaxHeight(Region.USE_PREF_SIZE);
-                GridPane.setMargin(anchorPane, new Insets(10));
-                    
-                }
-       
-    }
-    
-   //endFindSection 
-    
-    @FXML
-    private void GoToGoogle(MouseEvent event) {
-    }
-
-    
-    private void setInterface(String location) throws IOException {
-        AnchorPaneForum.getChildren().clear();
-        AnchorPaneForum.getChildren().add(FXMLLoader.load(this.getClass().
-                getResource("/gui/" + location + ".fxml")));
-    }
-    
-    public void insertPublication() throws IOException
-    {
-        ObservableList<Publication> LC=getListPubs();
-        for (int i=0;i<LC.size();i++)
-        {
-//            String nameLabel="t"+i;
-//            Label l=new Label();
-//            l.setText(LC.get(i).getLibelle_commentaire());
-//            gridPane.add(l, 0, i);
-//            FXMLLoader fxmlLoader = new FXMLLoader();
-            
-//            CommfxmlController commController = fxmlLoader.getController();
-//            fxmlLoader.setLocation(getClass().getResource("/GUI/CommentaireInterface.fxml"));  
-//            commController.setBlock(LC.get(i));
-//            anchorPaneCommentairesBlock.getChildren().add(FXMLLoader.load(this.getClass().
-//                getResource("/GUI/CommentaireFXML.fxml")));
-
-                FXMLLoader Loader1 = new FXMLLoader();
-                Loader1.setLocation(getClass().getResource("/GUI/PublicationFXML.fxml"));
-                AnchorPane anchorPane = Loader1.load();
-//                anchorPane.setMinHeight(50);
-                PubController pController = Loader1.getController();
-                pController.setBlock(LC.get(i));
-                gridPanePub.add(anchorPane, 0, i);
-                gridPanePub.setMinWidth(Region.USE_COMPUTED_SIZE);
-                gridPanePub.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                gridPanePub.setMaxWidth(Region.USE_PREF_SIZE);
-                //set grid height
-                gridPanePub.setMinHeight(Region.USE_COMPUTED_SIZE);
-                gridPanePub.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                gridPanePub.setMaxHeight(Region.USE_PREF_SIZE);
-                GridPane.setMargin(anchorPane, new Insets(10));
-            
-            
-            
-            
-////            FXMLLoader fxmlLoader = new FXMLLoader();
-////            fxmlLoader.setLocation(getClass().getResource("/GUI/CommentaireInterface.fxml"));    
-//                CommfxmlController commController = fxmlLoader.getController();
-//                commController.setBlock(LC.get(i));
-////                anchorPaneCommentairesBlock.getChildren()
-                        
-                
-                
-            
-        }
-    }
-    
-    
-    @FXML
-    private void GoToPagePublier(ActionEvent event) throws IOException { 
-       setInterface("PublierInterface");    
-    }
-
-    private void GoToPageCommentaire(ActionEvent event) throws IOException {
-        setInterface("CommentairesInterface");
-    }
-
-    @FXML
-    private void goToEspaceMail(ActionEvent event) throws IOException {
-        setInterface("EnvoyerMailFXML");
-    }
-    
-    
-        
-    }
-
-
-
-
-
-    
-

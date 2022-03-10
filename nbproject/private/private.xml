@@ -3,28 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/entities/Reaction.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/entities/Commentaire.java</file>
             <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/PubController.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/PublicationService.java</file>
+            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/EnvoyerMailFXMLController.java</file>
+            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/css/fullpackstyling.css</file>
             <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/ForumController.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/Data/Datasource.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/CommentaireService.java</file>
+            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/EnvoyerMail.java</file>
+            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/GUI/EnvoyerMailFXML.fxml</file>
             <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/CommentairesController.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/GUI/ForumInterface.fxml</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/entities/Publication.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/IReactionService.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/GUI/CommentaireFXML.fxml</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/CommfxmlController.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/entities/User.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/GUI/CommentairesInterface.fxml</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/GUI/PublierInterface.fxml</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/IPublicationService.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/GUI/PublicationFXML.fxml</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/ReactionService.java</file>
             <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/PublierInterfaceController.java</file>
+            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/GUI/ForumInterface.fxml</file>
             <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/GUI/Gestion_Forum.java</file>
-            <file>file:/C:/Users/Chikaaa/Documents/NetBeansProjects/Gestion_Forum/src/services/ICommentaireService.java</file>
         </group>
     </open-files>
 </project-private>

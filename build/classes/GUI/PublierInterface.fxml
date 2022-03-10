@@ -17,7 +17,7 @@
  <children>
       <AnchorPane layoutX="-25.0" layoutY="164.0" prefHeight="633.0" prefWidth="1357.0" style="-fx-background-radius: 20;">
          <children>
-            <AnchorPane fx:id="AnchorPanePubier" layoutX="23.0" layoutY="-165.0" prefHeight="795.0" prefWidth="1334.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+            <AnchorPane fx:id="AnchorPanePublier" layoutX="23.0" layoutY="-165.0" prefHeight="795.0" prefWidth="1334.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
                <children>
                   <Pane layoutX="525.0" layoutY="-1.0" prefHeight="93.0" prefWidth="405.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
                      <children>
@@ -252,7 +252,7 @@
                            </font>
                         </Label>
                         <Line endX="100.0" layoutX="754.0" layoutY="64.0" startX="100.0" startY="579.0" stroke="#b9b1b1" strokeDashOffset="2.0" />
-                        <ImageView fitHeight="58.0" fitWidth="53.0" layoutX="890.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="58.0" fitWidth="53.0" layoutX="885.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/profile-adam-levine.png" />
                            </image>
@@ -286,7 +286,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="Like" alignment="CENTER" layoutX="869.0" layoutY="354.0" mnemonicParsing="false" onAction="#like_Reaction" prefHeight="51.0" prefWidth="57.0" style="-fx-background-color: white;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="#131022">
+                        <Button fx:id="Like" alignment="CENTER" layoutX="869.0" layoutY="354.0" mnemonicParsing="false" onAction="#like_Reaction" prefHeight="51.0" prefWidth="57.0" style="-fx-background-color: white;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="#131022" visible="false">
                            <font>
                               <Font name="System Bold" size="21.0" />
                            </font>
@@ -298,7 +298,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="Dislike" layoutX="938.0" layoutY="356.0" mnemonicParsing="false" onAction="#Dislike_Reaction" prefHeight="45.0" prefWidth="41.0" style="-fx-background-color: white;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="#131022">
+                        <Button fx:id="Dislike" layoutX="938.0" layoutY="356.0" mnemonicParsing="false" onAction="#Dislike_Reaction" prefHeight="45.0" prefWidth="41.0" style="-fx-background-color: white;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" textFill="#131022" visible="false">
                            <font>
                               <Font name="System Bold" size="21.0" />
                            </font>
@@ -309,6 +309,11 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                        </Button>
+                        <Button fx:id="BackHome" layoutX="986.0" layoutY="543.0" mnemonicParsing="false" onAction="#goToEspaceForum" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #131022;" styleClass="button4" stylesheets="@../css/fullpackstyling.css" text="Retour" textFill="#fff600">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
                         </Button>
                      </children>
                   </AnchorPane>

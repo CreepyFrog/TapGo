@@ -5,6 +5,7 @@
  */
 package services;
 
+import Data.Datasource;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -13,6 +14,24 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import entities.Publication;
+import entities.User;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -20,7 +39,7 @@ import entities.Publication;
  * @author Chikaaa
  */
 public class PubController implements Initializable {
-
+Connection cnx = Datasource.getInstance().getCnx();
     @FXML
     private AnchorPane Pub1Block;
     @FXML
@@ -29,6 +48,16 @@ public class PubController implements Initializable {
     private Label pubBlockLabel;
     @FXML
     private AnchorPane AnchorPaneBlockPub;
+    @FXML
+    private ImageView Commentaire;
+    @FXML
+    private Button Dislike;
+    @FXML
+    private Button Like;
+    @FXML
+    private Label labelReactions;
+    @FXML
+    private Button commenterButton;
 
     /**
      * Initializes the controller class.
@@ -37,8 +66,120 @@ public class PubController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }  
+    
     public void setBlock(Publication p){
-        pubBlockLabel.setText(p.getLibelle_Publication());
+        pubBlockLabel.setText(p.getLibelle_Publication()+" \n " +p.getId_Publication());
+//        pubBlockLabel.setText(p.getId_Publication());
+        labelReactions.setText("Réactions : "+p.getNb_Reaction());
     }
     
+    
+    public ObservableList<Publication> getListPubsByLibelleFromBase(String s) { 
+    ObservableList<Publication> LPL =FXCollections.observableArrayList();
+            
+        try {
+            Statement st = cnx.createStatement();
+            String req=("select * from publication where Libelle_Publication like '%"+s+"%'");
+            ResultSet rs=st.executeQuery(req);
+            while (rs.next()) {
+                Publication p1=new Publication();
+//               rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4);
+                p1.setId_Publication(rs.getInt(1));
+                p1.setLibelle_Publication(rs.getString(2));
+                p1.setNb_Reaction(rs.getInt(3));
+                p1.setU(new User(rs.getInt(4)));
+                LPL.add(p1);  
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(LPL);
+             return LPL;
+}
+public void modifierPublication(Publication p) {
+        PreparedStatement pt;
+        try {
+            pt = cnx.prepareStatement("UPDATE publication SET Libelle_Publication=?,Nb_Réaction=? where `Id_Publication` = ?");
+            pt.setString(1, p.getLibelle_Publication());
+            pt.setInt(2,p.getNb_Reaction());           
+            pt.setInt(3,p.getId_Publication());
+            pt.executeUpdate();
+            System.err.println("publication Updated Successfully");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+            
+    }
+public void supprimerPublication(int id ) {
+        PreparedStatement pt;
+        try {
+            pt = cnx.prepareStatement("delete from publication where Id_Publication="+id);
+            pt.executeUpdate();
+            System.out.println("publication Deleted Successfully");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    @FXML
+    private void DislikeButton(ActionEvent event) {
+        
+        labelReactions.setText("Réactions : ");
+    }
+
+    public void LikeMethod(Publication p)
+    {
+    p.setNb_Reaction(p.getNb_Reaction()+1);
+    }
+        
+    
+    @FXML
+    private void LikeButton(ActionEvent event) {
+//           ObservableList<Publication> lp=getListPubsByLibelleFromBase(labelReactions.getText());
+//           Publication p1=new Publication();
+//           p1.setNb_Reaction(lp.get(0).getNb_Reaction());
+//           modifierPublication(p1);
+        
+    }
+
+    @FXML
+    private void GoTo(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/gui/CommentairesInterface.fxml"));
+             Parent root = loader.load();
+          
+            Scene scene = new Scene(root);
+             Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());        }
+    }
+    
+           public ObservableList<Publication> getListPubs() { 
+    ObservableList<Publication> LP =FXCollections.observableArrayList();
+            
+        try {
+            Statement st = cnx.createStatement();
+            String req=("select * from publication");
+            ResultSet rs=st.executeQuery(req);
+            while (rs.next()) {
+                Publication p1=new Publication();
+//               rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4);
+                p1.setId_Publication(rs.getInt(1));
+                p1.setLibelle_Publication(rs.getString(2));
+                p1.setNb_Reaction(rs.getInt(3));
+                p1.setU(new User(rs.getInt(4)));
+                LP.add(p1);  
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(LP);
+             return LP;
+}  
+           
 }
