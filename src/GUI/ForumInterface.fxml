@@ -210,6 +210,15 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Button>
+                        <AnchorPane layoutX="805.0" layoutY="249.0" prefHeight="171.0" prefWidth="173.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/Thunderbird_real3D.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                   <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="123.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">

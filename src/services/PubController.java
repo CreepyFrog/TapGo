@@ -58,19 +58,50 @@ Connection cnx = Datasource.getInstance().getCnx();
     private Label labelReactions;
     @FXML
     private Button commenterButton;
+    @FXML
+    private Label id_id;
+    @FXML
+    private Label labelReactions_T;
+    @FXML
+    private Button Like1;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        
+//        PreparedStatement pt;
+//        Publication p=new Publication();
+//        int id_pub1=Integer.parseInt(id_id.getText());
+//        p.setId_Publication(13);
+//        int nbr_Reactions_Label=Integer.parseInt(labelReactions.getText());
+//        p.setNb_Reaction(3);
+//        try {
+//            pt = cnx.prepareStatement("UPDATE publication SET Nb_Réaction=? where `Id_Publication` = ?");
+//            pt.setString(1, p.getLibelle_Publication());
+//            pt.setInt(1,p.getNb_Reaction()+1);           
+//            pt.setInt(2,p.getId_Publication());
+//            pt.executeUpdate();
+//            System.err.println("publication Updated Successfully");
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+
+            
+    
     }  
     
     public void setBlock(Publication p){
-        pubBlockLabel.setText(p.getLibelle_Publication()+" \n " +p.getId_Publication());
+//        +" \n " +p.getId_Publication()
+        pubBlockLabel.setText(p.getLibelle_Publication());
 //        pubBlockLabel.setText(p.getId_Publication());
-        labelReactions.setText("Réactions : "+p.getNb_Reaction());
+        labelReactions.setText(p.getNb_Reaction()+"");
+        id_id.setText(p.getId_Publication()+"");
+        id_id.setVisible(false);
+        labelReactions_T.setText("Réactions : ");
     }
     
     
@@ -99,10 +130,10 @@ Connection cnx = Datasource.getInstance().getCnx();
 public void modifierPublication(Publication p) {
         PreparedStatement pt;
         try {
-            pt = cnx.prepareStatement("UPDATE publication SET Libelle_Publication=?,Nb_Réaction=? where `Id_Publication` = ?");
-            pt.setString(1, p.getLibelle_Publication());
-            pt.setInt(2,p.getNb_Reaction());           
-            pt.setInt(3,p.getId_Publication());
+            pt = cnx.prepareStatement("UPDATE publication SET Nb_Réaction=? where `Id_Publication` = 22");
+//            pt.setString(1, p.getLibelle_Publication());
+            pt.setInt(1,p.getNb_Reaction());           
+//            pt.setInt(2,p.getId_Publication());
             pt.executeUpdate();
             System.err.println("publication Updated Successfully");
             
@@ -126,21 +157,50 @@ public void supprimerPublication(int id ) {
     @FXML
     private void DislikeButton(ActionEvent event) {
         
-        labelReactions.setText("Réactions : ");
-    }
-
-    public void LikeMethod(Publication p)
-    {
-    p.setNb_Reaction(p.getNb_Reaction()+1);
+        PreparedStatement pt;
+        Publication p=new Publication();
+        int id_pub1=Integer.parseInt(id_id.getText());
+        p.setId_Publication(id_pub1);
+        int nbr_Reactions_Label=Integer.parseInt(labelReactions.getText());
+        p.setNb_Reaction(nbr_Reactions_Label);
+        try {
+            pt = cnx.prepareStatement("UPDATE publication SET Nb_Réaction=? where `Id_Publication` = ?");
+//            pt.setString(1, p.getLibelle_Publication());
+            pt.setInt(1,p.getNb_Reaction()-1);           
+            pt.setInt(2,p.getId_Publication());
+            pt.executeUpdate();
+            System.err.println("publication Updated Successfully");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Dislike.setDisable(true);
     }
         
     
     @FXML
     private void LikeButton(ActionEvent event) {
-//           ObservableList<Publication> lp=getListPubsByLibelleFromBase(labelReactions.getText());
-//           Publication p1=new Publication();
-//           p1.setNb_Reaction(lp.get(0).getNb_Reaction());
-//           modifierPublication(p1);
+        PreparedStatement pt;
+        Publication p=new Publication();
+        int id_pub1=Integer.parseInt(id_id.getText());
+        p.setId_Publication(id_pub1);
+        int nbr_Reactions_Label=Integer.parseInt(labelReactions.getText());
+        p.setNb_Reaction(nbr_Reactions_Label);
+        try {
+            pt = cnx.prepareStatement("UPDATE publication SET Nb_Réaction=? where `Id_Publication` = ?");
+//            pt.setString(1, p.getLibelle_Publication());
+            pt.setInt(1,p.getNb_Reaction()+1);           
+            pt.setInt(2,p.getId_Publication());
+            pt.executeUpdate();
+            System.err.println("publication Updated Successfully");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Like.setDisable(true);
+
+           
         
     }
 
@@ -181,5 +241,21 @@ public void supprimerPublication(int id ) {
         System.out.println(LP);
              return LP;
 }  
+
+    @FXML
+    private void DeleteButton(ActionEvent event) {
+        PreparedStatement pt;
+        int id=Integer.parseInt(id_id.getText());
+        try {
+            pt = cnx.prepareStatement("delete from publication where Id_Publication="+id);
+            pt.executeUpdate();
+            System.out.println("publication Deleted Successfully");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PublicationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        
+    }
            
 }
