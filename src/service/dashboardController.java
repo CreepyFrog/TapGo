@@ -37,6 +37,14 @@ public class dashboardController implements Initializable {
     private UserHolder ur=UserHolder.getInstance();
    // @FXML
   //  private Button dtnDashBoard;
+    @FXML
+    private Button dtnDashBoard;
+    @FXML
+    private Button dtnDashBoard2;
+    @FXML
+    private Button dtnDashBoard22;
+    @FXML
+    private Button dtnDashBoardForum;
 
     private void setUi(String location) throws IOException {
         context.getChildren().clear();
@@ -81,6 +89,23 @@ public class dashboardController implements Initializable {
             mainStage.setScene(scene);
             mainStage.show();
          //  rememberMe();
+    }
+
+    @FXML
+    private void DashBoardOnAction1(ActionEvent event)throws IOException {
+               setUi("AjoutRestaurant");
+ 
+    }
+
+    @FXML
+    private void DashBoardOnAction22(ActionEvent event)throws IOException  {
+                       setUi("Admin");
+
+    }
+
+    @FXML
+    private void DashBoardOnActionForum(ActionEvent event)throws IOException  {
+         setUi("AdminInterface");
     }
 }
 

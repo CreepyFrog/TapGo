@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="recpane" prefHeight="514.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddMenuController">
+   <children>
+      <TextField fx:id="ftNom" layoutX="165.0" layoutY="93.0" />
+      <Button fx:id="btn" layoutX="67.0" layoutY="444.0" mnemonicParsing="false" onAction="#Ajouter" style="-fx-background-color: #93c572;" text="Ajouter" textFill="WHITE" />
+      <Label layoutX="66.0" layoutY="162.0" text="type" />
+      <Label layoutX="73.0" layoutY="235.0" text="Restaurant" />
+      <TableView fx:id="tablepl" layoutX="385.0" layoutY="81.0" onMouseClicked="#getSelected" prefHeight="300.0" prefWidth="293.0">
+         <columns>
+            <TableColumn fx:id="col_id" prefWidth="39.20001220703125" text="ID" visible="false" />
+            <TableColumn fx:id="col_nom" prefWidth="72.79998779296875" text="Nom" />
+            <TableColumn fx:id="col_adresse" prefWidth="140.79998779296875" text="type" />
+            <TableColumn fx:id="col_domaine" prefWidth="77.5999755859375" text="restaurant" />
+            <TableColumn fx:id="col_d" prefWidth="72.79998779296875" text="Nom" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnu" layoutX="270.0" layoutY="444.0" mnemonicParsing="false" onAction="#Edit" style="-fx-background-color: orange;" text="Modifier" textFill="WHITE" />
+      <Label layoutX="75.0" layoutY="97.0" text="Nom" />
+      <ComboBox fx:id="ftrestaurant" layoutX="164.0" layoutY="231.0" prefWidth="150.0" />
+      <TextField fx:id="iddd" layoutX="239.0" />
+      <Button layoutX="173.0" layoutY="419.0" mnemonicParsing="false" onAction="#delete" text="supprimer" />
+      <ComboBox fx:id="fttype" layoutX="164.0" layoutY="158.0" prefWidth="150.0" />
+      <Label layoutX="422.0" layoutY="26.0" text="Gestion Des Menus">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Button layoutX="501.0" layoutY="419.0" mnemonicParsing="false" onAction="#rest" text="Restaurant" />
+      <Button layoutX="605.0" layoutY="419.0" mnemonicParsing="false" onAction="#Plats" text="Plats" />
+   </children>
+</AnchorPane>

@@ -8,7 +8,7 @@
    <children>
       <AnchorPane prefHeight="242.0" prefWidth="362.0">
          <children>
-            <Label layoutX="42.0" layoutY="89.0" prefHeight="47.0" prefWidth="308.0" text="verifier votre mail" textFill="#0598ff">
+            <Label layoutX="42.0" layoutY="89.0" prefHeight="47.0" prefWidth="308.0" text="verifier votre mail" textFill="#131022">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>

@@ -105,7 +105,7 @@ public class InscriptionControllerOwner implements Initializable {
       public Connection getConnection(){
         Connection conn;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet31","root","");
             return conn;
         }catch (Exception ex ){
             System.out.println("Error :"+ex.getMessage());

@@ -48,6 +48,10 @@ public class designController implements Initializable {
 //                getResource("/gui/" + location + ".fxml")));
 //    }
 //   
+    @FXML
+    private Button btnlodout11;
+    @FXML
+    private Button btnlodoutForum;
    
     
     
@@ -73,6 +77,21 @@ userlabel.setText(ur.getUser().getName());
             mainStage.setScene(scene);
             mainStage.show();
          //  rememberMe();
+    }
+private void setUi(String location) throws IOException {
+        context.getChildren().clear();
+        context.getChildren().add(FXMLLoader.load(this.getClass().
+                getResource("/gui/" + location + ".fxml")));
+    }
+    @FXML
+    private void btngestionformation(ActionEvent event) throws IOException {
+                               setUi("Formations");
+
+    }
+
+    @FXML
+    private void btngestionForum(ActionEvent event) throws IOException{
+       setUi("ForumInterface"); 
     }
 }
 

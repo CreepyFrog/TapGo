@@ -11,8 +11,8 @@
 <AnchorPane fx:id="root1" prefHeight="674.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.designController">
    <children>
       <Pane prefHeight="81.0" prefWidth="30.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
-      <Pane fx:id="context" layoutX="189.0" layoutY="-7.0" prefHeight="689.0" prefWidth="913.0" style="-fx-background-color: #0598ff;" />
-      <VBox alignment="TOP_CENTER" prefHeight="674.0" prefWidth="185.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <Pane fx:id="context" layoutX="184.0" layoutY="-7.0" prefHeight="691.0" prefWidth="1000.0" style="-fx-background-color: #030307;" />
+      <VBox alignment="TOP_CENTER" prefHeight="684.0" prefWidth="185.0" style="-fx-background-color: #131022;">
          <children>
             <Label fx:id="userlabel" alignment="CENTER" prefHeight="82.0" prefWidth="163.0" textAlignment="CENTER" textFill="#0598ff">
                <font>
@@ -21,7 +21,17 @@
             </Label>
 
             <Pane prefHeight="85.0" prefWidth="185.0" />
-            <Button fx:id="btnlodout" onAction="#btnLogOut" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#0598ff">
+            <Button fx:id="btnlodout11" alignment="CENTER" layoutX="10.0" layoutY="177.0" onAction="#btngestionformation" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="Gestion Formation" textFill="#a868a0">
+               <font>
+                  <Font name="Algerian" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlodoutForum" alignment="CENTER" layoutX="10.0" layoutY="177.0" onAction="#btngestionForum" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="Gestion Forum" textFill="#a868a0">
+               <font>
+                  <Font name="Algerian" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlodout" alignment="CENTER" onAction="#btnLogOut" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="LOGOUT" textFill="#a868a0">
                <font>
                   <Font name="Algerian" size="18.0" />
                </font>

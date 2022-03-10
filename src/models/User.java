@@ -17,6 +17,9 @@ public class User {
 
     public User() {
     }
+    public User(int a) {
+        this.id=a;
+    }
 
     public User(int id, String name, String lastname, String email, String password, String gender, String role, int phone, Date birthday, String acces) {
         this.id = id;

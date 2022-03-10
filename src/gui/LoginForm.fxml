@@ -19,14 +19,14 @@
             <children>
                <TextField fx:id="txtUserName" layoutX="647.0" layoutY="212.0" prefHeight="63.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="647.0" AnchorPane.rightAnchor="107.0" />
                <PasswordField fx:id="txtPassword" layoutX="649.0" layoutY="331.0" prefHeight="58.0" prefWidth="253.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="649.0" AnchorPane.rightAnchor="103.0" />
-               <Button fx:id="btnSignIn" layoutX="690.0" layoutY="514.0" onAction="#LoginOnAction" prefHeight="57.0" prefWidth="150.0" style="-fx-background-color: #0598ff;" text="Sign In" textFill="WHITE">
+               <Button fx:id="btnSignIn" layoutX="690.0" layoutY="514.0" onAction="#LoginOnAction" prefHeight="57.0" prefWidth="150.0" style="-fx-background-color: #131022;" text="Sign In" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="22.0" />
                   </font>
                </Button>
-               <VBox layoutX="-2.0" layoutY="-5.0" prefHeight="700.0" prefWidth="490.0" style="-fx-background-color: #0598ff;">
+               <VBox layoutX="-2.0" layoutY="-5.0" prefHeight="700.0" prefWidth="490.0" style="-fx-background-color: #131022;">
                   <children>
-                     <Button fx:id="btInscription" mnemonicParsing="false" onAction="#SignupOnAction" prefHeight="57.0" prefWidth="151.0" style="-fx-background-color: #ffffff;" text="Sign Up" textFill="#0598ff">
+                     <Button fx:id="btInscription" mnemonicParsing="false" onAction="#SignupOnAction" prefHeight="57.0" prefWidth="151.0" style="-fx-background-color: #ffffff;" text="Sign Up" textFill="#131022">
                         <font>
                            <Font name="System Bold" size="20.0" />
                         </font>
@@ -45,10 +45,10 @@
                   </font>
                </Text>
                <FontAwesomeIconView fill="WHITE" glyphName="BOOK" layoutX="194.0" layoutY="201.0" size="60" wrappingWidth="142.6666717529297" />
-               <FontAwesomeIconView fill="#0598ff" glyphName="USER" layoutX="576.0" layoutY="272.0" size="35" />
-               <FontAwesomeIconView fill="#0598ff" glyphName="KEY" layoutX="574.0" layoutY="383.0" size="30" />
-               <FontAwesomeIconView fill="#0598ff" glyphName="USERS" layoutX="749.0" layoutY="97.0" size="35" text="" />
-               <Text fill="#0598ff" layoutX="716.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
+               <FontAwesomeIconView fill="#131022" glyphName="USER" layoutX="576.0" layoutY="272.0" size="35" />
+               <FontAwesomeIconView fill="#131022" glyphName="KEY" layoutX="574.0" layoutY="383.0" size="30" />
+               <FontAwesomeIconView fill="#131022" glyphName="USERS" layoutX="749.0" layoutY="97.0" size="35" text="" />
+               <Text fill="#131022" layoutX="716.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
                   <font>
                      <Font size="22.0" />
                   </font>

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" prefHeight="563.0" prefWidth="943.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="700.0" prefWidth="1000.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.Controller">
     <columnConstraints>
         <ColumnConstraints />
     </columnConstraints>
@@ -24,7 +24,7 @@
       <RowConstraints maxHeight="578.0" minHeight="492.0" prefHeight="578.0" />
     </rowConstraints>
     <children>
-        <AnchorPane onMouseClicked="#mousebtn" prefHeight="689.0" prefWidth="913.0" style="-fx-background-color: #0598ff;" GridPane.rowIndex="1">
+        <AnchorPane onMouseClicked="#mousebtn" prefHeight="578.0" prefWidth="929.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" GridPane.rowIndex="1">
             <children>
                 <VBox layoutX="12.0" layoutY="14.0" prefHeight="449.0" prefWidth="110.0" spacing="32.0">
                     <children>
@@ -71,11 +71,11 @@
                         <Insets left="10.0" right="10.0" />
                     </padding>
                 </TableView>
-                <Button fx:id="btnupdate" layoutX="453.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #ffffff;" text="Update" textFill="#0598ff">
+                <Button fx:id="btnupdate" layoutX="453.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #ffffff;" text="Update" textFill="#131022">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-                <Button fx:id="btndelete" layoutX="536.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #ffffff;" text="delete" textFill="#0598ff">
+                <Button fx:id="btndelete" layoutX="536.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #ffffff;" text="delete" textFill="#131022">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>

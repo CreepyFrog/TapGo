@@ -11,11 +11,11 @@
 <AnchorPane fx:id="root1" prefHeight="674.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.designOwnerController">
    <children>
       <Pane prefHeight="81.0" prefWidth="30.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
-      <Pane fx:id="context" layoutX="189.0" layoutY="-7.0" prefHeight="689.0" prefWidth="913.0" style="-fx-background-color: #0598ff;" />
-      <VBox alignment="TOP_CENTER" prefHeight="674.0" prefWidth="185.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;">
+      <Pane fx:id="context" layoutX="185.0" layoutY="-7.0" prefHeight="691.0" prefWidth="1000.0" style="-fx-background-color: #030307;" />
+      <VBox alignment="TOP_CENTER" prefHeight="684.0" prefWidth="185.0" style="-fx-background-color: #131022;">
          <children>
-            <Label fx:id="userlabel" prefHeight="68.0" prefWidth="131.0" textAlignment="CENTER" />
-            <Button fx:id="btnlodout" onAction="#btnLogOut" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #ffffff;" text="LOGOUT" textFill="#0598ff">
+            <Label fx:id="userlabel" prefHeight="68.0" prefWidth="131.0" textAlignment="CENTER" textFill="#0598ff" />
+            <Button fx:id="btnlodout" alignment="CENTER" onAction="#btnLogOut" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="LOGOUT" textFill="#0598ff">
                <font>
                   <Font name="Algerian" size="18.0" />
                </font>
