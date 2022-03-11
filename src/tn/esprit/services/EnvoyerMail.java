@@ -28,8 +28,8 @@ public class EnvoyerMail {
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
         
-        String myAccountEmail = "chamseddine.zaiem@esprit.tn";
-        String password = "213JMT6547";
+        String myAccountEmail = "tapgopidev@gmail.com";
+        String password = "pidev12345678";
         
         
         Session session = Session.getInstance(properties, new Authenticator(){

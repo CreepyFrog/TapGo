@@ -32,6 +32,7 @@ import tn.esprit.services.Cours_Services;
 import tn.esprit.utils.DataSource;
 import java.awt.*;
 import java.awt.TrayIcon.MessageType;
+import java.util.ArrayList;
 /**
  * FXML Controller class
  *
@@ -179,6 +180,20 @@ public class Admin_CourController implements Initializable {
         llibelle.setText("");
         
     }
+    
+public java.util.List<Cours> supprimer_Cours() {
+       java.util.List<Cours> Cours = new ArrayList<>();
+        String sql="DELETE FROM Cours WHERE Nom_Cour=?";
+        try {
+            pst=conn.prepareStatement(sql);
+            pst.setString(1,lNom_Cour.getText());
+            pst.executeUpdate();
+            System.out.println("Cour Supprimée");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return Cours;
+    }
 
     @FXML
     private void Supprimer_Cour(ActionEvent event) throws AWTException {
@@ -187,7 +202,7 @@ public class Admin_CourController implements Initializable {
         String nom=lNom_Cour.getText();
                
             c.setNom_cour(nom);
-            cs.supprimer_Cours();
+            supprimer_Cours();
            SystemTray tray = SystemTray.getSystemTray();
 
         //If the icon is a file
@@ -201,7 +216,7 @@ public class Admin_CourController implements Initializable {
         //Set tooltip text for the tray icon
         trayIcon.setToolTip("System tray icon demo");
         tray.add(trayIcon);
-        trayIcon.displayMessage("Gestion de formation", "Chef supprimé avec succée", MessageType.INFO);
+        trayIcon.displayMessage("Gestion de formation", "Cour supprimé avec succée", MessageType.INFO);
             lNom_Cour.setText("");
     }
         

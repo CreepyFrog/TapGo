@@ -94,18 +94,18 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Text fill="WHITE" layoutX="38.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 betterave de taille moyenne, nettoyée et parée, environ 4 onces *Éclaboussure de vinaigre de vin rouge2 tasses (256 g) de farine &quot;00&quot; + plus pour pétrir¼ tasse (32g) de farine de semoule2 oeufs entiers (100g)1 jaune d'oeuf (18g)1 cuillère à café (6 g) de sel2-3 cuillères à café d'huile d'olive" wrappingWidth="731.1015625">
+                  <Text fill="WHITE" layoutX="38.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 betterave de taille moyenne, nettoyée et parée, environ 4 onces *Éclaboussure de vinaigre de vin rouge2 tasses (256 g) de farine &quot;00&quot; + plus pour pétrir¼ tasse (32g) de farine de semoule2 oeufs entiers (100g)1 jaune d'oeuf (18g)1 cuillère à café (6 g) de sel2-3 cuillères à café d'huile d'olive" wrappingWidth="991.1015625">
                      <font>
                         <Font name="Century Gothic" size="15.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="38.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pâtes à la betterave :">
+                  <Text fill="WHITE" layoutX="42.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pâtes à la betterave :">
                      <font>
                         <Font name="Century Gothic" size="15.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="37.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garniture au fromage de chèvre zesté de citron :" />
-                  <Text fill="WHITE" layoutX="37.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 onces (120 g) de fromage de chèvre, ramolli à température ambiante¼ tasse (60 g) de crème fraîche¼ tasse (60 g) de ricotta, égouttée¼ tasse de Parmigiano Reggiano2 cuillères à soupe d'herbes finement hachées (persil, menthe ou basilic)1 cuillère à soupe de zeste de citron meyer1 cuillère à soupe d'huile d'olive extra viergeSel casher et poivre noir fraîchement moulu, au goûtPesto de pistaches vertes de betterave3 gousses d'ail½ tasse de pistaches grillées2 tasses de feuilles de betterave, nettoyées, tiges retirées et tranchées¼ tasse de feuilles de persil cueillies½ tasse de feuilles de basilic cueillies2-3 cuillères à soupe de Parmigiano Reggiano fraîchement râpé3-4 cuillères à soupe d'huile d'olive extra vierge1 citron meyerSel et poivre noir fraîchement concassé, au goûtSauce au vin blanc infusée à l'échalote et au thym1 tasse de vin blanc sec1 petite échalote, tige intacte, coupée en quartiers3 brins de thym frais1 tasse de beurre non salé, coupé en cubes1 citron, zestéThym fleuri, micropousses ou cerfeuil, pour le service " wrappingWidth="1016.50927734375" />
+                  <Text fill="WHITE" layoutX="37.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garniture au fromage de chèvre zesté de citron :" />
+                  <Text fill="WHITE" layoutX="37.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 onces (120 g) de fromage de chèvre, ramolli à température ambiante¼ tasse (60 g) de crème fraîche¼ tasse (60 g) de ricotta, égouttée¼ tasse de Parmigiano Reggiano2 cuillères à soupe d'herbes finement hachées (persil, menthe ou basilic)1 cuillère à soupe de zeste de citron meyer1 cuillère à soupe d'huile d'olive extra viergeSel casher et poivre noir fraîchement moulu, au goûtPesto de pistaches vertes de betterave3 gousses d'ail½ tasse de pistaches grillées2 tasses de feuilles de betterave, nettoyées, tiges retirées et tranchées¼ tasse de feuilles de persil cueillies½ tasse de feuilles de basilic cueillies2-3 cuillères à soupe de Parmigiano Reggiano fraîchement râpé3-4 cuillères à soupe d'huile d'olive extra vierge1 citron meyerSel et poivre noir fraîchement concassé, au goûtSauce au vin blanc infusée à l'échalote et au thym1 tasse de vin blanc sec1 petite échalote, tige intacte, coupée en quartiers3 brins de thym frais1 tasse de beurre non salé, coupé en cubes1 citron, zestéThym fleuri, micropousses ou cerfeuil, pour le service " wrappingWidth="977.50927734375" />
                </children>
             </AnchorPane>
             <Label layoutX="134.0" layoutY="29.0" text="TAP&amp;GO" textFill="WHITE">

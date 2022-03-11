@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/entities/Chefs.java</file>
             <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/GUI/FormulaireController.java</file>
             <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/tests/Main.java</file>
-            <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/entities/Cours.java</file>
-            <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/services/Cours_Services.java</file>
-            <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/services/Inscription_Service.java</file>
+            <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/services/Chef_Services.java</file>
             <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/GUI/FormationsController.java</file>
             <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/GUI/AdminController.java</file>
             <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/services/EnvoyerMail.java</file>
+            <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/utils/DataSource.java</file>
             <file>file:/C:/Users/MSI/Desktop/PIDEV_TAP&amp;GO/TapGo/src/tn/esprit/GUI/Admin_CourController.java</file>
         </group>
     </open-files>
