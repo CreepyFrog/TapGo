@@ -53,6 +53,11 @@
                   <Font name="Algerian" size="18.0" />
                </font>
             </Button>
+            <Button fx:id="dtnDashBoardReservation" contentDisplay="CENTER" layoutX="14.0" layoutY="426.0" onAction="#DashBoardOnActionReservation" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Reservation" textFill="#0598ff">
+               <font>
+                  <Font name="Algerian" size="18.0" />
+               </font>
+            </Button>
             <Button fx:id="btnlodout" alignment="CENTER" onAction="#btnLogOut" prefHeight="72.0" prefWidth="168.0" style="-fx-background-color: #131022;" text="LOGOUT" textFill="#0598ff">
                <font>
                   <Font name="Algerian" size="18.0" />

@@ -52,6 +52,8 @@ public class designController implements Initializable {
     private Button btnlodout11;
     @FXML
     private Button btnlodoutForum;
+    @FXML
+    private Button btnlodoutReservation;
    
     
     
@@ -92,6 +94,11 @@ private void setUi(String location) throws IOException {
     @FXML
     private void btngestionForum(ActionEvent event) throws IOException{
        setUi("ForumInterface"); 
+    }
+
+    @FXML
+    private void btngestionReservation(ActionEvent event) throws IOException{
+        setUi("HomeUser"); 
     }
 }
 

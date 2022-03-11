@@ -20,6 +20,20 @@ public class Restaurant {
     public Restaurant() {
     }
 
+    public Restaurant(int id_restaurant) {
+        this.id_restaurant = id_restaurant;
+    }
+    
+     public Restaurant(String nom) {
+        this.nom = nom;
+    }
+       public Restaurant(int id_restaurant, String nom) {
+        this.id_restaurant = id_restaurant;
+        this.nom = nom;
+    }
+
+    
+
     public Restaurant(int id_restaurant, String nom, String adresse, String domaine, String owner, int nb) {
         this.id_restaurant = id_restaurant;
         this.nom = nom;

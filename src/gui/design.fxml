@@ -31,6 +31,11 @@
                   <Font name="Algerian" size="18.0" />
                </font>
             </Button>
+            <Button fx:id="btnlodoutReservation" alignment="CENTER" layoutX="10.0" layoutY="249.0" onAction="#btngestionReservation" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="Gestion Reservation" textFill="#a868a0">
+               <font>
+                  <Font name="Algerian" size="18.0" />
+               </font>
+            </Button>
             <Button fx:id="btnlodout" alignment="CENTER" onAction="#btnLogOut" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="LOGOUT" textFill="#a868a0">
                <font>
                   <Font name="Algerian" size="18.0" />

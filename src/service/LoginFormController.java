@@ -17,10 +17,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -44,6 +41,8 @@ public class LoginFormController {
     private Button btnSignIn;
     @FXML
     private Button btInscription;
+    @FXML
+    private Button recover;
 //    public LoginFormController()
 //    {
 //      
@@ -147,36 +146,6 @@ pass=pass.substring(0, 3)+"nisqpfdbn$hreb6b8e6"+pass.substring(3);
             Scene scene = new Scene(root);
             mainStage.setScene(scene);
             mainStage.show();
-    }
-    
-    public User getUserById(int a) throws SQLException
-    {User u = new User ();
-        try {
-            Connection cnx;
-            PreparedStatement ste ;
-            cnx = DBConnection.getInstance().getConnection();
-            String sql = "Select * from user where id=? ";
-            ResultSet rs;
-            ste=cnx.prepareStatement(sql);
-            
-            ste.setInt(1,a);
-            rs = ste.executeQuery();
-            if (rs.next()){
-                u.setId(rs.getInt(1));
-                u.setEmail(rs.getString(4));
-                u.setPhone(rs.getInt(8));
-                u.setGender(rs.getString(6));
-                u.setLastname(rs.getString(3));
-                u.setName(rs.getString(2));
-                u.setPassword(rs.getString(5));
-                u.setRole(rs.getString(7));
-                u.setBirthday(rs.getDate(9));
-                u.setAcces(rs.getString(10));
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginFormController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return u;
     }
     
        public int verifier_authh(String email ) throws SQLException, IOException, ClassNotFoundException {
@@ -313,6 +282,15 @@ rememberMe();
     public void btnCloaseOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) root.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void RecoverOnAction(ActionEvent event)  throws IOException, SQLException, ClassNotFoundException  {
+     Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("gui/Recover.fxml")));
+            Stage mainStage = new Stage();
+            Scene scene = new Scene(root);
+            mainStage.setScene(scene);
+            mainStage.show();
     }
     
     

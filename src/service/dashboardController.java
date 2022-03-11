@@ -45,6 +45,8 @@ public class dashboardController implements Initializable {
     private Button dtnDashBoard22;
     @FXML
     private Button dtnDashBoardForum;
+    @FXML
+    private Button dtnDashBoardReservation;
 
     private void setUi(String location) throws IOException {
         context.getChildren().clear();
@@ -106,6 +108,11 @@ public class dashboardController implements Initializable {
     @FXML
     private void DashBoardOnActionForum(ActionEvent event)throws IOException  {
          setUi("AdminInterface");
+    }
+
+    @FXML
+    private void DashBoardOnActionReservation(ActionEvent event)throws IOException {
+        setUi("HomeReservation");
     }
 }
 
