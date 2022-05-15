@@ -16,16 +16,16 @@
          <children>
             <Label fx:id="userlabel" alignment="CENTER" prefHeight="64.0" prefWidth="135.0" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font></Label>
-            <Button contentDisplay="CENTER" onAction="#btnHomeOnAction" prefHeight="72.0" prefWidth="178.0" style="-fx-background-color: #131022;" text="Home" textFill="#0598ff">
+            <Button alignment="CENTER" contentDisplay="CENTER" onAction="#btnHomeOnAction" prefHeight="72.0" prefWidth="178.0" style="-fx-background-color: #131022;" text="Home" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
             <Button fx:id="dtnDashBoard" contentDisplay="CENTER" onAction="#DashBoardOnAction" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Owner" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
 
@@ -33,34 +33,39 @@
                <children>
                   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" onAction="#btnMailOnAction" prefHeight="64.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Envoyer Mail" textFill="#0598ff">
                      <font>
-                        <Font name="Algerian" size="18.0" />
+                        <Font name="Arial" size="14.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
             <Button fx:id="dtnDashBoard2" contentDisplay="CENTER" layoutX="14.0" layoutY="146.0" onAction="#DashBoardOnAction1" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion  restaurant" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
             <Button fx:id="dtnDashBoard22" contentDisplay="CENTER" layoutX="14.0" layoutY="296.0" onAction="#DashBoardOnAction22" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Chefs Et Cours" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
             <Button fx:id="dtnDashBoardForum" contentDisplay="CENTER" layoutX="14.0" layoutY="361.0" onAction="#DashBoardOnActionForum" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Forum" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
             <Button fx:id="dtnDashBoardReservation" contentDisplay="CENTER" layoutX="14.0" layoutY="426.0" onAction="#DashBoardOnActionReservation" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Reservation" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="dtnDashBoardEvent" contentDisplay="CENTER" layoutX="14.0" layoutY="491.0" onAction="#DashBoardOnActionEvent" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Evenement" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
             <Button fx:id="btnlodout" alignment="CENTER" onAction="#btnLogOut" prefHeight="72.0" prefWidth="168.0" style="-fx-background-color: #131022;" text="LOGOUT" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
          </children>

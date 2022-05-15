@@ -13,8 +13,8 @@
    <children>
       <TextField fx:id="ftNom" layoutX="165.0" layoutY="93.0" />
       <Button fx:id="btn" layoutX="67.0" layoutY="444.0" mnemonicParsing="false" onAction="#Ajouter" style="-fx-background-color: #93c572;" text="Ajouter" textFill="WHITE" />
-      <Label layoutX="66.0" layoutY="162.0" text="type" />
-      <Label layoutX="73.0" layoutY="235.0" text="Restaurant" />
+      <Label layoutX="66.0" layoutY="162.0" text="type" textFill="WHITE" />
+      <Label layoutX="73.0" layoutY="235.0" text="Restaurant" textFill="WHITE" />
       <TableView fx:id="tablepl" layoutX="385.0" layoutY="81.0" onMouseClicked="#getSelected" prefHeight="300.0" prefWidth="293.0">
          <columns>
             <TableColumn fx:id="col_id" prefWidth="39.20001220703125" text="ID" visible="false" />
@@ -25,7 +25,7 @@
          </columns>
       </TableView>
       <Button fx:id="btnu" layoutX="270.0" layoutY="444.0" mnemonicParsing="false" onAction="#Edit" style="-fx-background-color: orange;" text="Modifier" textFill="WHITE" />
-      <Label layoutX="75.0" layoutY="97.0" text="Nom" />
+      <Label layoutX="75.0" layoutY="97.0" text="Nom" textFill="WHITE" />
       <ComboBox fx:id="ftrestaurant" layoutX="164.0" layoutY="231.0" prefWidth="150.0" />
       <TextField fx:id="iddd" layoutX="239.0" />
       <Button layoutX="173.0" layoutY="419.0" mnemonicParsing="false" onAction="#delete" text="supprimer" />

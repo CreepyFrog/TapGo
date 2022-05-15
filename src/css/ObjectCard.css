@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 7, 2022, 2:40:54 PM
+    Author     : ASUS
+*/
+
+.CardEvent{
+    -fx-background-color: #393351;
+    -fx-background-radius: 25px;
+
+    -fx-border-radius: 25px;
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+.CardEvent:hover{
+    -fx-background-color: #524A7B;
+}
+
+.CardEvent:pressed{
+    -fx-background-corlor: #2F2B43;
+}
+
+.CardArtiste{
+    -fx-background-color: #473351;
+    -fx-background-radius: 25px;
+
+    -fx-border-radius: 25px;
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+.CardArtiste:hover{
+    -fx-background-color: #714a7b;
+}
+
+.CardArtiste:pressed{
+    -fx-background-corlor: #412b43;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-padding: 3;
+}
+
+.dynamiclabel{
+    -fx-text-fill: #fff600;
+    -fx-font-weight: bold;
+}
+
+.separator{
+    -fx-opacity: 0.2;
+}
+
+.HBox{
+    -fx-spacing : 10px;
+}
+
+.VBox{
+    -fx-spacing: 10;
+    -fx-alignment: top-right;
+}

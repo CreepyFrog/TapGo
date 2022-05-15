@@ -16,29 +16,39 @@
          <children>
             <Label fx:id="userlabel" alignment="CENTER" prefHeight="82.0" prefWidth="163.0" textAlignment="CENTER" textFill="#0598ff">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Label>
 
             <Pane prefHeight="85.0" prefWidth="185.0" />
             <Button fx:id="btnlodout11" alignment="CENTER" layoutX="10.0" layoutY="177.0" onAction="#btngestionformation" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="Gestion Formation" textFill="#a868a0">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
             <Button fx:id="btnlodoutForum" alignment="CENTER" layoutX="10.0" layoutY="177.0" onAction="#btngestionForum" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="Gestion Forum" textFill="#a868a0">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
             <Button fx:id="btnlodoutReservation" alignment="CENTER" layoutX="10.0" layoutY="249.0" onAction="#btngestionReservation" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="Gestion Reservation" textFill="#a868a0">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlodoutevent" alignment="CENTER" layoutX="10.0" layoutY="249.0" onAction="#btngestionevent" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="Gestion event" textFill="#a868a0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlodoutresto" alignment="CENTER" layoutX="10.0" layoutY="393.0" onAction="#btngestionresto" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="Les restaurants" textFill="#a868a0">
+               <font>
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
             <Button fx:id="btnlodout" alignment="CENTER" onAction="#btnLogOut" prefHeight="72.0" prefWidth="185.0" style="-fx-background-color: #131022;" text="LOGOUT" textFill="#a868a0">
                <font>
-                  <Font name="Algerian" size="18.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Button>
          </children>

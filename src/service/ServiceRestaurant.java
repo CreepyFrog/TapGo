@@ -21,10 +21,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import models.Restaurant;
 
 
@@ -188,8 +189,8 @@ public class ServiceRestaurant {
     }
 
     
-    public List<Restaurant> Afficher() {
-         List<Restaurant> list = new ArrayList<>();
+    public ObservableList<Restaurant> Afficher() {
+         ObservableList<Restaurant> list = FXCollections.observableArrayList();
         try{
         String requete = "SELECT * FROM restaurant";
         PreparedStatement pst = cnx.prepareStatement(requete);
@@ -204,4 +205,11 @@ public class ServiceRestaurant {
         return list;
     }
     
+    public Restaurant find(int id) {
+        List<Restaurant> rList = this.Afficher();
+        Restaurant r = rList.stream().filter(restaurant -> id == 
+                restaurant.getId_restaurant()).findAny().orElse(null);
+        
+        return r;
+    }
 }

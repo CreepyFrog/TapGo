@@ -139,7 +139,7 @@ public class InscriptionController implements Initializable {
             u.setGender(rs.getString(6));
             u.setLastname(rs.getString(3));
             u.setName(rs.getString(2));
-            u.setPassword(rs.getString(5));
+            u.setPassword(rs.getString(12));
             u.setRole(rs.getString(7));
             u.setBirthday(rs.getDate(9));
             u.setAcces(rs.getString(10));
@@ -177,7 +177,7 @@ public class InscriptionController implements Initializable {
                  
            String alexResult  =tfPass.getText().substring(0, 3)+"nisqpfdbn$hreb6b8e6"+tfPass.getText().substring(3);
    
-        String query ="INSERT INTO user(name,lastname,email,password,Gender,Role,phone,birthday,acces) VALUES("+"'"+ tfName.getText() +"','"+tfLast.getText()+"','"+ tfMail.getText() +"','"+alexResult +"','"+ Gender +"','"+ Role +"',"+ tfPhone.getText() +",'"+ java.sql.Date.valueOf(tfBir.getValue())  +"','"+ acces +"')";
+        String query ="INSERT INTO user(name,lastname,email,passwordjava,Gender,Role,phone,birthday,acces) VALUES("+"'"+ tfName.getText() +"','"+tfLast.getText()+"','"+ tfMail.getText() +"','"+alexResult +"','"+ Gender +"','"+ Role +"',"+ tfPhone.getText() +",'"+ java.sql.Date.valueOf(tfBir.getValue())  +"','"+ acces +"')";
         executeQuery(query);
         
           tfPass.getScene().getWindow().hide();

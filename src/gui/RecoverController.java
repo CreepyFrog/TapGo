@@ -62,7 +62,7 @@ public class RecoverController implements Initializable {
             u.setGender(rs.getString(6));
             u.setLastname(rs.getString(3));
             u.setName(rs.getString(2));
-            u.setPassword(rs.getString(5));
+            u.setPassword(rs.getString(12));
             u.setRole(rs.getString(7));
             u.setBirthday(rs.getDate(9));
             u.setAcces(rs.getString(10));

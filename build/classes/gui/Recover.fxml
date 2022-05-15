@@ -4,11 +4,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecoverController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #131022;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RecoverController">
    <children>
       <TextField fx:id="TxtEmail" layoutX="211.0" layoutY="175.0" />
-      <Button fx:id="Submit" layoutX="260.0" layoutY="233.0" mnemonicParsing="false" onAction="#SubmitOnAction" text="Submit" />
-      <Label layoutX="126.0" layoutY="179.0" prefHeight="17.0" prefWidth="63.0" text="Your email :" />
+      <Button fx:id="Submit" layoutX="260.0" layoutY="233.0" mnemonicParsing="false" onAction="#SubmitOnAction" style="-fx-background-color: #ffffff;" text="Submit" />
+      <Label layoutX="126.0" layoutY="179.0" prefHeight="17.0" prefWidth="63.0" text="Your email :" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="63.0" layoutY="48.0" prefHeight="17.0" prefWidth="445.0" text="Recover Password" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

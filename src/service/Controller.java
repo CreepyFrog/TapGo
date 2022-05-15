@@ -153,7 +153,7 @@ public class Controller implements Initializable {
             rs =st.executeQuery(query);
             User user;
             while (rs.next()){
-                user =new User(rs.getInt("id"), rs.getString("name"),rs.getString("password"),rs.getString("role"),rs.getString("lastname"), rs.getString("email"), rs.getString("gender"),rs.getInt("phone"),rs.getDate("birthday"),rs.getString("acces"));
+                user =new User(rs.getInt("id"), rs.getString("name"),rs.getString("passwordjava"),rs.getString("role"),rs.getString("lastname"), rs.getString("email"), rs.getString("gender"),rs.getInt("phone"),rs.getDate("birthday"),rs.getString("acces"));
                 bookList.add(user);
             }
         } catch (Exception ex) {
@@ -165,7 +165,7 @@ public class Controller implements Initializable {
         ObservableList<User> list =getserList();
         colID.setCellValueFactory(new PropertyValueFactory<User,Integer>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<User,String>("name"));
-                colPass.setCellValueFactory(new PropertyValueFactory<User,String>("password"));
+                colPass.setCellValueFactory(new PropertyValueFactory<User,String>("passwordjava"));
         colRole.setCellValueFactory(new PropertyValueFactory<User,String>("role"));
         colLast.setCellValueFactory(new PropertyValueFactory<User,String>("lastname"));
         colMail.setCellValueFactory(new PropertyValueFactory<User,String>("email"));
@@ -205,7 +205,7 @@ public class Controller implements Initializable {
     private void update(){
                    String alexResult  =tfPass.getText().substring(0, 3)+"nisqpfdbn$hreb6b8e6"+tfPass.getText().substring(3);
 
-        String query = "UPDATE user SET name='"+ tfName.getText() +"',lastname='"+ tfLast.getText() +"',email='"+ tfMail.getText() +"',password='"+alexResult+"',gender='"+ Gender +"',phone="+ tfPhone.getText() +",birthday='"+ java.sql.Date.valueOf(tfBir.getValue())
+        String query = "UPDATE user SET name='"+ tfName.getText() +"',lastname='"+ tfLast.getText() +"',email='"+ tfMail.getText() +"',passwordjava='"+alexResult+"',gender='"+ Gender +"',phone="+ tfPhone.getText() +",birthday='"+ java.sql.Date.valueOf(tfBir.getValue())
       +"',acces='"+acces    +"' WHERE id = "+tfid.getText()+"";
         executeQuery(query);
         showser();

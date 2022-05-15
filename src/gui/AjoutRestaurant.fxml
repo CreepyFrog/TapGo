@@ -16,9 +16,9 @@
       <TextField fx:id="ftNom" layoutX="123.0" layoutY="175.0" />
       <TextField fx:id="ftAdresse" layoutX="123.0" layoutY="240.0" />
       <Button fx:id="btn" layoutX="25.0" layoutY="526.0" mnemonicParsing="false" onAction="#Ajouter" style="-fx-background-color: #93c572;" text="Ajouter" textFill="WHITE" />
-      <Label layoutX="24.0" layoutY="244.0" text="Adresse" />
-      <Label layoutX="9.0" layoutY="317.0" text="domaine" />
-      <Label layoutX="12.0" layoutY="390.0" text="owner" />
+      <Label layoutX="24.0" layoutY="244.0" text="Adresse" textFill="WHITE" />
+      <Label layoutX="26.0" layoutY="317.0" text="domaine" textFill="WHITE" />
+      <Label layoutX="33.0" layoutY="390.0" text="owner" textFill="WHITE" />
       <TableView fx:id="tablerestaurant" layoutX="343.0" layoutY="163.0" onMouseClicked="#getSelected" prefHeight="300.0" prefWidth="471.0">
         <columns>
           <TableColumn fx:id="col_id" prefWidth="39.20001220703125" text="ID" visible="false" />
@@ -33,7 +33,7 @@
       <TextField fx:id="fid" disable="true" layoutX="104.0" layoutY="15.0" visible="false" />
       <Button fx:id="btnu" layoutX="228.0" layoutY="526.0" mnemonicParsing="false" onAction="#Edit" style="-fx-background-color: orange;" text="Modifier" textFill="WHITE" />
       <Button layoutX="745.0" layoutY="525.0" mnemonicParsing="false" onAction="#SearchStade" prefHeight="26.0" prefWidth="108.0" style="-fx-background-color: #7785ac;" text="Rechercher" textFill="WHITE" visible="false" />
-      <Label layoutX="33.0" layoutY="179.0" text="Nom" />
+      <Label layoutX="33.0" layoutY="179.0" text="Nom" textFill="WHITE" />
       <TextField fx:id="ftR" layoutX="507.0" layoutY="525.0" onAction="#SearchStade" prefHeight="26.0" prefWidth="198.0" visible="false" />
       <ImageView layoutX="837.0" layoutY="530.0">
          <image>
@@ -51,7 +51,7 @@
       <ComboBox fx:id="ftowner" layoutX="122.0" layoutY="386.0" prefWidth="150.0" />
       <TextField fx:id="iddd" layoutX="140.0" layoutY="95.0" visible="false" />
       <TextField fx:id="ftplace" layoutX="123.0" layoutY="441.0" />
-      <Label layoutX="12.0" layoutY="445.0" text="nb de places " />
+      <Label layoutX="20.0" layoutY="445.0" text="nb de places " textFill="WHITE" />
       <Button layoutX="606.0" layoutY="478.0" mnemonicParsing="false" onAction="#rest" text="Menu" />
       <Button layoutX="710.0" layoutY="478.0" mnemonicParsing="false" onAction="#Plats" text="Plats" />
       <TextField fx:id="ftNom1" layoutX="507.0" layoutY="82.0" onKeyTyped="#recherche" />
