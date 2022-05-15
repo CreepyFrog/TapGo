@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPaneRest" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RestaurantClientFXMLController">
+    <children>
+      <AnchorPane prefHeight="704.0" prefWidth="1089.0" style="-fx-background-radius: 20;">
+         <children>
+            <AnchorPane prefHeight="800.0" prefWidth="1341.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+               <children>
+                  <Pane layoutX="525.0" layoutY="-1.0" prefHeight="93.0" prefWidth="405.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <Label layoutX="297.0" layoutY="21.0" text="TAP &amp; GO" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <AnchorPane layoutX="140.0" layoutY="92.0" prefHeight="669.0" prefWidth="1135.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
+                     <children>
+                        <HBox layoutX="88.0" layoutY="175.0" prefHeight="354.0" prefWidth="721.0">
+                           <children>
+                              <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="354.0" prefWidth="933.0" style="-fx-background-color: #131022;">
+                                 <content>
+                                    <AnchorPane fx:id="anchorPanePubBlock" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" style="-fx-background-color: #131022;">
+                                       <children>
+                                          <GridPane fx:id="gridPaneRest" alignment="CENTER" layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                             <columnConstraints>
+                                                <ColumnConstraints />
+                                             </columnConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </HBox>
+                        <Label layoutX="36.0" layoutY="21.0" text="Espace" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="125.0" layoutY="21.0" text="Restaurant" textFill="#fff600">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="805.0" layoutY="249.0" prefHeight="171.0" prefWidth="173.0" />
+                        <Button fx:id="menus" layoutX="950.0" layoutY="598.0" mnemonicParsing="false" onAction="#menuOnAction" prefHeight="33.0" prefWidth="87.0" text="Les menus" />
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="170.0" layoutY="29.0" text="Acceuil" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -60,14 +60,14 @@
     -fx-background-radius :  30 30 30 30;
 }
 .button5{
-    -fx-background-color :#a550de;
+    -fx-background-color :#9b88c2;
     -fx-background-radius : 30 30 30 30;
 }
 .buton5:hover{
     -fx-background-color : #c168fc;
 }
 .button5:pressed{
-    -fx-background-color : #d861f2;
+    -fx-background-color : #2F2B43;
 }
 .AppBackground {
     -fx-background-color :  #030307;

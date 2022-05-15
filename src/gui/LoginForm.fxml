@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="683.0" prefWidth="994.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.LoginFormController">
+   <children>
+      <AnchorPane layoutX="-6.0" layoutY="148.0" prefHeight="554.0" prefWidth="1010.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="-15.0" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="148.0">
+         <AnchorPane layoutX="2.0" layoutY="-148.0" maxWidth="1255.0" prefHeight="687.0" prefWidth="1005.0" style="-fx-background-color: white; -fx-background-radius: 1em;" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="-148.0">
+            <children>
+               <TextField fx:id="txtUserName" layoutX="647.0" layoutY="212.0" prefHeight="63.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="647.0" AnchorPane.rightAnchor="107.0" />
+               <PasswordField fx:id="txtPassword" layoutX="649.0" layoutY="331.0" prefHeight="58.0" prefWidth="253.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="649.0" AnchorPane.rightAnchor="103.0" />
+               <Button fx:id="btnSignIn" layoutX="688.0" layoutY="529.0" onAction="#LoginOnAction" prefHeight="57.0" prefWidth="150.0" style="-fx-background-color: #131022;" text="Sign In" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="22.0" />
+                  </font>
+               </Button>
+               <VBox layoutX="-2.0" layoutY="-5.0" prefHeight="700.0" prefWidth="490.0" style="-fx-background-color: #131022;">
+                  <children>
+                     <Button fx:id="btInscription" mnemonicParsing="false" onAction="#SignupOnAction" prefHeight="57.0" prefWidth="151.0" style="-fx-background-color: #ffffff;" text="Sign Up" textFill="#131022">
+                        <font>
+                           <Font name="System Bold" size="20.0" />
+                        </font>
+                        <opaqueInsets>
+                           <Insets />
+                        </opaqueInsets>
+                        <VBox.margin>
+                           <Insets left="150.0" top="400.0" />
+                        </VBox.margin>
+                     </Button>
+                  </children>
+               </VBox>
+               <Text fill="WHITE" fontSmoothingType="LCD" layoutX="69.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dont' have an account ?" wrappingWidth="354.7361145019531">
+                  <font>
+                     <Font name="System Bold" size="30.0" />
+                  </font>
+               </Text>
+               <FontAwesomeIconView fill="WHITE" glyphName="BOOK" layoutX="194.0" layoutY="201.0" size="60" wrappingWidth="142.6666717529297" />
+               <FontAwesomeIconView fill="#131022" glyphName="USER" layoutX="576.0" layoutY="272.0" size="35" />
+               <FontAwesomeIconView fill="#131022" glyphName="KEY" layoutX="574.0" layoutY="383.0" size="30" />
+               <FontAwesomeIconView fill="#131022" glyphName="USERS" layoutX="749.0" layoutY="97.0" size="35" text="" />
+               <Text fill="#131022" layoutX="716.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
+                  <font>
+                     <Font size="22.0" />
+                  </font>
+               </Text>
+               <CheckBox fx:id="remember" layoutX="664.0" layoutY="413.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="172.0" text="Remind me later" textFill="#131022" />
+               <Button fx:id="recover" layoutX="665.0" layoutY="461.0" mnemonicParsing="false" onAction="#RecoverOnAction" prefHeight="25.0" prefWidth="146.0" style="-fx-background-color: #131022;" text="Recover Password" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Button>
+            </children>
+   
+            <effect>
+               <DropShadow />
+            </effect>
+         </AnchorPane>
+      </AnchorPane>
+   </children>
+</AnchorPane>

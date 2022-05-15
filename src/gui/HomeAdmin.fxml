@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" prefHeight="700.0" prefWidth="1000.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="86.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="578.0" minHeight="492.0" prefHeight="578.0" />
+    </rowConstraints>
+    <children>
+        <AnchorPane onMouseClicked="#mousebtn" prefHeight="578.0" prefWidth="929.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" GridPane.rowIndex="1">
+            <children>
+                <VBox layoutX="12.0" layoutY="14.0" prefHeight="449.0" prefWidth="110.0" spacing="32.0">
+                    <children>
+                        <Label text="ID :" textFill="WHITE" visible="false" />
+                        <Label text="Name :" textFill="WHITE" />
+                        <Label prefHeight="17.0" prefWidth="72.0" text="Last Name :" textFill="WHITE" />
+                  <Label text="Email :" textFill="WHITE" />
+                  <Label text="Password :" textFill="WHITE" />
+                  <Label text="Phone :" textFill="WHITE" />
+                  <Label text="Birthday :" textFill="WHITE" />
+                  <Label text="Gender :" textFill="WHITE" />
+                  <Label text="Acces :" textFill="WHITE" />
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="14.0" />
+                    </padding>
+                </VBox>
+                <VBox layoutX="104.0" layoutY="26.0" prefHeight="202.0" prefWidth="100.0" spacing="24.0">
+                    <children>
+                        <TextField fx:id="tfid" visible="false" />
+                        <TextField fx:id="tfName" />
+                        <TextField fx:id="tfLast" />
+                  <TextField fx:id="tfMail" />
+                  <TextField fx:id="tfPass" />
+                  <TextField fx:id="tfPhone" />
+                  <DatePicker fx:id="tfBir" />
+                  <ComboBox fx:id="tfGender" onAction="#Select1" prefWidth="150.0" />
+                  <ComboBox fx:id="tfAcces" onAction="#Select2" prefWidth="150.0" />
+                    </children>
+                </VBox>
+                <TableView fx:id="tvser" layoutX="217.0" layoutY="45.0" onMouseClicked="#mousebtn" prefHeight="224.0" prefWidth="690.0" stylesheets="@style.css">
+                    <columns>
+                        <TableColumn fx:id="colID" prefWidth="47.0" text="ID" visible="false" />
+                        <TableColumn fx:id="colName" prefWidth="51.0" text="Name" />
+                        <TableColumn fx:id="colLast" prefWidth="72.33334350585938" text="Password" />
+                  <TableColumn fx:id="colMail" prefWidth="59.333343505859375" text="Role" />
+                  <TableColumn fx:id="colBir" prefWidth="80.66668701171875" text="Birthday" />
+                  <TableColumn fx:id="colGender" prefWidth="149.3333740234375" text="Email" />
+                  <TableColumn fx:id="colRole" prefWidth="60.0" text="Gender" />
+                  <TableColumn fx:id="colPhone" prefWidth="83.0" text="Phone" />
+                  <TableColumn fx:id="colPass" prefWidth="75.0" text="Last Name" />
+                    </columns>
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding>
+                </TableView>
+                <Button fx:id="btnupdate" layoutX="453.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #ffffff;" text="Update" textFill="#131022">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+                <Button fx:id="btndelete" layoutX="536.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #ffffff;" text="delete" textFill="#131022">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Label layoutX="343.0" layoutY="403.0" text="Find :" textFill="WHITE" />
+            <TextField fx:id="filtrage" layoutX="379.0" layoutY="399.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>

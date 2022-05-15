@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FormationsController">
+    <children>
+      <AnchorPane prefHeight="677.0" prefWidth="1101.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+         <children>
+            <Pane layoutX="753.0" layoutY="9.0" prefHeight="59.0" prefWidth="405.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../css/fullpackstyling.css">
+               <children>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="335.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/ic_usr.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="167.0" layoutY="21.0" text="TAP&amp;GO" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <AnchorPane layoutX="50.0" layoutY="68.0" prefHeight="571.0" prefWidth="975.0" style="-fx-background-color: #131022; -fx-background-radius: 10;" stylesheets="@../css/fullpackstyling.css">
+               <children>
+                  <Label layoutX="37.0" layoutY="34.0" text="ESPACE FORMATIONS" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="84.0" text="Votre cour " textFill="#41951c">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="553.0" layoutY="33.0" prefHeight="78.0" prefWidth="200.0" text="TAP&amp;GO vous propose une large gamme de cours en lignes des meilleurs chefs du monde " textFill="#9a9292" wrapText="true">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="789.0" layoutY="20.0" prefHeight="105.0" prefWidth="244.0" style="-fx-background-color: #1A172A; -fx-background-radius: 10;">
+                     <children>
+                        <Label layoutX="27.0" layoutY="14.0" text="Votre Cour" textFill="#41951c">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="28.0" layoutY="58.0" text="Pasta By Gorden Ramsey " textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Text fill="WHITE" layoutX="38.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 betterave de taille moyenne, nettoyée et parée, environ 4 onces *Éclaboussure de vinaigre de vin rouge2 tasses (256 g) de farine &quot;00&quot; + plus pour pétrir¼ tasse (32g) de farine de semoule2 oeufs entiers (100g)1 jaune d'oeuf (18g)1 cuillère à café (6 g) de sel2-3 cuillères à café d'huile d'olive" wrappingWidth="991.1015625">
+                     <font>
+                        <Font name="Century Gothic" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="42.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pâtes à la betterave :">
+                     <font>
+                        <Font name="Century Gothic" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="37.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Garniture au fromage de chèvre zesté de citron :" />
+                  <Text fill="WHITE" layoutX="37.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 onces (120 g) de fromage de chèvre, ramolli à température ambiante¼ tasse (60 g) de crème fraîche¼ tasse (60 g) de ricotta, égouttée¼ tasse de Parmigiano Reggiano2 cuillères à soupe d'herbes finement hachées (persil, menthe ou basilic)1 cuillère à soupe de zeste de citron meyer1 cuillère à soupe d'huile d'olive extra viergeSel casher et poivre noir fraîchement moulu, au goûtPesto de pistaches vertes de betterave3 gousses d'ail½ tasse de pistaches grillées2 tasses de feuilles de betterave, nettoyées, tiges retirées et tranchées¼ tasse de feuilles de persil cueillies½ tasse de feuilles de basilic cueillies2-3 cuillères à soupe de Parmigiano Reggiano fraîchement râpé3-4 cuillères à soupe d'huile d'olive extra vierge1 citron meyerSel et poivre noir fraîchement concassé, au goûtSauce au vin blanc infusée à l'échalote et au thym1 tasse de vin blanc sec1 petite échalote, tige intacte, coupée en quartiers3 brins de thym frais1 tasse de beurre non salé, coupé en cubes1 citron, zestéThym fleuri, micropousses ou cerfeuil, pour le service " wrappingWidth="977.50927734375" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="134.0" layoutY="29.0" text="TAP&amp;GO" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

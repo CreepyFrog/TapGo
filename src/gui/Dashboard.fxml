@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root1" prefHeight="674.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="service.dashboardController">
+   <children>
+      <Pane prefHeight="81.0" prefWidth="30.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
+      <Pane fx:id="context" layoutX="181.0" layoutY="-7.0" prefHeight="691.0" prefWidth="1000.0" style="-fx-background-color: #030307;" />
+      <VBox alignment="TOP_CENTER" prefHeight="684.0" prefWidth="185.0" style="-fx-background-color: #131022;">
+         <children>
+            <Label fx:id="userlabel" alignment="CENTER" prefHeight="64.0" prefWidth="135.0" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></Label>
+            <Button alignment="CENTER" contentDisplay="CENTER" onAction="#btnHomeOnAction" prefHeight="72.0" prefWidth="178.0" style="-fx-background-color: #131022;" text="Home" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="dtnDashBoard" contentDisplay="CENTER" onAction="#DashBoardOnAction" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Owner" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+
+            <Pane prefHeight="85.0" prefWidth="185.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" onAction="#btnMailOnAction" prefHeight="64.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Envoyer Mail" textFill="#0598ff">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Button fx:id="dtnDashBoard2" contentDisplay="CENTER" layoutX="14.0" layoutY="146.0" onAction="#DashBoardOnAction1" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion  restaurant" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="dtnDashBoard22" contentDisplay="CENTER" layoutX="14.0" layoutY="296.0" onAction="#DashBoardOnAction22" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Chefs Et Cours" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="dtnDashBoardForum" contentDisplay="CENTER" layoutX="14.0" layoutY="361.0" onAction="#DashBoardOnActionForum" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Forum" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="dtnDashBoardReservation" contentDisplay="CENTER" layoutX="14.0" layoutY="426.0" onAction="#DashBoardOnActionReservation" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Reservation" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="dtnDashBoardEvent" contentDisplay="CENTER" layoutX="14.0" layoutY="491.0" onAction="#DashBoardOnActionEvent" prefHeight="65.0" prefWidth="177.0" style="-fx-background-color: #131022;" text="Gestion Evenement" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlodout" alignment="CENTER" onAction="#btnLogOut" prefHeight="72.0" prefWidth="168.0" style="-fx-background-color: #131022;" text="LOGOUT" textFill="#0598ff">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+   <effect>
+      <DropShadow height="24.11" radius="25.55" spread="0.07" width="80.09" />
+   </effect>
+</AnchorPane>
